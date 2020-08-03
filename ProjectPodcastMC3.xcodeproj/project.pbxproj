@@ -12,6 +12,12 @@
 		5345EAD724CEEB8100C6FFA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAD624CEEB8100C6FFA7 /* ViewController.swift */; };
 		5345EADC24CEEB8200C6FFA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5345EADB24CEEB8200C6FFA7 /* Assets.xcassets */; };
 		5345EADF24CEEB8200C6FFA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5345EADD24CEEB8200C6FFA7 /* LaunchScreen.storyboard */; };
+		5345EAEB24D0C05500C6FFA7 /* EditAudioRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAEA24D0C05500C6FFA7 /* EditAudioRepository.swift */; };
+		5345EAF224D28E0F00C6FFA7 /* stuck-on-u.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5345EAF124D28E0F00C6FFA7 /* stuck-on-u.mp3 */; };
+		5345EAF424D72DDB00C6FFA7 /* AudioEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAF324D72DDB00C6FFA7 /* AudioEditingVC.swift */; };
+		5345EAF824D7B7C800C6FFA7 /* AudioEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAF724D7B7C800C6FFA7 /* AudioEditingView.swift */; };
+		5345EAFC24D7C2B900C6FFA7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAFB24D7C2B900C6FFA7 /* Constants.swift */; };
+		5345EAFE24D7C34200C6FFA7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAFD24D7C34200C6FFA7 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		5345EADB24CEEB8200C6FFA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5345EADE24CEEB8200C6FFA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5345EAE024CEEB8200C6FFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5345EAEA24D0C05500C6FFA7 /* EditAudioRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAudioRepository.swift; sourceTree = "<group>"; };
+		5345EAF124D28E0F00C6FFA7 /* stuck-on-u.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "stuck-on-u.mp3"; sourceTree = "<group>"; };
+		5345EAF324D72DDB00C6FFA7 /* AudioEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEditingVC.swift; sourceTree = "<group>"; };
+		5345EAF724D7B7C800C6FFA7 /* AudioEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEditingView.swift; sourceTree = "<group>"; };
+		5345EAFB24D7C2B900C6FFA7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5345EAFD24D7C34200C6FFA7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +68,50 @@
 			children = (
 				5345EAD224CEEB8100C6FFA7 /* AppDelegate.swift */,
 				5345EAD424CEEB8100C6FFA7 /* SceneDelegate.swift */,
+				5345EAFA24D7C2A000C6FFA7 /* Utils */,
+				5345EAE624D0B58100C6FFA7 /* Edit Audio */,
 				5345EAD624CEEB8100C6FFA7 /* ViewController.swift */,
+				5345EAF124D28E0F00C6FFA7 /* stuck-on-u.mp3 */,
 				5345EADB24CEEB8200C6FFA7 /* Assets.xcassets */,
 				5345EADD24CEEB8200C6FFA7 /* LaunchScreen.storyboard */,
 				5345EAE024CEEB8200C6FFA7 /* Info.plist */,
 			);
 			path = ProjectPodcastMC3;
+			sourceTree = "<group>";
+		};
+		5345EAE624D0B58100C6FFA7 /* Edit Audio */ = {
+			isa = PBXGroup;
+			children = (
+				5345EAEA24D0C05500C6FFA7 /* EditAudioRepository.swift */,
+				5345EAF524D7B79100C6FFA7 /* Controllers */,
+				5345EAF924D7B7D100C6FFA7 /* Views */,
+			);
+			path = "Edit Audio";
+			sourceTree = "<group>";
+		};
+		5345EAF524D7B79100C6FFA7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5345EAF324D72DDB00C6FFA7 /* AudioEditingVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5345EAF924D7B7D100C6FFA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5345EAF724D7B7C800C6FFA7 /* AudioEditingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5345EAFA24D7C2A000C6FFA7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5345EAFB24D7C2B900C6FFA7 /* Constants.swift */,
+				5345EAFD24D7C34200C6FFA7 /* Colors.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5345EAF224D28E0F00C6FFA7 /* stuck-on-u.mp3 in Resources */,
 				5345EADF24CEEB8200C6FFA7 /* LaunchScreen.storyboard in Resources */,
 				5345EADC24CEEB8200C6FFA7 /* Assets.xcassets in Resources */,
 			);
@@ -134,8 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5345EAEB24D0C05500C6FFA7 /* EditAudioRepository.swift in Sources */,
+				5345EAFE24D7C34200C6FFA7 /* Colors.swift in Sources */,
 				5345EAD724CEEB8100C6FFA7 /* ViewController.swift in Sources */,
+				5345EAF424D72DDB00C6FFA7 /* AudioEditingVC.swift in Sources */,
 				5345EAD324CEEB8100C6FFA7 /* AppDelegate.swift in Sources */,
+				5345EAFC24D7C2B900C6FFA7 /* Constants.swift in Sources */,
+				5345EAF824D7B7C800C6FFA7 /* AudioEditingView.swift in Sources */,
 				5345EAD524CEEB8100C6FFA7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
