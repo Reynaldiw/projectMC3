@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "9D3F9D66-6E05-4EA6-A98F-663FB7FAFC0A"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5CE545B6-5433-4359-A1E4-B29D5C6E4677"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Your Audio/Controllers/YourAudioVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "doRequestData(query:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A4970E50-9EF3-4B52-B409-0F05D9A38070"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Your Audio/Present/PodcastPresent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "searchPodcast(query:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A4970E50-9EF3-4B52-B409-0F05D9A38070 - 7c09081893fc3ce"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectPodcastMC3.PodcastPresent.searchPodcast(query: Swift.String) -&gt; ()"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Your%20Audio/Present/PodcastPresent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  uuid = "A4970E50-9EF3-4B52-B409-0F05D9A38070 - a4e2502b6c142d0a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;ProjectPodcastMC3.PodcastModel&gt;) -&gt; () in ProjectPodcastMC3.PodcastPresent.searchPodcast(query: Swift.String) -&gt; ()"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Your%20Audio/Present/PodcastPresent.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73E733A7-3283-4D4D-A13A-B7FD59505726"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Your Audio/Controllers/YourAudioVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "YourAudioVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "73E733A7-3283-4D4D-A13A-B7FD59505726 - 9d7222e91a94324a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectPodcastMC3.YourAudioVC.(request in _10157D707F3E4A7AC9F52B89B7DCCB70).getter : Swift.Optional&lt;ProjectPodcastMC3.PodcastRequest&gt;"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Your%20Audio/Controllers/YourAudioVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "91">
+               </Location>
+               <Location
+                  uuid = "73E733A7-3283-4D4D-A13A-B7FD59505726 - 879329bff7df35e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectPodcastMC3.YourAudioVC.(request in _10157D707F3E4A7AC9F52B89B7DCCB70).setter : Swift.Optional&lt;ProjectPodcastMC3.PodcastRequest&gt;"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Your%20Audio/Controllers/YourAudioVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "134">
+               </Location>
+               <Location
+                  uuid = "73E733A7-3283-4D4D-A13A-B7FD59505726 - 16f58b70bb49120d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectPodcastMC3.YourAudioVC.(request in _10157D707F3E4A7AC9F52B89B7DCCB70).modify : Swift.Optional&lt;ProjectPodcastMC3.PodcastRequest&gt;"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Your%20Audio/Controllers/YourAudioVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "73E733A7-3283-4D4D-A13A-B7FD59505726 - 6a0d6103809fb975"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectPodcastMC3.YourAudioVC.(request in _10157D707F3E4A7AC9F52B89B7DCCB70).modify : Swift.Optional&lt;ProjectPodcastMC3.PodcastRequest&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Your%20Audio/Controllers/YourAudioVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "73E733A7-3283-4D4D-A13A-B7FD59505726 - 18ecfff16728547b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectPodcastMC3.YourAudioVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ProjectPodcastMC3.YourAudioVC"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Your%20Audio/Controllers/YourAudioVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "1096">
+               </Location>
+               <Location
+                  uuid = "73E733A7-3283-4D4D-A13A-B7FD59505726 - da93a0c3337f4237"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectPodcastMC3.YourAudioVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ProjectPodcastMC3.YourAudioVC&gt;"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Your%20Audio/Controllers/YourAudioVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "1028">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

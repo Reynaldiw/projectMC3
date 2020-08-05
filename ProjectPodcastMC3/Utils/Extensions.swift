@@ -10,13 +10,11 @@ import UIKit
 
 extension UIView {
     
-    
     func isPasswordValid(_ password : String) -> Bool {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
     }
-    
     
     func anchor (
         top : NSLayoutYAxisAnchor?,
@@ -94,3 +92,14 @@ extension UIStackView {
         backgroundLayer.fillColor = color.cgColor
     }
 }
+
+//extension String {
+//    public func asURL() throws -> URL {
+//        guard let url = URL(string: self) else {
+//            print("Invalid URL \(self)")
+//            return Error
+//        }
+//
+//        return url
+//    }
+//}
