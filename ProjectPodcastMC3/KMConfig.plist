@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>apiKey</key>
+	<string>e7fd0e55e49e4440a30c0a83c3cb21e8</string>
+	<key>baseUrl</key>
+	<string>https://listen-api.listennotes.com/api/v2</string>
+</dict>
+</plist>
