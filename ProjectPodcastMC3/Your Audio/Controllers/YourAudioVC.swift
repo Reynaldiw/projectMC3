@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 class YourAudioVC: UIViewController {
     
@@ -16,6 +17,8 @@ class YourAudioVC: UIViewController {
     @IBOutlet weak var stackInfoView: UIStackView!
     @IBOutlet weak var labelInfo: UILabel!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet weak var buttonUploadAudio: UIButton!
+    @IBOutlet weak var stackUploadView: UIStackView!
     
     var audioView: YourAudioView { self.view as! YourAudioView }
     
@@ -60,15 +63,21 @@ class YourAudioVC: UIViewController {
     private func initInterfaceComponent() {
         segmentedControl = audioView.segmentedControl
         segmentedControl.addTarget(self, action: #selector(handleSegmentedControlValueChanged(_:)), for: .valueChanged)
+        
         seacrhBar = audioView.searchBar
         seacrhBar.delegate = self
+        
         podcastCollectionView = audioView.searchPodcastView.podcastCollectionView
         podcastCollectionView.delegate = self
         podcastCollectionView.dataSource = self
+        
+        buttonUploadAudio = audioView.uploadAudioView.buttonUpload
+        buttonUploadAudio.addTarget(self, action: #selector(uploadButtonPressed(_:)), for: .touchUpInside)
+        
         stackInfoView = audioView.searchPodcastView.stackView
         labelInfo = audioView.searchPodcastView.label
         loadingView = audioView.searchPodcastView.loadingView
-        
+        stackUploadView = audioView.uploadAudioView.stackView
         uploadAudioView = audioView.uploadAudioView
         seacrhPodcastView = audioView.searchPodcastView
     }
@@ -90,6 +99,13 @@ class YourAudioVC: UIViewController {
         default:
             return
         }
+    }
+    
+    @objc fileprivate func uploadButtonPressed(_ sender: UIButton) {
+        let documentPicker = UIDocumentPickerViewController(documentTypes: [(kUTTypeAudio as String)], in: .import)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        present(documentPicker, animated: true, completion: nil)
     }
     
     private func doRequestData(query: String) {
@@ -164,5 +180,11 @@ extension YourAudioVC: PodcastResponse {
         podcastCollectionView.isHidden = true
         labelInfo.text = message
         print(message)
+    }
+}
+
+extension YourAudioVC: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        
     }
 }
