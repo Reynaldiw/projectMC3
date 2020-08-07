@@ -20,15 +20,18 @@ public enum Network: URLRequestConvertible {
     static let baseApiKey = ConfigApps.getApiKey()
     
     case searchPodcast(query: String, type: TypeOfSearch)
+    case doRequestEpisodesByPodcastName(id: String)
     
     var method : HTTPMethod {
         switch self {
         case .searchPodcast(_,_):
             return .get
+        case .doRequestEpisodesByPodcastName(_):
+            return.get
         }
     }
     
-    var res: (path: String, params: [String : Any]) {
+    var res: (path: String, params: [String : Any]?) {
         switch self {
         case .searchPodcast(let query, let type):
             switch type {
@@ -37,6 +40,8 @@ public enum Network: URLRequestConvertible {
             default:
                 return ("search", ["type" : "episode", "q" : query])
             }
+        case .doRequestEpisodesByPodcastName(_):
+            return ("podcasts", nil)
         }
     }
     
@@ -44,13 +49,25 @@ public enum Network: URLRequestConvertible {
         var url: URL?
         var urlRequest: URLRequest?
         url = try Network.baseURLString.asURL()
+        url?.appendPathComponent(res.path)
         
-        urlRequest = URLRequest(url: (url?.appendingPathComponent(res.path))!)
+        switch self {
+        case .doRequestEpisodesByPodcastName(let id):
+            url?.appendPathComponent(id)
+        default:
+            break
+        }
+        
+        urlRequest = URLRequest(url: url!)
         urlRequest?.httpMethod = method.rawValue
         urlRequest?.setValue(Network.baseApiKey, forHTTPHeaderField: "X-ListenAPI-Key")
         
         // Append Param
-        urlRequest = try URLEncoding.default.encode(urlRequest!, with: res.params)
+        if let params = res.params {
+            urlRequest = try URLEncoding.default.encode(urlRequest!, with: params)
+        }
+        
+        print("\(urlRequest?.url)")
         
         return urlRequest!
     }

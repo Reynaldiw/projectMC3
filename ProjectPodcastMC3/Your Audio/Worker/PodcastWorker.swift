@@ -14,8 +14,6 @@ struct PodcastWorker {
     
     public static func searchPodcast(query: String, onSuccess: @escaping(_ result: [PodcastModel]) -> Void, onFailed: @escaping(_ message: String) -> Void) {
         
-        print("worker")
-        
         AF.request(Network.searchPodcast(query: query, type: .Podcast)).responseJSON { (response) in
             switch response.result {
             case .success(_):
@@ -23,6 +21,25 @@ struct PodcastWorker {
                 
                 changeJSONToPodcastModel(query: query, json: podcastResponseJSON, onSuccess: { (podcastModels) in
                     onSuccess(podcastModels)
+                }) { (message) in
+                    onFailed(message)
+                }
+                
+            case .failure(let error):
+                onFailed(error.localizedDescription)
+            }
+        }
+    }
+    
+    public static func doRequestEpisodesById(id: String, onSuccess: @escaping(_ result: [EpisodeModel]) -> Void, onFailed: @escaping(_ message: String) -> Void) {
+        
+        AF.request(Network.doRequestEpisodesByPodcastName(id: id)).responseJSON { (response) in
+            switch response.result {
+            case .success(_):
+                let episodeResponseJSON: JSON = JSON(response.value ?? "")
+                
+                changeJSONToEpisodeModels(json: episodeResponseJSON, onSuccess: { (episodeModels) in
+                    onSuccess(episodeModels)
                 }) { (message) in
                     onFailed(message)
                 }
@@ -60,5 +77,33 @@ struct PodcastWorker {
         }
         
         onSuccess(podcastModels)
+    }
+    
+    private static func changeJSONToEpisodeModels(
+        json: JSON,
+        onSuccess: @escaping(_ results: [EpisodeModel]) -> Void,
+        onFailed: @escaping(_ message: String) -> Void
+    ) {
+        
+        let responseDAO = DAOEpisodesBaseClass(json: json)
+        
+        var episodeModels = [EpisodeModel]()
+        
+        if let episodes = responseDAO.episodes {
+            if let nextEpisodePubDate = responseDAO.nextEpisodePubDate {
+                if episodes.count != 0 {
+                    for data in episodes {
+                        let model = EpisodeModel(_idEpisode: data.id, _title: data.title, _desc: data.descriptionValue, _thumbnail: data.thumbnail, _audioURL: data.audio, _audioLengthSec: data.audioLengthSec, _pubDateMs: data.pubDateMs, _nextEpisodePubDate: nextEpisodePubDate)
+                        episodeModels.append(model)
+                    }
+                } else {
+                    onFailed("Empty Data")
+                }
+            }
+        } else {
+            onFailed("Empty Data")
+        }
+        
+        onSuccess(episodeModels)
     }
 }

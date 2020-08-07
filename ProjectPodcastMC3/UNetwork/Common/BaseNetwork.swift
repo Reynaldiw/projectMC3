@@ -14,5 +14,9 @@ protocol BaseRequest {
 
 // Base for response data
 public protocol BaseResponse : class {
-    func displayError(message: String)
+    func displayError(message: String, type: TypeOfResponse)
+}
+
+public enum TypeOfResponse {
+    case searchPodcast, episodeById
 }

@@ -94,8 +94,6 @@ class PodcastCell: UICollectionViewCell {
         thumbnailImageView.layer.masksToBounds = true
         
         stackViewVertical.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: thumbnailImageView.trailingAnchor, trailing: self.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeading: 8, marginTrailing: 0, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
-        
-        titlePodcast.widthAnchor.constraint(equalToConstant: stackViewVertical.frame.width).isActive = true
     }
     
     private func updateUI(podcastModel: PodcastModel?) {

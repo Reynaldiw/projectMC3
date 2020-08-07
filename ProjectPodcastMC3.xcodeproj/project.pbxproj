@@ -28,6 +28,13 @@
 		5386CA9324DB3269004AD768 /* DAOPodcastResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CA9124DB3269004AD768 /* DAOPodcastResults.swift */; };
 		5386CA9524DB36A7004AD768 /* BaseNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CA9424DB36A7004AD768 /* BaseNetwork.swift */; };
 		5386CA9824DB41E2004AD768 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CA9724DB41E2004AD768 /* Constants.swift */; };
+		5386CABA24DC821F004AD768 /* EpisodePodcastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CAB924DC821F004AD768 /* EpisodePodcastView.swift */; };
+		5386CABC24DC8B74004AD768 /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CABB24DC8B74004AD768 /* EpisodeModel.swift */; };
+		5386CAC024DC8E07004AD768 /* DAOEpisodesBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CABE24DC8E07004AD768 /* DAOEpisodesBaseClass.swift */; };
+		5386CAC124DC8E07004AD768 /* DAOEpisodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CABF24DC8E07004AD768 /* DAOEpisodes.swift */; };
+		5386CAC624DD2E57004AD768 /* PreviewAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CAC524DD2E57004AD768 /* PreviewAudioVC.swift */; };
+		5386CAC824DD2E71004AD768 /* PreviewAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CAC724DD2E71004AD768 /* PreviewAudioView.swift */; };
+		5386CACB24DD2FD0004AD768 /* PreviewAudioWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CACA24DD2FD0004AD768 /* PreviewAudioWireframe.swift */; };
 		539D188524DAA1FF00585818 /* PodcastWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539D188424DAA1FF00585818 /* PodcastWorker.swift */; };
 		539D188724DAA20B00585818 /* PodcastPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539D188624DAA20B00585818 /* PodcastPresent.swift */; };
 		ABC49AF979603BB1E613D6C1 /* Pods_ProjectPodcastMC3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DAF8023533ABD68D33F973 /* Pods_ProjectPodcastMC3.framework */; };
@@ -58,6 +65,13 @@
 		5386CA9124DB3269004AD768 /* DAOPodcastResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOPodcastResults.swift; sourceTree = "<group>"; };
 		5386CA9424DB36A7004AD768 /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetwork.swift; sourceTree = "<group>"; };
 		5386CA9724DB41E2004AD768 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5386CAB924DC821F004AD768 /* EpisodePodcastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodePodcastView.swift; sourceTree = "<group>"; };
+		5386CABB24DC8B74004AD768 /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
+		5386CABE24DC8E07004AD768 /* DAOEpisodesBaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOEpisodesBaseClass.swift; sourceTree = "<group>"; };
+		5386CABF24DC8E07004AD768 /* DAOEpisodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOEpisodes.swift; sourceTree = "<group>"; };
+		5386CAC524DD2E57004AD768 /* PreviewAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAudioVC.swift; sourceTree = "<group>"; };
+		5386CAC724DD2E71004AD768 /* PreviewAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAudioView.swift; sourceTree = "<group>"; };
+		5386CACA24DD2FD0004AD768 /* PreviewAudioWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAudioWireframe.swift; sourceTree = "<group>"; };
 		539D188424DAA1FF00585818 /* PodcastWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastWorker.swift; sourceTree = "<group>"; };
 		539D188624DAA20B00585818 /* PodcastPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastPresent.swift; sourceTree = "<group>"; };
 		61E42D29FEDDB1D135C07EB8 /* Pods-ProjectPodcastMC3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectPodcastMC3.release.xcconfig"; path = "Target Support Files/Pods-ProjectPodcastMC3/Pods-ProjectPodcastMC3.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +115,7 @@
 				5345EAD424CEEB8100C6FFA7 /* SceneDelegate.swift */,
 				5345EB0824D9428E00C6FFA7 /* Utils */,
 				5345EB0124D937F900C6FFA7 /* Your Audio */,
+				5386CAC224DD2E00004AD768 /* Preview Audio */,
 				5345EB1424D9EAE900C6FFA7 /* UNetwork */,
 				5345EAD624CEEB8100C6FFA7 /* ViewController.swift */,
 				5345EAE024CEEB8200C6FFA7 /* Info.plist */,
@@ -138,6 +153,7 @@
 				5345EB0624D93F8200C6FFA7 /* YourAudioView.swift */,
 				5345EB0B24D9647700C6FFA7 /* SearchPodcastView.swift */,
 				5345EB0E24D9C7A300C6FFA7 /* UploadAudioView.swift */,
+				5386CAB924DC821F004AD768 /* EpisodePodcastView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				5345EB1524D9EDB700C6FFA7 /* PodcastModel.swift */,
+				5386CABB24DC8B74004AD768 /* EpisodeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +208,7 @@
 		5386CA8F24DB3258004AD768 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
+				5386CABD24DC8DD6004AD768 /* Episode */,
 				5386CA9624DB382A004AD768 /* Podcast */,
 			);
 			path = DAO;
@@ -203,6 +221,49 @@
 				5386CA9124DB3269004AD768 /* DAOPodcastResults.swift */,
 			);
 			path = Podcast;
+			sourceTree = "<group>";
+		};
+		5386CABD24DC8DD6004AD768 /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				5386CABE24DC8E07004AD768 /* DAOEpisodesBaseClass.swift */,
+				5386CABF24DC8E07004AD768 /* DAOEpisodes.swift */,
+			);
+			path = Episode;
+			sourceTree = "<group>";
+		};
+		5386CAC224DD2E00004AD768 /* Preview Audio */ = {
+			isa = PBXGroup;
+			children = (
+				5386CAC324DD2E1F004AD768 /* Controllers */,
+				5386CAC924DD2FA5004AD768 /* Wireframe */,
+			);
+			path = "Preview Audio";
+			sourceTree = "<group>";
+		};
+		5386CAC324DD2E1F004AD768 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5386CAC424DD2E27004AD768 /* Views */,
+				5386CAC524DD2E57004AD768 /* PreviewAudioVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5386CAC424DD2E27004AD768 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5386CAC724DD2E71004AD768 /* PreviewAudioView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5386CAC924DD2FA5004AD768 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				5386CACA24DD2FD0004AD768 /* PreviewAudioWireframe.swift */,
+			);
+			path = Wireframe;
 			sourceTree = "<group>";
 		};
 		539D188124DA89AA00585818 /* Cell */ = {
@@ -366,20 +427,27 @@
 				5386CA9324DB3269004AD768 /* DAOPodcastResults.swift in Sources */,
 				5345EB0C24D9647700C6FFA7 /* SearchPodcastView.swift in Sources */,
 				5345EB0F24D9C7A300C6FFA7 /* UploadAudioView.swift in Sources */,
+				5386CABC24DC8B74004AD768 /* EpisodeModel.swift in Sources */,
 				5345EB0724D93F8200C6FFA7 /* YourAudioView.swift in Sources */,
 				539D188724DAA20B00585818 /* PodcastPresent.swift in Sources */,
+				5386CABA24DC821F004AD768 /* EpisodePodcastView.swift in Sources */,
+				5386CAC024DC8E07004AD768 /* DAOEpisodesBaseClass.swift in Sources */,
 				5345EB1624D9EDB700C6FFA7 /* PodcastModel.swift in Sources */,
+				5386CACB24DD2FD0004AD768 /* PreviewAudioWireframe.swift in Sources */,
 				538155E524DA7B59005A0709 /* PodcastCell.swift in Sources */,
 				5345EAD724CEEB8100C6FFA7 /* ViewController.swift in Sources */,
 				5345EB0A24D942A800C6FFA7 /* Colors.swift in Sources */,
 				539D188524DAA1FF00585818 /* PodcastWorker.swift in Sources */,
 				5386CA9224DB3269004AD768 /* DAOPodcastsBaseClass.swift in Sources */,
+				5386CAC124DC8E07004AD768 /* DAOEpisodes.swift in Sources */,
 				5345EAD324CEEB8100C6FFA7 /* AppDelegate.swift in Sources */,
 				5345EAD524CEEB8100C6FFA7 /* SceneDelegate.swift in Sources */,
 				5386CA9824DB41E2004AD768 /* Constants.swift in Sources */,
+				5386CAC824DD2E71004AD768 /* PreviewAudioView.swift in Sources */,
 				5345EB1824D9F83300C6FFA7 /* ConfigApps.swift in Sources */,
 				5345EB1F24DA681D00C6FFA7 /* Network.swift in Sources */,
 				5345EB0024D92F4200C6FFA7 /* Extensions.swift in Sources */,
+				5386CAC624DD2E57004AD768 /* PreviewAudioVC.swift in Sources */,
 				5386CA9524DB36A7004AD768 /* BaseNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

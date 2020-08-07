@@ -12,6 +12,7 @@ class YourAudioView: UIView {
     
     lazy var searchPodcastView: SearchPodcastView = SearchPodcastView()
     lazy var uploadAudioView: UploadAudioView = UploadAudioView()
+    lazy var episodePodcastView: EpisodePodcastView = EpisodePodcastView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,14 +27,16 @@ class YourAudioView: UIView {
         self.addSubview(segmentedControl)
         self.addSubview(searchPodcastView)
         self.addSubview(searchBar)
-        self.addSubview(uploadAudioView)
+//        self.addSubview(uploadAudioView)
+        self.addSubview(episodePodcastView)
     }
     
     private func setupConstraints() {
         setupSegmentedControlConstraint()
         setupSearchPodcastViewConstraint()
         setupSearchBarConstraint()
-        setupUploadAudioViewConstraint()
+//        setupUploadAudioViewConstraint()
+        setupEpisodePodcastViewConstraint()
     }
     
     lazy var segmentedControl: UISegmentedControl = {
@@ -72,6 +75,11 @@ class YourAudioView: UIView {
     private func setupUploadAudioViewConstraint() {
         uploadAudioView.anchor(top: searchBar.bottomAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, marginTop: 10, marginBottom: -10, marginLeading: 20, marginTrailing: -20, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         uploadAudioView.isHidden = true
+    }
+    
+    private func setupEpisodePodcastViewConstraint() {
+        episodePodcastView.anchor(top: segmentedControl.bottomAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, marginTop: 13, marginBottom: -10, marginLeading: 20, marginTrailing: -20, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+        episodePodcastView.isHidden = true
     }
     
     required init?(coder: NSCoder) {
