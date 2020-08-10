@@ -205,19 +205,21 @@ extension YourAudioVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+                
         if collectionView == podcastCollectionView {
             episodePodcastView.isHidden = false
             
             let model = podcastModels?[indexPath.row]
-            
             episodePodcastView.imageThumbnailView.sd_setImage(with: URL(string: model?._thumbnail ?? ""))
-            
+    
             guard let id = model?._id else { return }
             self.doGetEpisodesById(id: id)
-        } else {
+        } else if collectionView == episodeCollectionView {
+            let model = episodeModels?[indexPath.row]
             
+            guard let url = model?._audioURL else { return }
             
+            PreviewAudioWireframe.performToPreviewAudio(caller: self, urlAudio: URL(string: url)!)
         }
     }
     

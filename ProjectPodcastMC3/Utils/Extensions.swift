@@ -93,13 +93,14 @@ extension UIStackView {
     }
 }
 
-//extension String {
-//    public func asURL() throws -> URL {
-//        guard let url = URL(string: self) else {
-//            print("Invalid URL \(self)")
-//            return Error
-//        }
-//
-//        return url
-//    }
-//}
+extension TimeInterval {
+    func stringFromTimeInterval() -> String {
+        let time = Int(self)
+        
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+        let hours = (time / 3600)
+
+        return String(format: "%0.2d:%0.2d:%0.2d", hours, minutes,seconds)
+    }
+}

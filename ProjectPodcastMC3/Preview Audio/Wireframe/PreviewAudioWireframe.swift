@@ -9,7 +9,7 @@
 import UIKit
 
 struct PreviewAudioWireframe {
-    static func performToPreviewAudio(caller: UIViewController, urlAudio: URL) {
+    static func performToPreviewAudio(caller: UIViewController, urlAudio: URL?) {
         let vc = PreviewAudioVC()
         vc.urlAudio = urlAudio
         caller.navigationController?.pushViewController(vc, animated: true)
