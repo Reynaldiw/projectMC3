@@ -15,6 +15,8 @@
 		3DAF338924E3F6FA005AE6D6 /* PodcastContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF338824E3F6FA005AE6D6 /* PodcastContentController.swift */; };
 		3DAF338B24E3F737005AE6D6 /* FirstOnBoardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF338A24E3F737005AE6D6 /* FirstOnBoardingCell.swift */; };
 		3DAF338D24E3FA39005AE6D6 /* SecondOnBoardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF338C24E3FA39005AE6D6 /* SecondOnBoardingController.swift */; };
+		3DAF339124E40DB0005AE6D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF339024E40DB0005AE6D6 /* LoginViewController.swift */; };
+		3DAF339324E40E09005AE6D6 /* keychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF339224E40E09005AE6D6 /* keychainItem.swift */; };
 		5345EAD324CEEB8100C6FFA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAD224CEEB8100C6FFA7 /* AppDelegate.swift */; };
 		5345EAD524CEEB8100C6FFA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAD424CEEB8100C6FFA7 /* SceneDelegate.swift */; };
 		5345EAD724CEEB8100C6FFA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAD624CEEB8100C6FFA7 /* ViewController.swift */; };
@@ -57,6 +59,9 @@
 		3DAF338824E3F6FA005AE6D6 /* PodcastContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastContentController.swift; sourceTree = "<group>"; };
 		3DAF338A24E3F737005AE6D6 /* FirstOnBoardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnBoardingCell.swift; sourceTree = "<group>"; };
 		3DAF338C24E3FA39005AE6D6 /* SecondOnBoardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnBoardingController.swift; sourceTree = "<group>"; };
+		3DAF338E24E40D6F005AE6D6 /* ProjectPodcastMC3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProjectPodcastMC3.entitlements; sourceTree = "<group>"; };
+		3DAF339024E40DB0005AE6D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3DAF339224E40E09005AE6D6 /* keychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keychainItem.swift; sourceTree = "<group>"; };
 		3DF7FD290F6DC8921EE4E20E /* Pods-ProjectPodcastMC3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectPodcastMC3.debug.xcconfig"; path = "Target Support Files/Pods-ProjectPodcastMC3/Pods-ProjectPodcastMC3.debug.xcconfig"; sourceTree = "<group>"; };
 		5345EACF24CEEB8100C6FFA7 /* ProjectPodcastMC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPodcastMC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5345EAD224CEEB8100C6FFA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +111,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3DAF337C24E3F012005AE6D6 /* FirstOnBoarding */ = {
+		3DAF337C24E3F012005AE6D6 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
 				3DAF338624E3F599005AE6D6 /* OnBoardingController.swift */,
@@ -117,7 +122,7 @@
 				3DAF338424E3F433005AE6D6 /* SecondOnBoardingCell.swift */,
 				3DAF337F24E3F184005AE6D6 /* Model */,
 			);
-			path = FirstOnBoarding;
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 		3DAF337F24E3F184005AE6D6 /* Model */ = {
@@ -127,6 +132,15 @@
 				3DAF338224E3F39B005AE6D6 /* SecondCell.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3DAF338F24E40D83005AE6D6 /* LoginAppleID */ = {
+			isa = PBXGroup;
+			children = (
+				3DAF339024E40DB0005AE6D6 /* LoginViewController.swift */,
+				3DAF339224E40E09005AE6D6 /* keychainItem.swift */,
+			);
+			path = LoginAppleID;
 			sourceTree = "<group>";
 		};
 		5345EAC624CEEB8000C6FFA7 = {
@@ -150,9 +164,11 @@
 		5345EAD124CEEB8100C6FFA7 /* ProjectPodcastMC3 */ = {
 			isa = PBXGroup;
 			children = (
+				3DAF338E24E40D6F005AE6D6 /* ProjectPodcastMC3.entitlements */,
 				5345EAD224CEEB8100C6FFA7 /* AppDelegate.swift */,
 				5345EAD424CEEB8100C6FFA7 /* SceneDelegate.swift */,
-				3DAF337C24E3F012005AE6D6 /* FirstOnBoarding */,
+				3DAF338F24E40D83005AE6D6 /* LoginAppleID */,
+				3DAF337C24E3F012005AE6D6 /* OnBoarding */,
 				5345EB0824D9428E00C6FFA7 /* Utils */,
 				5345EB0124D937F900C6FFA7 /* Your Audio */,
 				5386CAC224DD2E00004AD768 /* Preview Audio */,
@@ -462,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DAF339124E40DB0005AE6D6 /* LoginViewController.swift in Sources */,
 				5386CA8C24DB2D41004AD768 /* ApiCallManager.swift in Sources */,
 				3DAF337E24E3F163005AE6D6 /* FirstOnBoardingController.swift in Sources */,
 				5345EB0424D93F6300C6FFA7 /* YourAudioVC.swift in Sources */,
@@ -477,6 +494,7 @@
 				5386CAC024DC8E07004AD768 /* DAOEpisodesBaseClass.swift in Sources */,
 				5345EB1624D9EDB700C6FFA7 /* PodcastModel.swift in Sources */,
 				5386CACB24DD2FD0004AD768 /* PreviewAudioWireframe.swift in Sources */,
+				3DAF339324E40E09005AE6D6 /* keychainItem.swift in Sources */,
 				3DAF338324E3F39B005AE6D6 /* SecondCell.swift in Sources */,
 				538155E524DA7B59005A0709 /* PodcastCell.swift in Sources */,
 				5345EAD724CEEB8100C6FFA7 /* ViewController.swift in Sources */,
@@ -633,6 +651,7 @@
 			baseConfigurationReference = 3DF7FD290F6DC8921EE4E20E /* Pods-ProjectPodcastMC3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ProjectPodcastMC3/ProjectPodcastMC3.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YKPQ92PAK3;
 				INFOPLIST_FILE = ProjectPodcastMC3/Info.plist;
@@ -653,6 +672,7 @@
 			baseConfigurationReference = 61E42D29FEDDB1D135C07EB8 /* Pods-ProjectPodcastMC3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ProjectPodcastMC3/ProjectPodcastMC3.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YKPQ92PAK3;
 				INFOPLIST_FILE = ProjectPodcastMC3/Info.plist;
