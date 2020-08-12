@@ -104,3 +104,45 @@ extension TimeInterval {
         return String(format: "%0.2d:%0.2d:%0.2d", hours, minutes,seconds)
     }
 }
+
+extension UIImageView {
+    
+  func setImageColor(color: UIColor) {
+    let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+    self.image = templateImage
+    self.tintColor = color
+  }
+    
+    func addBlurEffect() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.bounds
+
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        self.addSubview(blurEffectView)
+    }
+}
+
+extension CALayer {
+  func applySketchShadow(
+    color: UIColor = .black,
+    alpha: Float = 0.5,
+    x: CGFloat = 0,
+    y: CGFloat = 2,
+    blur: CGFloat = 4,
+    spread: CGFloat = 0)
+  {
+    shadowColor = color.cgColor
+    shadowOpacity = alpha
+    shadowOffset = CGSize(width: x, height: y)
+    shadowRadius = blur / 2.0
+    if spread == 0 {
+      shadowPath = nil
+    } else {
+      let dx = -spread
+      let rect = bounds.insetBy(dx: dx, dy: dx)
+      shadowPath = UIBezierPath(rect: rect).cgPath
+    }
+  }
+}
+

@@ -25,7 +25,7 @@ class YourAudioVC: UIViewController {
     @IBOutlet weak var loadingEpisodeView: UIActivityIndicatorView!
     
     var audioView: YourAudioView { self.view as! YourAudioView }
-    
+    var designDelegate: designReadyDelegate?
     var seacrhPodcastView: SearchPodcastView!
     var uploadAudioView: UploadAudioView!
     var episodePodcastView: EpisodePodcastView!
