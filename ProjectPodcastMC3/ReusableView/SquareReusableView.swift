@@ -94,6 +94,7 @@ class ImageSquare2Template: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.numberOfLines = 1
         label.textAlignment = .center
+        label.textColor = .black
         //label.backgroundColor = .lightGray
         
         
