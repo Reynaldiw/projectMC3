@@ -42,15 +42,9 @@ class PreviewAudioVC: UIViewController {
         initInterfaceComponent()
         
         guard let urlAudio = urlAudio else { return }
-        let asset = AVAsset(url: urlAudio)
-        let duration = asset.duration
-        let durationInSeconds = CMTimeGetSeconds(duration)
-        let (H, M, S) = secondsToHoursMinutesSeconds(seconds: Int(durationInSeconds))
-        lengthOfAudioLabel.text = "\(M):\(S)"
-    }
-    
-    private func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
-      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+        
+        let (H, M, S) = secondsToHoursMinutesSeconds(urlAudio: urlAudio)
+        lengthOfAudioLabel.text = "\(H):\(M):\(S)"
     }
     
     private func initInterfaceComponent() {
@@ -89,7 +83,16 @@ class PreviewAudioVC: UIViewController {
     }
     
     @objc func editButtonPressed(_ sender: Any) {
+        guard let safeURLAudio = urlAudio else { return }
+        guard let player = player else { return }
         
+        if !(player.rate == 0) {
+            changeBGPlayPauseButton(isPlaying: isPlaying, playPauseButton: playPauseButton)
+            isPlaying = false
+            player.pause()
+        }
+        
+        EditAudioWireframe.performEditAudio(caller: self, urlAudio: safeURLAudio)
     }
 
     @objc func saveButtonPressed(_ sender: Any) {
@@ -100,11 +103,11 @@ class PreviewAudioVC: UIViewController {
         guard let player = player else { return }
         
         if player.rate == 0 {
-            changeBGPlayPauseButton()
+            changeBGPlayPauseButton(isPlaying: isPlaying, playPauseButton: playPauseButton)
             isPlaying = true
             player.play()
         } else {
-            changeBGPlayPauseButton()
+            changeBGPlayPauseButton(isPlaying: isPlaying, playPauseButton: playPauseButton)
             isPlaying = false
             player.pause()
         }
@@ -120,14 +123,6 @@ class PreviewAudioVC: UIViewController {
             player = AVPlayer(url: safeURLAudio)
         } catch {
             print(error.localizedDescription)
-        }
-    }
-    
-    private func changeBGPlayPauseButton() {
-        if isPlaying {
-            playPauseButton.setImage(UIImage(named: "play"), for: .normal)
-        } else {
-            playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
         }
     }
 }
