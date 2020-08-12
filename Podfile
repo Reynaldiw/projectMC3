@@ -7,6 +7,7 @@ target 'ProjectPodcastMC3' do
   pod 'SwiftyJSON'
   pod 'Alamofire'
   pod 'SDWebImage'
+  pod 'ChromaColorPicker'
 
   # Pods for ProjectPodcastMC3
   
