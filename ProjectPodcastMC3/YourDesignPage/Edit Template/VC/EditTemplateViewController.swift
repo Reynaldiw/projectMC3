@@ -32,7 +32,7 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
     var potraitTemplateSelected: PotraitTemplateModel?
     var squareTemplateSelected: SquareTemplateModel?
     var titleText: String = ""
-    var colorPicked: UIColor?
+    var colorPicked: UIColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 1)
     
     
     
@@ -318,17 +318,17 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
             case 1:
                 self.image1potrait.contentImage.image = uploadedImageBox.image
                 //self.image1potrait.backgroundImage.image = uploadedImageBox.image
-                self.image1potrait.waveformImage.setImageColor(color: colorPicked!)
+                self.image1potrait.waveformImage.setImageColor(color: colorPicked)
                 self.image1potrait.titleText.text = titleText
             case 2:
                 self.image2potrait.contentImage.image = uploadedImageBox.image
                 //self.image2potrait.backgroundImage.image = uploadedImageBox.image
                 self.image2potrait.titleText.text = titleText
-                self.image2potrait.waveformImage.setImageColor(color: colorPicked!)
+                self.image2potrait.waveformImage.setImageColor(color: colorPicked)
             default:
                 self.image1potrait.contentImage.image = uploadedImageBox.image
                 //self.image1potrait.backgroundImage.image = uploadedImageBox.image
-                self.image1potrait.waveformImage.setImageColor(color: colorPicked!)
+                self.image1potrait.waveformImage.setImageColor(color: colorPicked)
                 self.image1potrait.titleText.text = titleText
             }
         } else {
@@ -336,16 +336,16 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
                 case 1:
                     self.image1square.contentImage.image = uploadedImageBox.image
                     self.image1square.backgroundImage.image = uploadedImageBox.image
-                    self.image1square.waveformImage.setImageColor(color: colorPicked!)
+                    self.image1square.waveformImage.setImageColor(color: colorPicked)
                 case 2:
                     self.image2square.contentImage.image = uploadedImageBox.image
                     self.image2square.backgroundImage.image = uploadedImageBox.image
                     self.image2square.titleText.text = titleText
-                    self.image2square.waveformImage.setImageColor(color: colorPicked!)
+                    self.image2square.waveformImage.setImageColor(color: colorPicked)
                 default:
                     self.image1square.contentImage.image = uploadedImageBox.image
                     self.image1square.backgroundImage.image = uploadedImageBox.image
-                    self.image1square.waveformImage.setImageColor(color: colorPicked!)
+                    self.image1square.waveformImage.setImageColor(color: colorPicked)
                 }
             }
             

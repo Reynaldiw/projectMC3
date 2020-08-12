@@ -36,6 +36,7 @@ class ImagePotrait1Template: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.numberOfLines = 2
         label.textAlignment = .center
+        label.textColor = .black
         //label.backgroundColor = .lightGray
         return label
     }()
@@ -113,6 +114,7 @@ class ImagePotrait2Template: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.numberOfLines = 2
         label.textAlignment = .center
+        label.textColor = .black
         //label.backgroundColor = .lightGray
         return label
     }()
