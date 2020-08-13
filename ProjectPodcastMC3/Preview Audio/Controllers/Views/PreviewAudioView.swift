@@ -68,6 +68,18 @@ class PreviewAudioView: UIView {
         button.setImage(UIImage(named: "audio"), for: .normal)
         return button
     }()
+    
+    lazy var segmentCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        flowLayout.minimumInteritemSpacing = 8
+        flowLayout.minimumLineSpacing = 8
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -87,6 +99,7 @@ class PreviewAudioView: UIView {
         self.addSubview(audioStackView)
         audioStackView.addArrangedSubview(buttonAudio)
         audioStackView.addArrangedSubview(audioLabel)
+        self.addSubview(segmentCollectionView)
     }
     
     private func setupConstraints() {
@@ -102,6 +115,8 @@ class PreviewAudioView: UIView {
         
         audioStackView.anchor(top: nil, bottom: safeAreaLayoutGuide.bottomAnchor, leading: nil, trailing: self.trailingAnchor, marginTop: 0, marginBottom: -35, marginLeading: 0, marginTrailing: -35, width: 48, height: 75, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         
+        segmentCollectionView.anchor(top: safeAreaLayoutGuide.topAnchor, bottom: editStackView.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, marginTop: 20, marginBottom: 20, marginLeading: 0, marginTrailing: 0, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+        segmentCollectionView.isHidden = true
     }
     
     required init?(coder: NSCoder) {

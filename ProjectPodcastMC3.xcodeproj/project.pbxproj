@@ -35,6 +35,18 @@
 		5386CAC624DD2E57004AD768 /* PreviewAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CAC524DD2E57004AD768 /* PreviewAudioVC.swift */; };
 		5386CAC824DD2E71004AD768 /* PreviewAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CAC724DD2E71004AD768 /* PreviewAudioView.swift */; };
 		5386CACB24DD2FD0004AD768 /* PreviewAudioWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386CACA24DD2FD0004AD768 /* PreviewAudioWireframe.swift */; };
+		53881B9824E4281B00D4A892 /* EditAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881B9724E4281B00D4A892 /* EditAudioVC.swift */; };
+		53881B9B24E4286700D4A892 /* EditAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881B9A24E4286700D4A892 /* EditAudioView.swift */; };
+		53881B9D24E4299900D4A892 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881B9C24E4299900D4A892 /* Utils.swift */; };
+		53881BA124E42B7400D4A892 /* EditAudioWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881BA024E42B7400D4A892 /* EditAudioWireframe.swift */; };
+		53881BA524E4313700D4A892 /* AddSegmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881BA424E4313700D4A892 /* AddSegmentVC.swift */; };
+		53881BA824E431D200D4A892 /* AddSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881BA724E431D200D4A892 /* AddSegmentView.swift */; };
+		53881BAA24E4326200D4A892 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881BA924E4326200D4A892 /* TimePickerView.swift */; };
+		53881BAC24E432A200D4A892 /* AddSegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881BAB24E432A200D4A892 /* AddSegmentCell.swift */; };
+		53881BAF24E4379C00D4A892 /* SegmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881BAE24E4379C00D4A892 /* SegmentModel.swift */; };
+		53881BB124E4382F00D4A892 /* SegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881BB024E4382F00D4A892 /* SegmentCell.swift */; };
+		53881BB324E4F56100D4A892 /* AdditionalSoundsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881BB224E4F56100D4A892 /* AdditionalSoundsVC.swift */; };
+		53881BB624E4F58100D4A892 /* AdditionalSoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53881BB524E4F58100D4A892 /* AdditionalSoundsView.swift */; };
 		539D188524DAA1FF00585818 /* PodcastWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539D188424DAA1FF00585818 /* PodcastWorker.swift */; };
 		539D188724DAA20B00585818 /* PodcastPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539D188624DAA20B00585818 /* PodcastPresent.swift */; };
 		9130ADF124E3D57E00FBFCB1 /* CreatePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130ADF024E3D57E00FBFCB1 /* CreatePageViewController.swift */; };
@@ -90,6 +102,18 @@
 		5386CAC524DD2E57004AD768 /* PreviewAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAudioVC.swift; sourceTree = "<group>"; };
 		5386CAC724DD2E71004AD768 /* PreviewAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAudioView.swift; sourceTree = "<group>"; };
 		5386CACA24DD2FD0004AD768 /* PreviewAudioWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAudioWireframe.swift; sourceTree = "<group>"; };
+		53881B9724E4281B00D4A892 /* EditAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAudioVC.swift; sourceTree = "<group>"; };
+		53881B9A24E4286700D4A892 /* EditAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAudioView.swift; sourceTree = "<group>"; };
+		53881B9C24E4299900D4A892 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		53881BA024E42B7400D4A892 /* EditAudioWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAudioWireframe.swift; sourceTree = "<group>"; };
+		53881BA424E4313700D4A892 /* AddSegmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSegmentVC.swift; sourceTree = "<group>"; };
+		53881BA724E431D200D4A892 /* AddSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSegmentView.swift; sourceTree = "<group>"; };
+		53881BA924E4326200D4A892 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		53881BAB24E432A200D4A892 /* AddSegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSegmentCell.swift; sourceTree = "<group>"; };
+		53881BAE24E4379C00D4A892 /* SegmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentModel.swift; sourceTree = "<group>"; };
+		53881BB024E4382F00D4A892 /* SegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCell.swift; sourceTree = "<group>"; };
+		53881BB224E4F56100D4A892 /* AdditionalSoundsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalSoundsVC.swift; sourceTree = "<group>"; };
+		53881BB524E4F58100D4A892 /* AdditionalSoundsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalSoundsView.swift; sourceTree = "<group>"; };
 		539D188424DAA1FF00585818 /* PodcastWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastWorker.swift; sourceTree = "<group>"; };
 		539D188624DAA20B00585818 /* PodcastPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastPresent.swift; sourceTree = "<group>"; };
 		61E42D29FEDDB1D135C07EB8 /* Pods-ProjectPodcastMC3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectPodcastMC3.release.xcconfig"; path = "Target Support Files/Pods-ProjectPodcastMC3/Pods-ProjectPodcastMC3.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,12 +173,13 @@
 			children = (
 				5345EAD224CEEB8100C6FFA7 /* AppDelegate.swift */,
 				5345EAD424CEEB8100C6FFA7 /* SceneDelegate.swift */,
+				5345EB0824D9428E00C6FFA7 /* Utils */,
 				9130AE1524E3E84900FBFCB1 /* ReusableView */,
 				9130ADEF24E3D55200FBFCB1 /* Create Page */,
 				9130ADFB24E3DF5E00FBFCB1 /* YourDesignPage */,
-				5345EB0824D9428E00C6FFA7 /* Utils */,
 				5345EB0124D937F900C6FFA7 /* Your Audio */,
 				5386CAC224DD2E00004AD768 /* Preview Audio */,
+				53881B9524E427E400D4A892 /* Edit Audio */,
 				5345EB1424D9EAE900C6FFA7 /* UNetwork */,
 				5345EAD624CEEB8100C6FFA7 /* ViewController.swift */,
 				5345EAE024CEEB8200C6FFA7 /* Info.plist */,
@@ -201,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				9130ADF224E3D5CF00FBFCB1 /* Theme */,
+				53881B9C24E4299900D4A892 /* Utils.swift */,
 				5345EAFF24D92F4200C6FFA7 /* Extensions.swift */,
 				5345EB0924D942A800C6FFA7 /* Colors.swift */,
 				5386CA9724DB41E2004AD768 /* Constants.swift */,
@@ -306,6 +332,88 @@
 				5386CACA24DD2FD0004AD768 /* PreviewAudioWireframe.swift */,
 			);
 			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		53881B9524E427E400D4A892 /* Edit Audio */ = {
+			isa = PBXGroup;
+			children = (
+				53881B9624E427F600D4A892 /* Controllers */,
+				53881BAD24E4378D00D4A892 /* Model */,
+				53881B9E24E42B4400D4A892 /* Wireframe */,
+			);
+			path = "Edit Audio";
+			sourceTree = "<group>";
+		};
+		53881B9624E427F600D4A892 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53881BA324E4311900D4A892 /* Add Segment */,
+				53881BA224E430FE00D4A892 /* SegmentAudio */,
+				53881BB424E4F56400D4A892 /* Additional Sounds */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		53881B9924E4284D00D4A892 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53881B9A24E4286700D4A892 /* EditAudioView.swift */,
+				53881BB024E4382F00D4A892 /* SegmentCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		53881B9E24E42B4400D4A892 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				53881BA024E42B7400D4A892 /* EditAudioWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		53881BA224E430FE00D4A892 /* SegmentAudio */ = {
+			isa = PBXGroup;
+			children = (
+				53881B9924E4284D00D4A892 /* Views */,
+				53881B9724E4281B00D4A892 /* EditAudioVC.swift */,
+			);
+			path = SegmentAudio;
+			sourceTree = "<group>";
+		};
+		53881BA324E4311900D4A892 /* Add Segment */ = {
+			isa = PBXGroup;
+			children = (
+				53881BA624E4319600D4A892 /* Views */,
+				53881BA424E4313700D4A892 /* AddSegmentVC.swift */,
+			);
+			path = "Add Segment";
+			sourceTree = "<group>";
+		};
+		53881BA624E4319600D4A892 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53881BA724E431D200D4A892 /* AddSegmentView.swift */,
+				53881BA924E4326200D4A892 /* TimePickerView.swift */,
+				53881BAB24E432A200D4A892 /* AddSegmentCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		53881BAD24E4378D00D4A892 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53881BAE24E4379C00D4A892 /* SegmentModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		53881BB424E4F56400D4A892 /* Additional Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				53881BB224E4F56100D4A892 /* AdditionalSoundsVC.swift */,
+				53881BB524E4F58100D4A892 /* AdditionalSoundsView.swift */,
+			);
+			path = "Additional Sounds";
 			sourceTree = "<group>";
 		};
 		539D188124DA89AA00585818 /* Cell */ = {
@@ -559,10 +667,13 @@
 				9130AE1224E3E6D500FBFCB1 /* SquareTemplateCell.swift in Sources */,
 				5386CA8C24DB2D41004AD768 /* ApiCallManager.swift in Sources */,
 				5345EB0424D93F6300C6FFA7 /* YourAudioVC.swift in Sources */,
+				53881B9824E4281B00D4A892 /* EditAudioVC.swift in Sources */,
 				5386CA9324DB3269004AD768 /* DAOPodcastResults.swift in Sources */,
 				9130ADF124E3D57E00FBFCB1 /* CreatePageViewController.swift in Sources */,
 				5345EB0C24D9647700C6FFA7 /* SearchPodcastView.swift in Sources */,
+				53881BAF24E4379C00D4A892 /* SegmentModel.swift in Sources */,
 				5345EB0F24D9C7A300C6FFA7 /* UploadAudioView.swift in Sources */,
+				53881BA524E4313700D4A892 /* AddSegmentVC.swift in Sources */,
 				5386CABC24DC8B74004AD768 /* EpisodeModel.swift in Sources */,
 				5345EB0724D93F8200C6FFA7 /* YourAudioView.swift in Sources */,
 				9130AE1724E3E87100FBFCB1 /* ChromaColor.swift in Sources */,
@@ -578,10 +689,16 @@
 				5345EAD724CEEB8100C6FFA7 /* ViewController.swift in Sources */,
 				9130ADF624E3D60F00FBFCB1 /* ThemeProtocol.swift in Sources */,
 				5345EB0A24D942A800C6FFA7 /* Colors.swift in Sources */,
+				53881B9D24E4299900D4A892 /* Utils.swift in Sources */,
 				9130AE1B24E3EB3400FBFCB1 /* SquareReusableView.swift in Sources */,
 				539D188524DAA1FF00585818 /* PodcastWorker.swift in Sources */,
 				9130AE0424E3E4EB00FBFCB1 /* DesignTemplateModel.swift in Sources */,
+				53881BA824E431D200D4A892 /* AddSegmentView.swift in Sources */,
+				53881BB124E4382F00D4A892 /* SegmentCell.swift in Sources */,
+				53881BAC24E432A200D4A892 /* AddSegmentCell.swift in Sources */,
 				5386CA9224DB3269004AD768 /* DAOPodcastsBaseClass.swift in Sources */,
+				53881BB324E4F56100D4A892 /* AdditionalSoundsVC.swift in Sources */,
+				53881BB624E4F58100D4A892 /* AdditionalSoundsView.swift in Sources */,
 				5386CAC124DC8E07004AD768 /* DAOEpisodes.swift in Sources */,
 				9130AE0124E3E39000FBFCB1 /* YourDesignViewCell.swift in Sources */,
 				5345EAD324CEEB8100C6FFA7 /* AppDelegate.swift in Sources */,
@@ -597,9 +714,12 @@
 				5386CAC824DD2E71004AD768 /* PreviewAudioView.swift in Sources */,
 				5345EB1824D9F83300C6FFA7 /* ConfigApps.swift in Sources */,
 				5345EB1F24DA681D00C6FFA7 /* Network.swift in Sources */,
+				53881BA124E42B7400D4A892 /* EditAudioWireframe.swift in Sources */,
 				5345EB0024D92F4200C6FFA7 /* Extensions.swift in Sources */,
+				53881BAA24E4326200D4A892 /* TimePickerView.swift in Sources */,
 				5386CAC624DD2E57004AD768 /* PreviewAudioVC.swift in Sources */,
 				5386CA9524DB36A7004AD768 /* BaseNetwork.swift in Sources */,
+				53881B9B24E4286700D4A892 /* EditAudioView.swift in Sources */,
 				9130ADFF24E3E35500FBFCB1 /* YourDesignViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
