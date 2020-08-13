@@ -47,23 +47,19 @@ class FirstOnBoardingController: UICollectionViewController , UICollectionViewDe
        }()
     // Button Next Pressed
     @objc private func handleNext(){
-        print("CURRENT\(pageControl.currentPage)")
         //Check if user pressed the last onboarding view and take a action after that
         guard pageControl.currentPage < 4 else {
             Core.shared.isNotNewUser()
-            print("success go to view controller")
-            let podcastView = PodcastContentController()
-            podcastView.modalPresentationStyle = .fullScreen
-            present(podcastView, animated: true, completion: nil)
+            let navController: UINavigationController = UINavigationController()
+            navController.viewControllers = [MainTabBarController()]
+            UIApplication.shared.windows.first?.rootViewController = navController
             return
         }
         // if user still in onboarding view
-        print("Try to go to NEXT page")
         let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
         let indexPath = IndexPath(item: nextIndex , section: 0)
         pageControl.currentPage = nextIndex
         apperButton()
-        print("NEXTINDEX\(nextIndex), CURRENT PAGE\(pageControl.currentPage)")
         collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         
     }
@@ -82,6 +78,7 @@ class FirstOnBoardingController: UICollectionViewController , UICollectionViewDe
             buttonPrev.setTitle("", for: .normal)
         }else{
             buttonPrev.setTitle("PREV", for: .normal)
+            
         }
         if pageControl.currentPage == 4{
             buttonNext.setTitle("DONE", for: .normal)
@@ -129,7 +126,6 @@ class FirstOnBoardingController: UICollectionViewController , UICollectionViewDe
         let x = targetContentOffset.pointee.x
         pageControl.currentPage = Int(x / view.frame.width)
         apperButton()
-        print("OVERRIDE SCROLL \(pageControl.currentPage)")
     }
     
     //What will show in screen

@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D34017324E5891A00FE46B2 /* SquareTemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130AE1124E3E6D500FBFCB1 /* SquareTemplateCell.swift */; };
 		3DAF337E24E3F163005AE6D6 /* FirstOnBoardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF337D24E3F163005AE6D6 /* FirstOnBoardingController.swift */; };
 		3DAF338124E3F27E005AE6D6 /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF338024E3F27E005AE6D6 /* FirstCell.swift */; };
 		3DAF338324E3F39B005AE6D6 /* SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF338224E3F39B005AE6D6 /* SecondCell.swift */; };
 		3DAF338524E3F433005AE6D6 /* SecondOnBoardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF338424E3F433005AE6D6 /* SecondOnBoardingCell.swift */; };
 		3DAF338724E3F599005AE6D6 /* OnBoardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF338624E3F599005AE6D6 /* OnBoardingController.swift */; };
-		3DAF338924E3F6FA005AE6D6 /* PodcastContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF338824E3F6FA005AE6D6 /* PodcastContentController.swift */; };
 		3DAF338B24E3F737005AE6D6 /* FirstOnBoardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF338A24E3F737005AE6D6 /* FirstOnBoardingCell.swift */; };
 		3DAF338D24E3FA39005AE6D6 /* SecondOnBoardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF338C24E3FA39005AE6D6 /* SecondOnBoardingController.swift */; };
-		3DAF339124E40DB0005AE6D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF339024E40DB0005AE6D6 /* LoginViewController.swift */; };
 		3DAF339324E40E09005AE6D6 /* keychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF339224E40E09005AE6D6 /* keychainItem.swift */; };
 		5345EAD324CEEB8100C6FFA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAD224CEEB8100C6FFA7 /* AppDelegate.swift */; };
 		5345EAD524CEEB8100C6FFA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5345EAD424CEEB8100C6FFA7 /* SceneDelegate.swift */; };
@@ -59,7 +58,6 @@
 		9130AE0624E3E50E00FBFCB1 /* YourDesignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130AE0524E3E50E00FBFCB1 /* YourDesignModel.swift */; };
 		9130AE0824E3E56500FBFCB1 /* ChooseTemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130AE0724E3E56500FBFCB1 /* ChooseTemplateViewController.swift */; };
 		9130AE1024E3E6C700FBFCB1 /* PotraitTemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130AE0F24E3E6C700FBFCB1 /* PotraitTemplateCell.swift */; };
-		9130AE1224E3E6D500FBFCB1 /* SquareTemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130AE1124E3E6D500FBFCB1 /* SquareTemplateCell.swift */; };
 		9130AE1424E3E7A500FBFCB1 /* EditTemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130AE1324E3E7A500FBFCB1 /* EditTemplateViewController.swift */; };
 		9130AE1724E3E87100FBFCB1 /* ChromaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130AE1624E3E87100FBFCB1 /* ChromaColor.swift */; };
 		9130AE1924E3EB2800FBFCB1 /* PotraitReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130AE1824E3EB2800FBFCB1 /* PotraitReusableView.swift */; };
@@ -76,7 +74,6 @@
 		3DAF338224E3F39B005AE6D6 /* SecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCell.swift; sourceTree = "<group>"; };
 		3DAF338424E3F433005AE6D6 /* SecondOnBoardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnBoardingCell.swift; sourceTree = "<group>"; };
 		3DAF338624E3F599005AE6D6 /* OnBoardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingController.swift; sourceTree = "<group>"; };
-		3DAF338824E3F6FA005AE6D6 /* PodcastContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastContentController.swift; sourceTree = "<group>"; };
 		3DAF338A24E3F737005AE6D6 /* FirstOnBoardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnBoardingCell.swift; sourceTree = "<group>"; };
 		3DAF338C24E3FA39005AE6D6 /* SecondOnBoardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnBoardingController.swift; sourceTree = "<group>"; };
 		3DAF338E24E40D6F005AE6D6 /* ProjectPodcastMC3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProjectPodcastMC3.entitlements; sourceTree = "<group>"; };
@@ -157,7 +154,6 @@
 				3DAF338624E3F599005AE6D6 /* OnBoardingController.swift */,
 				3DAF337D24E3F163005AE6D6 /* FirstOnBoardingController.swift */,
 				3DAF338A24E3F737005AE6D6 /* FirstOnBoardingCell.swift */,
-				3DAF338824E3F6FA005AE6D6 /* PodcastContentController.swift */,
 				3DAF338C24E3FA39005AE6D6 /* SecondOnBoardingController.swift */,
 				3DAF338424E3F433005AE6D6 /* SecondOnBoardingCell.swift */,
 				3DAF337F24E3F184005AE6D6 /* Model */,
@@ -209,7 +205,6 @@
 				5345EAD424CEEB8100C6FFA7 /* SceneDelegate.swift */,
 				3DAF338F24E40D83005AE6D6 /* LoginAppleID */,
 				3DAF337C24E3F012005AE6D6 /* OnBoarding */,
-				3DAF337C24E3F012005AE6D6 /* FirstOnBoarding */,
 				9130AE1E24E4010600FBFCB1 /* Homepage */,
 				9130ADEF24E3D55200FBFCB1 /* Create Page */,
 				9130ADFB24E3DF5E00FBFCB1 /* YourDesignPage */,
@@ -636,7 +631,6 @@
 				5345EB0C24D9647700C6FFA7 /* SearchPodcastView.swift in Sources */,
 				5345EB0F24D9C7A300C6FFA7 /* UploadAudioView.swift in Sources */,
 				5386CABC24DC8B74004AD768 /* EpisodeModel.swift in Sources */,
-				3DAF338924E3F6FA005AE6D6 /* PodcastContentController.swift in Sources */,
 				5345EB0724D93F8200C6FFA7 /* YourAudioView.swift in Sources */,
 				9130AE1724E3E87100FBFCB1 /* ChromaColor.swift in Sources */,
 				539D188724DAA20B00585818 /* PodcastPresent.swift in Sources */,
@@ -659,6 +653,7 @@
 				3DAF338B24E3F737005AE6D6 /* FirstOnBoardingCell.swift in Sources */,
 				9130AE0424E3E4EB00FBFCB1 /* DesignTemplateModel.swift in Sources */,
 				5386CA9224DB3269004AD768 /* DAOPodcastsBaseClass.swift in Sources */,
+				3D34017324E5891A00FE46B2 /* SquareTemplateCell.swift in Sources */,
 				3DAF338124E3F27E005AE6D6 /* FirstCell.swift in Sources */,
 				5386CAC124DC8E07004AD768 /* DAOEpisodes.swift in Sources */,
 				9130AE0124E3E39000FBFCB1 /* YourDesignViewCell.swift in Sources */,
@@ -820,7 +815,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ProjectPodcastMC3/ProjectPodcastMC3.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 67485B37B7;
+				DEVELOPMENT_TEAM = YPH4FFR3Z3;
 				INFOPLIST_FILE = ProjectPodcastMC3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -841,7 +836,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ProjectPodcastMC3/ProjectPodcastMC3.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 67485B37B7;
+				DEVELOPMENT_TEAM = YPH4FFR3Z3;
 				INFOPLIST_FILE = ProjectPodcastMC3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -35,7 +35,7 @@ class SecondOnBoardingController: UICollectionViewController , UICollectionViewD
     }()
     private let dismissButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(named: "close") as UIImage?
+        let image = UIImage(named: "closeButton") as UIImage?
         button.setImage(image, for: .normal)
         return button
         }()
@@ -70,7 +70,6 @@ class SecondOnBoardingController: UICollectionViewController , UICollectionViewD
         
     }
     @objc func tappedButton(){
-        print("button tapped")
         self.dismiss(animated: true, completion: nil)
     }
     

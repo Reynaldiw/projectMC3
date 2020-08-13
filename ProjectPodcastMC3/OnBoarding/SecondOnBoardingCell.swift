@@ -109,7 +109,6 @@ class SecondOnBoardingCell: UICollectionViewCell {
         content.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor , constant: 30).isActive = true
         content.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -30).isActive = true
         content.topAnchor.constraint(equalTo:  safeAreaLayoutGuide.topAnchor , constant: 70).isActive = true
-        
         content.centerYAnchor.constraint(greaterThanOrEqualTo: centerYAnchor, constant: -100).isActive = true
             
     }

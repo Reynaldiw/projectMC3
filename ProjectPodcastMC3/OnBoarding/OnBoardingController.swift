@@ -12,7 +12,7 @@ class OnBoardingController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        podcastHomeAppear()
+//        podcastHomeAppear()
     }
     
     override func viewDidLayoutSubviews() {
@@ -32,9 +32,9 @@ class OnBoardingController: UIViewController {
     }
     
     func podcastHomeAppear(){
-        let podcastView = PodcastContentController()
-        podcastView.modalPresentationStyle = .fullScreen
-        present(podcastView, animated: true, completion: nil)
+        let navController: UINavigationController = UINavigationController()
+        navController.viewControllers = [MainTabBarController()]
+        UIApplication.shared.windows.first?.rootViewController = navController
     }
 }
 
