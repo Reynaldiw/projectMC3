@@ -17,6 +17,7 @@ class PreviewAudioVC: UIViewController {
     @IBOutlet weak var editLabel: UILabel!
     @IBOutlet weak var audioButton: UIButton!
     @IBOutlet weak var audioLabel: UILabel!
+    @IBOutlet weak var segmentCollectionView: UICollectionView!
 
     var previewAudioView: PreviewAudioView { self.view as! PreviewAudioView }
 
@@ -28,6 +29,8 @@ class PreviewAudioVC: UIViewController {
             preparePlayer()
         }
     }
+    
+    var segmentModels = [SegmentModel]()
     
     override func loadView() {
         self.view = PreviewAudioView()
@@ -45,7 +48,7 @@ class PreviewAudioVC: UIViewController {
         let asset = AVAsset(url: urlAudio)
         let duration = asset.duration
         let durationInSeconds = CMTimeGetSeconds(duration)
-        let (H, M, S) = secondsToHoursMinutesSeconds(seconds: Int(durationInSeconds))
+        let (_, M, S) = secondsToHoursMinutesSeconds(seconds: Int(durationInSeconds))
         lengthOfAudioLabel.text = "\(M):\(S)"
     }
     
@@ -64,6 +67,11 @@ class PreviewAudioVC: UIViewController {
         editLabel = previewAudioView.editLabel
         audioButton = previewAudioView.buttonAudio
         audioLabel = previewAudioView.audioLabel
+        
+        segmentCollectionView = previewAudioView.segmentCollectionView
+        segmentCollectionView.register(SegmentCell.self, forCellWithReuseIdentifier: Constants.KEY_SEGMENT_CELL)
+        segmentCollectionView.delegate = self
+        segmentCollectionView.dataSource = self
     }
 
     private func setupNavigationController() {
@@ -89,7 +97,17 @@ class PreviewAudioVC: UIViewController {
     }
     
     @objc func editButtonPressed(_ sender: Any) {
+        guard let url = urlAudio else { return }
         
+        EditAudioWireframe.performToEditAudio(urlAudio: url, callback: { (segmentModels) in
+            if segmentModels.count != 0 {
+                self.segmentModels = segmentModels
+                self.playPauseButton.isHidden = true
+                self.lengthOfAudioLabel.isHidden = true
+                self.segmentCollectionView.isHidden = false
+                self.segmentCollectionView.reloadData()
+            }
+        }, caller: self)
     }
 
     @objc func saveButtonPressed(_ sender: Any) {
@@ -129,5 +147,30 @@ class PreviewAudioVC: UIViewController {
         } else {
             playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
         }
+    }
+}
+
+extension PreviewAudioVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return segmentModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.KEY_SEGMENT_CELL, for: indexPath) as! SegmentCell
+        
+        let nameSegment = "Segment \(indexPath.row + 1)"
+        
+        var segmentModel = segmentModels[indexPath.row]
+        segmentModel.nameSegment = nameSegment
+        
+        cell.segmentModel = segmentModel
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenSize = UIScreen.main.bounds
+        
+        return CGSize(width: screenSize.width - 30, height: 75)
     }
 }
