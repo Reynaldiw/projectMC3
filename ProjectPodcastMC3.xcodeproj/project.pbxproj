@@ -627,8 +627,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DAF339124E40DB0005AE6D6 /* LoginViewController.swift in Sources */,
-				9130AE1224E3E6D500FBFCB1 /* SquareTemplateCell.swift in Sources */,
 				5386CA8C24DB2D41004AD768 /* ApiCallManager.swift in Sources */,
 				3DAF337E24E3F163005AE6D6 /* FirstOnBoardingController.swift in Sources */,
 				5345EB0424D93F6300C6FFA7 /* YourAudioVC.swift in Sources */,
