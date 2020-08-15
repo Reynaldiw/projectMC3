@@ -68,6 +68,23 @@ class LoginViewController: UIViewController {
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
     }
+    
+    func loginApple(_ code: String) {
+        print("CODE", code)
+        LoginWorker.loginApple(code: code, onSuccess: { (response) in
+            print("SUCCESS", response)
+        }) { (error) in
+            print("ERROR")
+        }
+    }
+    
+    func submitVideo(_ params: [String: Any]) {
+        LoginWorker.submitVideo(params: params, onSuccess: { (response) in
+            print("response", response)
+        }) { (error) in
+            print("ERROR", error)
+        }
+    }
 }
 
 extension LoginViewController: ASAuthorizationControllerDelegate {
@@ -75,32 +92,12 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            
-            // Create an account in your system.
-            let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
-            
-            var identityToken : String?
-            if let token = appleIDCredential.identityToken{
-                identityToken = String(bytes: token, encoding: .utf8)
-            }
+
             var authorizationCode  : String?
             if let code = appleIDCredential.authorizationCode{
                 authorizationCode = String(bytes: code, encoding: .utf8)
-                
+                loginApple(authorizationCode!)
             }
-            
-            print("identity token = \(identityToken)")
-            print(" authorization code = \(authorizationCode)")
-            // For the purpose of this demo app, store the `userIdentifier` in the keychain.
-            self.saveUserInKeychain(userIdentifier)
-            
-            // For the purpose of this demo app, show the Apple ID credential information in the `ResultViewController`.
-//            self.showResultViewController(userIdentifier: userIdentifier, fullName: fullName, email: email)
-            let podcastView = PodcastContentController()
-            podcastView.modalPresentationStyle = .fullScreen
-            present(podcastView, animated: true, completion: nil)
         
         case let passwordCredential as ASPasswordCredential:
         
@@ -125,25 +122,6 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             print("Unable to save userIdentifier to keychain.")
         }
     }
-    
-//    private func showResultViewController(userIdentifier: String, fullName: PersonNameComponents?, email: String?) {
-//        guard let viewController = self.presentingViewController as? ResultViewController
-//            else { return }
-//
-//        DispatchQueue.main.async {
-//            viewController.userIdentifierLabel.text = userIdentifier
-//            if let givenName = fullName?.givenName {
-//                viewController.givenNameLabel.text = givenName
-//            }
-//            if let familyName = fullName?.familyName {
-//                viewController.familyNameLabel.text = familyName
-//            }
-//            if let email = email {
-//                viewController.emailLabel.text = email
-//            }
-//            self.dismiss(animated: true, completion: nil)
-//        }
-//    }
     
     private func showPasswordCredentialAlert(username: String, password: String) {
         let message = "The app has received your selected credential from the keychain. \n\n Username: \(username)\n Password: \(password)"

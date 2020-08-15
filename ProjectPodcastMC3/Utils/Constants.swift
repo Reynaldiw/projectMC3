@@ -10,4 +10,5 @@ import Foundation
 
 struct Constants {
     static let KEY_PODCAST_CELL = "PodcastCell"
+    static let KEY_VIDEO_COLLECTION_CELL = "VideoCollectionCell"
 }

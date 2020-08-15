@@ -38,6 +38,13 @@ struct ConfigApps {
         return myDict
     }
     
+    public static func getUrlVideo() -> String {
+        if let config = getConfig() {
+            return config["baseUrlVideo"] as! String
+        }
+        return ""
+    }
+    
     public static func getUrl() -> String {
         if let config = getConfig() {
             return config["baseUrl"] as! String
