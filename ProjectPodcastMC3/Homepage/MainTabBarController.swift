@@ -26,7 +26,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
 
         
-        let podcast = UINavigationController(rootViewController: HomepageViewController())
+        let podcast = UINavigationController(rootViewController: VideoCollectionsViewController())
         podcast.tabBarItem.image = UIImage(systemName: "house")
         podcast.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
         

@@ -213,14 +213,10 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
         btn.layer.cornerRadius = 6
         btn.alpha = 0.3
+        btn.addTarget(self, action: #selector(generateVideo), for: .touchUpInside)
 
         return btn
     }()
-    
-    
-    
-
-        
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -279,8 +275,9 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         print("clik")
     }
     
-    
-    
+    @objc func generateVideo() {
+        self.navigationController?.present(LoginViewController(), animated: true, completion: nil)
+    }
     
     
     func setupLayout() {

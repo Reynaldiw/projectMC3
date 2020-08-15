@@ -78,6 +78,26 @@
 		91FBBCC024E52E940093A63B /* ImagePotrait6Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCBF24E52E940093A63B /* ImagePotrait6Template.swift */; };
 		91FBBCC224E530E90093A63B /* ImageSquare6Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCC124E530E90093A63B /* ImageSquare6Template.swift */; };
 		91FBBCC424E530F60093A63B /* ImageSquare7Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCC324E530F60093A63B /* ImageSquare7Template.swift */; };
+		A4542D0B24E6D82C002A633A /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4542D0A24E6D82C002A633A /* LoginWorker.swift */; };
+		A462D71324E6D0DA00FCB55A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF339024E40DB0005AE6D6 /* LoginViewController.swift */; };
+		A4C3AD7F24E5244700747679 /* DAOVideoBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C3AD7E24E5244700747679 /* DAOVideoBaseClass.swift */; };
+		A4C3AD8124E5245700747679 /* DAOVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C3AD8024E5245700747679 /* DAOVideo.swift */; };
+		A4C3AD8324E53CBC00747679 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C3AD8224E53CBC00747679 /* CustomButton.swift */; };
+		A4C3AD8624E55BFA00747679 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C3AD8524E55BFA00747679 /* VideoPlayerView.swift */; };
+		A4C3AD8824E55C8B00747679 /* VideoPodcastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C3AD8724E55C8B00747679 /* VideoPodcastView.swift */; };
+		A4C3AD8A24E55DB000747679 /* VideoPodcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C3AD8924E55DB000747679 /* VideoPodcastViewController.swift */; };
+		A4FEBC6C24E3DCEB00110785 /* VideoNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC6B24E3DCEB00110785 /* VideoNetwork.swift */; };
+		A4FEBC6E24E3ED1600110785 /* VideoCollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC6D24E3ED1600110785 /* VideoCollectionsViewController.swift */; };
+		A4FEBC7124E3EDD800110785 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC7024E3EDD800110785 /* BaseView.swift */; };
+		A4FEBC7324E3EE2700110785 /* VideoCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC7224E3EE2700110785 /* VideoCollectionsView.swift */; };
+		A4FEBC7624E40D4B00110785 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC7524E40D4B00110785 /* CollectionCell.swift */; };
+		A4FEBC7824E40D5900110785 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC7724E40D5900110785 /* BaseCell.swift */; };
+		A4FEBC7D24E4114600110785 /* VideoCollectionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC7C24E4114600110785 /* VideoCollectionsProtocol.swift */; };
+		A4FEBC7F24E412AC00110785 /* VideoCollectionsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC7E24E412AC00110785 /* VideoCollectionsWireframe.swift */; };
+		A4FEBC8124E4136C00110785 /* VideoCollectionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC8024E4136C00110785 /* VideoCollectionsPresenter.swift */; };
+		A4FEBC8324E413B600110785 /* VideoCollectionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC8224E413B600110785 /* VideoCollectionsInteractor.swift */; };
+		A4FEBC8524E41AF400110785 /* VideoCollectionsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC8424E41AF400110785 /* VideoCollectionsWorker.swift */; };
+		A4FEBC8824E41D1C00110785 /* VIdeoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FEBC8724E41D1C00110785 /* VIdeoModel.swift */; };
 		ABC49AF979603BB1E613D6C1 /* Pods_ProjectPodcastMC3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DAF8023533ABD68D33F973 /* Pods_ProjectPodcastMC3.framework */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +180,25 @@
 		91FBBCC124E530E90093A63B /* ImageSquare6Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSquare6Template.swift; sourceTree = "<group>"; };
 		91FBBCC324E530F60093A63B /* ImageSquare7Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSquare7Template.swift; sourceTree = "<group>"; };
 		99DAF8023533ABD68D33F973 /* Pods_ProjectPodcastMC3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectPodcastMC3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4542D0A24E6D82C002A633A /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		A4C3AD7E24E5244700747679 /* DAOVideoBaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOVideoBaseClass.swift; sourceTree = "<group>"; };
+		A4C3AD8024E5245700747679 /* DAOVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOVideo.swift; sourceTree = "<group>"; };
+		A4C3AD8224E53CBC00747679 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		A4C3AD8524E55BFA00747679 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		A4C3AD8724E55C8B00747679 /* VideoPodcastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPodcastView.swift; sourceTree = "<group>"; };
+		A4C3AD8924E55DB000747679 /* VideoPodcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPodcastViewController.swift; sourceTree = "<group>"; };
+		A4FEBC6B24E3DCEB00110785 /* VideoNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNetwork.swift; sourceTree = "<group>"; };
+		A4FEBC6D24E3ED1600110785 /* VideoCollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionsViewController.swift; sourceTree = "<group>"; };
+		A4FEBC7024E3EDD800110785 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		A4FEBC7224E3EE2700110785 /* VideoCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionsView.swift; sourceTree = "<group>"; };
+		A4FEBC7524E40D4B00110785 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		A4FEBC7724E40D5900110785 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		A4FEBC7C24E4114600110785 /* VideoCollectionsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionsProtocol.swift; sourceTree = "<group>"; };
+		A4FEBC7E24E412AC00110785 /* VideoCollectionsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionsWireframe.swift; sourceTree = "<group>"; };
+		A4FEBC8024E4136C00110785 /* VideoCollectionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionsPresenter.swift; sourceTree = "<group>"; };
+		A4FEBC8224E413B600110785 /* VideoCollectionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionsInteractor.swift; sourceTree = "<group>"; };
+		A4FEBC8424E41AF400110785 /* VideoCollectionsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionsWorker.swift; sourceTree = "<group>"; };
+		A4FEBC8724E41D1C00110785 /* VIdeoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIdeoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +238,7 @@
 		3DAF338F24E40D83005AE6D6 /* LoginAppleID */ = {
 			isa = PBXGroup;
 			children = (
+				A4542D0924E6D81E002A633A /* Worker */,
 				3DAF339024E40DB0005AE6D6 /* LoginViewController.swift */,
 				3DAF339224E40E09005AE6D6 /* keychainItem.swift */,
 			);
@@ -226,6 +266,8 @@
 		5345EAD124CEEB8100C6FFA7 /* ProjectPodcastMC3 */ = {
 			isa = PBXGroup;
 			children = (
+				A4C3AD8424E55BD900747679 /* Video Player */,
+				A47196AB24DEDE6D00546937 /* VideoCollections */,
 				3DAF338E24E40D6F005AE6D6 /* ProjectPodcastMC3.entitlements */,
 				5345EAD224CEEB8100C6FFA7 /* AppDelegate.swift */,
 				5345EAD424CEEB8100C6FFA7 /* SceneDelegate.swift */,
@@ -317,6 +359,7 @@
 			children = (
 				5345EB1E24DA681D00C6FFA7 /* Network.swift */,
 				5386CA8B24DB2D41004AD768 /* ApiCallManager.swift */,
+				A4FEBC6B24E3DCEB00110785 /* VideoNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -333,6 +376,7 @@
 		5386CA8F24DB3258004AD768 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
+				A4C3AD7D24E5243000747679 /* Video */,
 				5386CABD24DC8DD6004AD768 /* Episode */,
 				5386CA9624DB382A004AD768 /* Podcast */,
 			);
@@ -554,6 +598,124 @@
 			path = Potrait;
 			sourceTree = "<group>";
 		};
+		A4542D0924E6D81E002A633A /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				A4542D0A24E6D82C002A633A /* LoginWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		A47196AB24DEDE6D00546937 /* VideoCollections */ = {
+			isa = PBXGroup;
+			children = (
+				A4FEBC8924E420BF00110785 /* Worker */,
+				A4FEBC8624E41D0F00110785 /* Entity */,
+				A47196B024DEDEBF00546937 /* Wireframe */,
+				A47196AF24DEDEB600546937 /* Presenter */,
+				A47196AE24DEDEA900546937 /* Interactor */,
+				A47196AD24DEDE9F00546937 /* Protocols */,
+				A47196AC24DEDE7A00546937 /* Controller */,
+			);
+			path = VideoCollections;
+			sourceTree = "<group>";
+		};
+		A47196AC24DEDE7A00546937 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A4FEBC6F24E3EDC500110785 /* Views */,
+				A4FEBC6D24E3ED1600110785 /* VideoCollectionsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A47196AD24DEDE9F00546937 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A4FEBC7C24E4114600110785 /* VideoCollectionsProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A47196AE24DEDEA900546937 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A4FEBC8224E413B600110785 /* VideoCollectionsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		A47196AF24DEDEB600546937 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A4FEBC8024E4136C00110785 /* VideoCollectionsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A47196B024DEDEBF00546937 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				A4FEBC7E24E412AC00110785 /* VideoCollectionsWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		A4C3AD7D24E5243000747679 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				A4C3AD7E24E5244700747679 /* DAOVideoBaseClass.swift */,
+				A4C3AD8024E5245700747679 /* DAOVideo.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		A4C3AD8424E55BD900747679 /* Video Player */ = {
+			isa = PBXGroup;
+			children = (
+				A4C3AD8524E55BFA00747679 /* VideoPlayerView.swift */,
+				A4C3AD8724E55C8B00747679 /* VideoPodcastView.swift */,
+				A4C3AD8924E55DB000747679 /* VideoPodcastViewController.swift */,
+			);
+			path = "Video Player";
+			sourceTree = "<group>";
+		};
+		A4FEBC6F24E3EDC500110785 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4FEBC7424E40D3D00110785 /* Cell */,
+				A4FEBC7024E3EDD800110785 /* BaseView.swift */,
+				A4FEBC7224E3EE2700110785 /* VideoCollectionsView.swift */,
+				A4C3AD8224E53CBC00747679 /* CustomButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A4FEBC7424E40D3D00110785 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A4FEBC7524E40D4B00110785 /* CollectionCell.swift */,
+				A4FEBC7724E40D5900110785 /* BaseCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A4FEBC8624E41D0F00110785 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				A4FEBC8724E41D1C00110785 /* VIdeoModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		A4FEBC8924E420BF00110785 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				A4FEBC8424E41AF400110785 /* VideoCollectionsWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		BC8C6414BFDF9B9026C96655 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -680,6 +842,7 @@
 				5386CA8C24DB2D41004AD768 /* ApiCallManager.swift in Sources */,
 				3DAF337E24E3F163005AE6D6 /* FirstOnBoardingController.swift in Sources */,
 				5345EB0424D93F6300C6FFA7 /* YourAudioVC.swift in Sources */,
+				A4FEBC8324E413B600110785 /* VideoCollectionsInteractor.swift in Sources */,
 				91FBBCAE24E5256F0093A63B /* ImageSquare2Template.swift in Sources */,
 				3DAF338D24E3FA39005AE6D6 /* SecondOnBoardingController.swift in Sources */,
 				5386CA9324DB3269004AD768 /* DAOPodcastResults.swift in Sources */,
@@ -691,23 +854,30 @@
 				5386CABC24DC8B74004AD768 /* EpisodeModel.swift in Sources */,
 				91FBBCB224E52D410093A63B /* ImageSquare4Template.swift in Sources */,
 				5345EB0724D93F8200C6FFA7 /* YourAudioView.swift in Sources */,
+				A4FEBC7824E40D5900110785 /* BaseCell.swift in Sources */,
 				9130AE1724E3E87100FBFCB1 /* ChromaColor.swift in Sources */,
+				A4C3AD8A24E55DB000747679 /* VideoPodcastViewController.swift in Sources */,
 				539D188724DAA20B00585818 /* PodcastPresent.swift in Sources */,
 				91FBBCB824E52D750093A63B /* ImagePotrait2Template.swift in Sources */,
 				5386CABA24DC821F004AD768 /* EpisodePodcastView.swift in Sources */,
 				9130AE1024E3E6C700FBFCB1 /* PotraitTemplateCell.swift in Sources */,
 				5386CAC024DC8E07004AD768 /* DAOEpisodesBaseClass.swift in Sources */,
 				5345EB1624D9EDB700C6FFA7 /* PodcastModel.swift in Sources */,
+				A4C3AD8824E55C8B00747679 /* VideoPodcastView.swift in Sources */,
 				91FBBCC424E530F60093A63B /* ImageSquare7Template.swift in Sources */,
 				9174B7EB24E421CC0071C17C /* MainTabBarController.swift in Sources */,
 				5386CACB24DD2FD0004AD768 /* PreviewAudioWireframe.swift in Sources */,
 				3DAF339324E40E09005AE6D6 /* keychainItem.swift in Sources */,
 				9130AE0624E3E50E00FBFCB1 /* YourDesignModel.swift in Sources */,
+				A462D71324E6D0DA00FCB55A /* LoginViewController.swift in Sources */,
 				3DAF338324E3F39B005AE6D6 /* SecondCell.swift in Sources */,
 				538155E524DA7B59005A0709 /* PodcastCell.swift in Sources */,
 				9130ADF824E3D61C00FBFCB1 /* DarkTheme.swift in Sources */,
 				5345EAD724CEEB8100C6FFA7 /* ViewController.swift in Sources */,
 				91FBBCC224E530E90093A63B /* ImageSquare6Template.swift in Sources */,
+				A4FEBC7F24E412AC00110785 /* VideoCollectionsWireframe.swift in Sources */,
+				A4FEBC7324E3EE2700110785 /* VideoCollectionsView.swift in Sources */,
+				A4FEBC8524E41AF400110785 /* VideoCollectionsWorker.swift in Sources */,
 				9130ADF624E3D60F00FBFCB1 /* ThemeProtocol.swift in Sources */,
 				5345EB0A24D942A800C6FFA7 /* Colors.swift in Sources */,
 				9130AE1B24E3EB3400FBFCB1 /* SquareReusableView.swift in Sources */,
@@ -726,21 +896,33 @@
 				3DAF338524E3F433005AE6D6 /* SecondOnBoardingCell.swift in Sources */,
 				9130ADFD24E3E30F00FBFCB1 /* DesignReadyDelegate.swift in Sources */,
 				5345EAD524CEEB8100C6FFA7 /* SceneDelegate.swift in Sources */,
+				A4FEBC6E24E3ED1600110785 /* VideoCollectionsViewController.swift in Sources */,
+				A4FEBC7D24E4114600110785 /* VideoCollectionsProtocol.swift in Sources */,
 				9130AE0824E3E56500FBFCB1 /* ChooseTemplateViewController.swift in Sources */,
 				9130AE1924E3EB2800FBFCB1 /* PotraitReusableView.swift in Sources */,
+				A4C3AD8624E55BFA00747679 /* VideoPlayerView.swift in Sources */,
 				5386CA9824DB41E2004AD768 /* Constants.swift in Sources */,
 				9130AE1D24E3ECB300FBFCB1 /* AlertService.swift in Sources */,
+				A4C3AD8124E5245700747679 /* DAOVideo.swift in Sources */,
 				91FBBCB024E52C400093A63B /* ImageSquare3Template.swift in Sources */,
 				9130ADFA24E3D6A900FBFCB1 /* DesignAspectRatioViewController.swift in Sources */,
 				9130ADF424E3D60300FBFCB1 /* Theme.swift in Sources */,
 				91FBBCB424E52D4F0093A63B /* ImageSquare5Template.swift in Sources */,
 				9130AE1424E3E7A500FBFCB1 /* EditTemplateViewController.swift in Sources */,
+				A4C3AD7F24E5244700747679 /* DAOVideoBaseClass.swift in Sources */,
+				A4C3AD8324E53CBC00747679 /* CustomButton.swift in Sources */,
 				9130AE2224E4181800FBFCB1 /* HomepageViewController.swift in Sources */,
 				5386CAC824DD2E71004AD768 /* PreviewAudioView.swift in Sources */,
+				A4FEBC6C24E3DCEB00110785 /* VideoNetwork.swift in Sources */,
 				5345EB1824D9F83300C6FFA7 /* ConfigApps.swift in Sources */,
 				5345EB1F24DA681D00C6FFA7 /* Network.swift in Sources */,
+				A4542D0B24E6D82C002A633A /* LoginWorker.swift in Sources */,
+				A4FEBC7624E40D4B00110785 /* CollectionCell.swift in Sources */,
 				3DAF338724E3F599005AE6D6 /* OnBoardingController.swift in Sources */,
 				5345EB0024D92F4200C6FFA7 /* Extensions.swift in Sources */,
+				A4FEBC8824E41D1C00110785 /* VIdeoModel.swift in Sources */,
+				A4FEBC8124E4136C00110785 /* VideoCollectionsPresenter.swift in Sources */,
+				A4FEBC7124E3EDD800110785 /* BaseView.swift in Sources */,
 				91FBBCBC24E52D9A0093A63B /* ImagePotrait4Template.swift in Sources */,
 				5386CAC624DD2E57004AD768 /* PreviewAudioVC.swift in Sources */,
 				5386CA9524DB36A7004AD768 /* BaseNetwork.swift in Sources */,
@@ -882,16 +1064,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ProjectPodcastMC3/ProjectPodcastMC3.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YPH4FFR3Z3;
+				DEVELOPMENT_TEAM = B95GL74T5A;
 				INFOPLIST_FILE = ProjectPodcastMC3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.reynaldiwijaya.ProjectPodcastMC3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ganangariefp.ProjectPodcastMC3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -903,16 +1087,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ProjectPodcastMC3/ProjectPodcastMC3.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YPH4FFR3Z3;
+				DEVELOPMENT_TEAM = B95GL74T5A;
 				INFOPLIST_FILE = ProjectPodcastMC3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.reynaldiwijaya.ProjectPodcastMC3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.reynaldiwijaya.ProjectMC3Podcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
