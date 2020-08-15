@@ -12,7 +12,7 @@ class PotraitTemplateViewCell: UICollectionViewCell {
     
     var potraitTemplateModel: PotraitTemplateModel? {
         didSet {
-            //print("potrait data", potraitTemplateModel)
+
             imageView.image = UIImage(named: potraitTemplateModel?.imageUrl ?? "defaultimage")
         }
     }

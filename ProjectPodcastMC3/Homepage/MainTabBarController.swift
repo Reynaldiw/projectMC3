@@ -8,13 +8,14 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
-    
+    var isLogin: Bool = false
     
     override func viewDidLoad(){
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+        //self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
         setupTabBar()
     }
@@ -22,8 +23,8 @@ class MainTabBarController: UITabBarController {
     func setupTabBar() {
         tabBar.tintColor = Theme.current.blueColor
         tabBar.barTintColor = Theme.current.accentColor
-        //tabBar.backgroundColor = Theme.current.accentColor
-       // navigationController?.navigationBar.isHidden = true
+
+
         
         let podcast = UINavigationController(rootViewController: HomepageViewController())
         podcast.tabBarItem.image = UIImage(systemName: "house")
@@ -55,7 +56,22 @@ class MainTabBarController: UITabBarController {
     }
     
     func tabChangedTo(selectedIndex: Int) {
+        if selectedIndex == 0 {
+        } else {
+            let alert = UIAlertController(title: "Account Setting", message: nil, preferredStyle: .actionSheet)
             
+            let message: String?
+            if isLogin == true {
+                message = "Logout"
+            } else {
+                message = "Login"
+            }
+            
+            alert.addAction(UIAlertAction(title: message, style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+            self.present(alert, animated: true)
+        }
     }
     
     

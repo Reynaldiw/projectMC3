@@ -10,14 +10,13 @@ import UIKit
 
 class HomepageViewController: UIViewController {
     
-//    let addButton: UIButton = {
-//        let btn = UIButton()
-//        btn.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
-//        btn.tintColor = Theme.current.blueColor
-//        btn.frame = CGRect(x: 20, y: 0, width: 100, height: 100)
-//        return btn
-//    }()
     
+    let infoLabel: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(named: "label homepage")
+        
+        return img
+    }()
     
 
     override func viewDidLoad() {
@@ -28,26 +27,24 @@ class HomepageViewController: UIViewController {
         self.navigationController!.navigationBar.barStyle = .black
         navigationItem.title = "Podcast Content"
         
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(infoButton))
         let button1 = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"), style: .plain, target: self, action: #selector(handleAddButton))
-        //let button2 = UIBarButtonItem(customView: addButton)
         self.navigationItem.rightBarButtonItem  = button1
+        
+        setupLayout()
         
     }
     
     @objc func handleAddButton() {
-        print("click")
+        let navController: UINavigationController = UINavigationController()
+        navController.viewControllers = [CreateViewController()]
+        UIApplication.shared.windows.first?.rootViewController = navController
+    }
+    
+    func setupLayout() {
+        view.addSubview(infoLabel)
+        infoLabel.anchor(top: nil, bottom: nil, leading: nil, trailing: nil, marginTop: 0, marginBottom: 0, marginLeading: 0, marginTrailing: 0, width: 200, height: 40, centerX: view.centerXAnchor, centerY: view.centerYAnchor, marginFromCenterX: 0, marginFromCenterY: 20  )
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

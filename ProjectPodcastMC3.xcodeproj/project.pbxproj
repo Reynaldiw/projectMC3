@@ -65,6 +65,19 @@
 		9130AE1D24E3ECB300FBFCB1 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130AE1C24E3ECB300FBFCB1 /* AlertService.swift */; };
 		9130AE2224E4181800FBFCB1 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130AE2124E4181800FBFCB1 /* HomepageViewController.swift */; };
 		9174B7EB24E421CC0071C17C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9174B7EA24E421CC0071C17C /* MainTabBarController.swift */; };
+		91FBBCAC24E525600093A63B /* ImageSquare1Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCAB24E525600093A63B /* ImageSquare1Template.swift */; };
+		91FBBCAE24E5256F0093A63B /* ImageSquare2Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCAD24E5256F0093A63B /* ImageSquare2Template.swift */; };
+		91FBBCB024E52C400093A63B /* ImageSquare3Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCAF24E52C400093A63B /* ImageSquare3Template.swift */; };
+		91FBBCB224E52D410093A63B /* ImageSquare4Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCB124E52D410093A63B /* ImageSquare4Template.swift */; };
+		91FBBCB424E52D4F0093A63B /* ImageSquare5Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCB324E52D4F0093A63B /* ImageSquare5Template.swift */; };
+		91FBBCB624E52D640093A63B /* ImagePotrait1Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCB524E52D640093A63B /* ImagePotrait1Template.swift */; };
+		91FBBCB824E52D750093A63B /* ImagePotrait2Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCB724E52D750093A63B /* ImagePotrait2Template.swift */; };
+		91FBBCBA24E52D900093A63B /* ImagePotrait3Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCB924E52D900093A63B /* ImagePotrait3Template.swift */; };
+		91FBBCBC24E52D9A0093A63B /* ImagePotrait4Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCBB24E52D9A0093A63B /* ImagePotrait4Template.swift */; };
+		91FBBCBE24E52DD90093A63B /* ImagePotrait5Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCBD24E52DD90093A63B /* ImagePotrait5Template.swift */; };
+		91FBBCC024E52E940093A63B /* ImagePotrait6Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCBF24E52E940093A63B /* ImagePotrait6Template.swift */; };
+		91FBBCC224E530E90093A63B /* ImageSquare6Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCC124E530E90093A63B /* ImageSquare6Template.swift */; };
+		91FBBCC424E530F60093A63B /* ImageSquare7Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBBCC324E530F60093A63B /* ImageSquare7Template.swift */; };
 		ABC49AF979603BB1E613D6C1 /* Pods_ProjectPodcastMC3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DAF8023533ABD68D33F973 /* Pods_ProjectPodcastMC3.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +146,19 @@
 		9130AE1C24E3ECB300FBFCB1 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		9130AE2124E4181800FBFCB1 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		9174B7EA24E421CC0071C17C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		91FBBCAB24E525600093A63B /* ImageSquare1Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSquare1Template.swift; sourceTree = "<group>"; };
+		91FBBCAD24E5256F0093A63B /* ImageSquare2Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSquare2Template.swift; sourceTree = "<group>"; };
+		91FBBCAF24E52C400093A63B /* ImageSquare3Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSquare3Template.swift; sourceTree = "<group>"; };
+		91FBBCB124E52D410093A63B /* ImageSquare4Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSquare4Template.swift; sourceTree = "<group>"; };
+		91FBBCB324E52D4F0093A63B /* ImageSquare5Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSquare5Template.swift; sourceTree = "<group>"; };
+		91FBBCB524E52D640093A63B /* ImagePotrait1Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePotrait1Template.swift; sourceTree = "<group>"; };
+		91FBBCB724E52D750093A63B /* ImagePotrait2Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePotrait2Template.swift; sourceTree = "<group>"; };
+		91FBBCB924E52D900093A63B /* ImagePotrait3Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePotrait3Template.swift; sourceTree = "<group>"; };
+		91FBBCBB24E52D9A0093A63B /* ImagePotrait4Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePotrait4Template.swift; sourceTree = "<group>"; };
+		91FBBCBD24E52DD90093A63B /* ImagePotrait5Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePotrait5Template.swift; sourceTree = "<group>"; };
+		91FBBCBF24E52E940093A63B /* ImagePotrait6Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePotrait6Template.swift; sourceTree = "<group>"; };
+		91FBBCC124E530E90093A63B /* ImageSquare6Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSquare6Template.swift; sourceTree = "<group>"; };
+		91FBBCC324E530F60093A63B /* ImageSquare7Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSquare7Template.swift; sourceTree = "<group>"; };
 		99DAF8023533ABD68D33F973 /* Pods_ProjectPodcastMC3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectPodcastMC3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -484,6 +510,8 @@
 		9130AE1524E3E84900FBFCB1 /* ReusableView */ = {
 			isa = PBXGroup;
 			children = (
+				91FBBCAA24E525470093A63B /* Potrait */,
+				91FBBCA924E5253E0093A63B /* Square */,
 				9130AE1824E3EB2800FBFCB1 /* PotraitReusableView.swift */,
 				9130AE1A24E3EB3400FBFCB1 /* SquareReusableView.swift */,
 			);
@@ -497,6 +525,33 @@
 				9130AE2124E4181800FBFCB1 /* HomepageViewController.swift */,
 			);
 			path = Homepage;
+			sourceTree = "<group>";
+		};
+		91FBBCA924E5253E0093A63B /* Square */ = {
+			isa = PBXGroup;
+			children = (
+				91FBBCAB24E525600093A63B /* ImageSquare1Template.swift */,
+				91FBBCAD24E5256F0093A63B /* ImageSquare2Template.swift */,
+				91FBBCAF24E52C400093A63B /* ImageSquare3Template.swift */,
+				91FBBCB124E52D410093A63B /* ImageSquare4Template.swift */,
+				91FBBCB324E52D4F0093A63B /* ImageSquare5Template.swift */,
+				91FBBCC124E530E90093A63B /* ImageSquare6Template.swift */,
+				91FBBCC324E530F60093A63B /* ImageSquare7Template.swift */,
+			);
+			path = Square;
+			sourceTree = "<group>";
+		};
+		91FBBCAA24E525470093A63B /* Potrait */ = {
+			isa = PBXGroup;
+			children = (
+				91FBBCB524E52D640093A63B /* ImagePotrait1Template.swift */,
+				91FBBCB724E52D750093A63B /* ImagePotrait2Template.swift */,
+				91FBBCB924E52D900093A63B /* ImagePotrait3Template.swift */,
+				91FBBCBB24E52D9A0093A63B /* ImagePotrait4Template.swift */,
+				91FBBCBD24E52DD90093A63B /* ImagePotrait5Template.swift */,
+				91FBBCBF24E52E940093A63B /* ImagePotrait6Template.swift */,
+			);
+			path = Potrait;
 			sourceTree = "<group>";
 		};
 		BC8C6414BFDF9B9026C96655 /* Frameworks */ = {
@@ -625,19 +680,25 @@
 				5386CA8C24DB2D41004AD768 /* ApiCallManager.swift in Sources */,
 				3DAF337E24E3F163005AE6D6 /* FirstOnBoardingController.swift in Sources */,
 				5345EB0424D93F6300C6FFA7 /* YourAudioVC.swift in Sources */,
+				91FBBCAE24E5256F0093A63B /* ImageSquare2Template.swift in Sources */,
 				3DAF338D24E3FA39005AE6D6 /* SecondOnBoardingController.swift in Sources */,
 				5386CA9324DB3269004AD768 /* DAOPodcastResults.swift in Sources */,
 				9130ADF124E3D57E00FBFCB1 /* CreatePageViewController.swift in Sources */,
+				91FBBCB624E52D640093A63B /* ImagePotrait1Template.swift in Sources */,
 				5345EB0C24D9647700C6FFA7 /* SearchPodcastView.swift in Sources */,
+				91FBBCAC24E525600093A63B /* ImageSquare1Template.swift in Sources */,
 				5345EB0F24D9C7A300C6FFA7 /* UploadAudioView.swift in Sources */,
 				5386CABC24DC8B74004AD768 /* EpisodeModel.swift in Sources */,
+				91FBBCB224E52D410093A63B /* ImageSquare4Template.swift in Sources */,
 				5345EB0724D93F8200C6FFA7 /* YourAudioView.swift in Sources */,
 				9130AE1724E3E87100FBFCB1 /* ChromaColor.swift in Sources */,
 				539D188724DAA20B00585818 /* PodcastPresent.swift in Sources */,
+				91FBBCB824E52D750093A63B /* ImagePotrait2Template.swift in Sources */,
 				5386CABA24DC821F004AD768 /* EpisodePodcastView.swift in Sources */,
 				9130AE1024E3E6C700FBFCB1 /* PotraitTemplateCell.swift in Sources */,
 				5386CAC024DC8E07004AD768 /* DAOEpisodesBaseClass.swift in Sources */,
 				5345EB1624D9EDB700C6FFA7 /* PodcastModel.swift in Sources */,
+				91FBBCC424E530F60093A63B /* ImageSquare7Template.swift in Sources */,
 				9174B7EB24E421CC0071C17C /* MainTabBarController.swift in Sources */,
 				5386CACB24DD2FD0004AD768 /* PreviewAudioWireframe.swift in Sources */,
 				3DAF339324E40E09005AE6D6 /* keychainItem.swift in Sources */,
@@ -646,6 +707,7 @@
 				538155E524DA7B59005A0709 /* PodcastCell.swift in Sources */,
 				9130ADF824E3D61C00FBFCB1 /* DarkTheme.swift in Sources */,
 				5345EAD724CEEB8100C6FFA7 /* ViewController.swift in Sources */,
+				91FBBCC224E530E90093A63B /* ImageSquare6Template.swift in Sources */,
 				9130ADF624E3D60F00FBFCB1 /* ThemeProtocol.swift in Sources */,
 				5345EB0A24D942A800C6FFA7 /* Colors.swift in Sources */,
 				9130AE1B24E3EB3400FBFCB1 /* SquareReusableView.swift in Sources */,
@@ -653,9 +715,12 @@
 				3DAF338B24E3F737005AE6D6 /* FirstOnBoardingCell.swift in Sources */,
 				9130AE0424E3E4EB00FBFCB1 /* DesignTemplateModel.swift in Sources */,
 				5386CA9224DB3269004AD768 /* DAOPodcastsBaseClass.swift in Sources */,
+				91FBBCBE24E52DD90093A63B /* ImagePotrait5Template.swift in Sources */,
 				3D34017324E5891A00FE46B2 /* SquareTemplateCell.swift in Sources */,
 				3DAF338124E3F27E005AE6D6 /* FirstCell.swift in Sources */,
 				5386CAC124DC8E07004AD768 /* DAOEpisodes.swift in Sources */,
+				91FBBCC024E52E940093A63B /* ImagePotrait6Template.swift in Sources */,
+				91FBBCBA24E52D900093A63B /* ImagePotrait3Template.swift in Sources */,
 				9130AE0124E3E39000FBFCB1 /* YourDesignViewCell.swift in Sources */,
 				5345EAD324CEEB8100C6FFA7 /* AppDelegate.swift in Sources */,
 				3DAF338524E3F433005AE6D6 /* SecondOnBoardingCell.swift in Sources */,
@@ -665,8 +730,10 @@
 				9130AE1924E3EB2800FBFCB1 /* PotraitReusableView.swift in Sources */,
 				5386CA9824DB41E2004AD768 /* Constants.swift in Sources */,
 				9130AE1D24E3ECB300FBFCB1 /* AlertService.swift in Sources */,
+				91FBBCB024E52C400093A63B /* ImageSquare3Template.swift in Sources */,
 				9130ADFA24E3D6A900FBFCB1 /* DesignAspectRatioViewController.swift in Sources */,
 				9130ADF424E3D60300FBFCB1 /* Theme.swift in Sources */,
+				91FBBCB424E52D4F0093A63B /* ImageSquare5Template.swift in Sources */,
 				9130AE1424E3E7A500FBFCB1 /* EditTemplateViewController.swift in Sources */,
 				9130AE2224E4181800FBFCB1 /* HomepageViewController.swift in Sources */,
 				5386CAC824DD2E71004AD768 /* PreviewAudioView.swift in Sources */,
@@ -674,6 +741,7 @@
 				5345EB1F24DA681D00C6FFA7 /* Network.swift in Sources */,
 				3DAF338724E3F599005AE6D6 /* OnBoardingController.swift in Sources */,
 				5345EB0024D92F4200C6FFA7 /* Extensions.swift in Sources */,
+				91FBBCBC24E52D9A0093A63B /* ImagePotrait4Template.swift in Sources */,
 				5386CAC624DD2E57004AD768 /* PreviewAudioVC.swift in Sources */,
 				5386CA9524DB36A7004AD768 /* BaseNetwork.swift in Sources */,
 				9130ADFF24E3E35500FBFCB1 /* YourDesignViewController.swift in Sources */,

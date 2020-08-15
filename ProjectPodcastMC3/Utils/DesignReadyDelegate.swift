@@ -12,4 +12,7 @@ protocol designReadyDelegate: class {
     func didDesignReady(isReady: Bool)
     func imageReady(image: UIImage)
     func isDesignPotrait(potrait: Bool)
+    func imageForSend(image: UIImage)
+    func waveformColor(color: UIColor)
+    func waveformPosition(position: String)
 }

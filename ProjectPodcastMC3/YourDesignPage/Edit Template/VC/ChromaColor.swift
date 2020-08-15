@@ -36,7 +36,7 @@ class ChromaColor: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = Theme.current.backgroundColor
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pick", style: .plain, target: self, action: #selector(pickColor))
         setupColorPicker()
         setupBrightnessSlider()
@@ -46,20 +46,8 @@ class ChromaColor: UIViewController {
     }
     
     @objc func pickColor() {
-        //navigationController?.pushViewController(ChromaColor(), animated: true)
         navigationController?.popViewController(animated: true)
-        let vc = ViewController()
-        print("colorOnTap", colorChoice)
         selectedColorDelegate.didColorChoices(color: colorChoice)
-        
-        
-        //selectedColorDelegate.didColorChoices(color: UIColor)
-        
-        //selectedColorDelegate.didColorChoices(color: colorChoice)
-        //vc.colorPicked = UIColor(displayP3Red: red!, green: green!, blue: blue!, alpha: alpha!)
-        //vc.colorBox.backgroundColor = UIColor(displayP3Red: red!, green: green!, blue: blue!, alpha: alpha!)
-
-//        vc.colorButton.backgroundColor = vc.colorPicked
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
