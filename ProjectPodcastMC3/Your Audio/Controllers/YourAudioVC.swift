@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileCoreServices
+import AVFoundation
 
 class YourAudioVC: UIViewController {
     
@@ -291,6 +292,16 @@ extension YourAudioVC: PodcastResponse {
 extension YourAudioVC: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         
+        let url = urls.first
+        
+        guard let urlAudio = url else { return }
+        
+        let asset = AVAsset(url: urlAudio)
+        let durationAsset = asset.duration.seconds
+        let duration = Int(durationAsset)
+        print(duration)
+        
+        PreviewAudioWireframe.performToPreviewAudio(durationSeconds: duration, caller: self, urlAudio: urls.first)
         
     }
 }
