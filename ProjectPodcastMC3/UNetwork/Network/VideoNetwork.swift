@@ -20,7 +20,7 @@ public enum VideoNetwork: URLRequestConvertible {
     var method : HTTPMethod {
         switch self {
         case .loginApple(_):
-            return .post
+            return .get
         case .submitVideo(_):
             return .post
         case .getCollections(_):

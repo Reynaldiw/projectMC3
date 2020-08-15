@@ -14,8 +14,8 @@
             filePath = "ProjectPodcastMC3/Your Audio/Controllers/YourAudioVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "handleSegmentedControlValueChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "ProjectPodcastMC3/Your Audio/Controllers/YourAudioVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "podcastModels"
             landmarkType = "24">
             <Locations>
@@ -186,10 +186,10 @@
             filePath = "ProjectPodcastMC3/Preview Audio/Controllers/PreviewAudioVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "urlAudio"
-            landmarkType = "24">
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "PreviewAudioVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,9 +202,9 @@
             filePath = "ProjectPodcastMC3/Preview Audio/Controllers/PreviewAudioVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "preparePlayer()"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "editButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -218,9 +218,9 @@
             filePath = "ProjectPodcastMC3/Preview Audio/Controllers/PreviewAudioVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "preparePlayer()"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "editButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -234,9 +234,521 @@
             filePath = "ProjectPodcastMC3/Preview Audio/Controllers/PreviewAudioVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "preparePlayer()"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "editButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB6EC70A-3436-424A-9B17-1078727A39F3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Preview Audio/Controllers/PreviewAudioVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "playPauseButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEFF7905-FBB4-46AD-B096-DA9F88205691"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Preview Audio/Controllers/PreviewAudioVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "playPauseButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7DA66EE-2387-4AB2-9477-AAC9F73D35AA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Controllers/SegmentAudio/EditAudioVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
+            landmarkName = "EditAudioVC"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "255A61CC-8996-44DE-90BC-8EFAB5C4EFC1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Controllers/SegmentAudio/EditAudioVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B509DE1-B9D6-4754-B3B7-6B3082EF6D10"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Preview Audio/Controllers/PreviewAudioVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "editButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "120756A2-E01E-4A4D-9803-A7AC90A8C456"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "trimAudio(urlAudio:rangeTime:outputFileName:successEditAudio:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "76686B15-2792-4B8E-BB7B-8CE6B732BECC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "trimAudio(urlAudio:rangeTime:outputFileName:successEditAudio:failed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "76686B15-2792-4B8E-BB7B-8CE6B732BECC - fd02956cd6758de2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ProjectPodcastMC3.EditAudioRepository.trimAudio(urlAudio: Foundation.URL, rangeTime: ProjectPodcastMC3.RangeTime, outputFileName: Swift.String, successEditAudio: (Foundation.URL) -&gt; (), failed: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Edit%20Audio/Repository/EditAudioRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "2920">
+               </Location>
+               <Location
+                  uuid = "76686B15-2792-4B8E-BB7B-8CE6B732BECC - 14661072b2e750bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in static ProjectPodcastMC3.EditAudioRepository.trimAudio(urlAudio: Foundation.URL, rangeTime: ProjectPodcastMC3.RangeTime, outputFileName: Swift.String, successEditAudio: (Foundation.URL) -&gt; (), failed: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Edit%20Audio/Repository/EditAudioRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "034A9CC1-75FD-498A-95DC-3E9295A6EAFE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "trimAudio(urlAudio:rangeTime:outputFileName:successEditAudio:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F805322E-9FDD-4E43-B81C-DF04DCC6F6B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "trimAudio(urlAudio:rangeTime:outputFileName:successEditAudio:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB1E0682-5530-4D46-BFB4-E27F3B52CEE5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "trimAudio(urlAudio:rangeTime:outputFileName:successEditAudio:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5921F49-0A88-47A1-96CF-025093606719"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "trimAudio(urlAudio:rangeTime:outputFileName:successEditAudio:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "22835277-CD33-46B6-BB6F-FE578210327B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "trimAudio(urlAudio:rangeTime:outputFileName:successEditAudio:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC21D7B9-D2C8-4EDE-B0E7-DD90FF6F9DE1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "trimAudio(urlAudio:rangeTime:outputFileName:successEditAudio:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "29367222-974F-4CCC-9EAD-29CB8F934947"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "downloadFile(withUrl:andFilePath:completion:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA927A48-8F26-4F2B-9158-B4014DE49F10"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "downloadFile(withUrl:andFilePath:completion:failed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DA927A48-8F26-4F2B-9158-B4014DE49F10 - 5539b55f553921da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in static ProjectPodcastMC3.EditAudioRepository.downloadFile(withUrl: Foundation.URL, andFilePath: Foundation.URL, completion: (Foundation.URL) -&gt; (), failed: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Edit%20Audio/Repository/EditAudioRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "1348">
+               </Location>
+               <Location
+                  uuid = "DA927A48-8F26-4F2B-9158-B4014DE49F10 - b145c3ddb26290f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in static ProjectPodcastMC3.EditAudioRepository.downloadFile(withUrl: Foundation.URL, andFilePath: Foundation.URL, completion: (Foundation.URL) -&gt; (), failed: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Edit%20Audio/Repository/EditAudioRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "56DACE8E-3EDC-4668-B99D-23673C181659"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "downloadFile(withUrl:andFilePath:completion:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "708FC71E-AC7D-4ED4-B207-7DA5555156A3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "downloadFile(withUrl:andFilePath:completion:failed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A362CB0D-8E2D-4073-8D06-BCAB8202CC6A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Repository/EditAudioRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "downloadFile(withUrl:andFilePath:completion:failed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A362CB0D-8E2D-4073-8D06-BCAB8202CC6A - b3e6ef44bb086524"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ProjectPodcastMC3.EditAudioRepository.downloadFile(withUrl: Foundation.URL, andFilePath: Foundation.URL, completion: (Foundation.URL) -&gt; ()) -&gt; ()"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Edit%20Audio/Repository/EditAudioRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "311">
+               </Location>
+               <Location
+                  uuid = "A362CB0D-8E2D-4073-8D06-BCAB8202CC6A - 984b566b4aa1f154"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in static ProjectPodcastMC3.EditAudioRepository.downloadFile(withUrl: Foundation.URL, andFilePath: Foundation.URL, completion: (Foundation.URL) -&gt; ()) -&gt; ()"
+                  moduleName = "ProjectPodcastMC3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/reynaldiwijaya/Desktop/Apple%20Academy/Challenge/MC3/App%20Project/ProjectPodcastMC3/ProjectPodcastMC3/Edit%20Audio/Repository/EditAudioRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "294">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4435E557-B17C-436B-B308-BB903FE26EFE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Additional Sounds/Controllers/AdditionalSoundsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "playButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8E43734-37C2-4F2B-B203-AEECE35BF8BE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Additional Sounds/Controllers/AdditionalSoundsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "playButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C3542FCD-85E9-486D-843B-C0B195A3B525"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Additional Sounds/Controllers/AdditionalSoundsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "playButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDA34DA5-F314-4864-BFFE-EFBC6F39C529"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Additional Sounds/Controllers/AdditionalSoundsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "playButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8CFE2F59-BE3C-4232-973B-A3F4D23B1AA9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Additional Sounds/Controllers/AdditionalSoundsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "playerDidFinishPlaying()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "058D1C04-2035-4F33-9C0A-22A21B9632D5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Controllers/Add Segment/AddSegmentVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "saveEditButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C30B040A-7972-42E1-882E-CB3648AE36E1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Edit Audio/Controllers/Add Segment/AddSegmentVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "saveEditButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82D8AE8C-563F-4909-9B63-2F6A0572ACFC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectPodcastMC3/Utils/Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "image(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
