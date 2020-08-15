@@ -356,8 +356,6 @@
 				5345EAD224CEEB8100C6FFA7 /* AppDelegate.swift */,
 				5345EAD424CEEB8100C6FFA7 /* SceneDelegate.swift */,
 				53AD0A6524E6813500632167 /* Additional Audio */,
-				5345EB0824D9428E00C6FFA7 /* Utils */,
-				9130AE1524E3E84900FBFCB1 /* ReusableView */,
 				3DAF338F24E40D83005AE6D6 /* LoginAppleID */,
 				3DAF337C24E3F012005AE6D6 /* OnBoarding */,
 				9130AE1E24E4010600FBFCB1 /* Homepage */,
@@ -1364,14 +1362,14 @@
 				CODE_SIGN_ENTITLEMENTS = ProjectPodcastMC3/ProjectPodcastMC3.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B95GL74T5A;
+				DEVELOPMENT_TEAM = YKPQ92PAK3;
 				INFOPLIST_FILE = ProjectPodcastMC3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ganangariefp.ProjectPodcastMC3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.reynaldiwijaya.ProjectMC3Podcast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1387,7 +1385,7 @@
 				CODE_SIGN_ENTITLEMENTS = ProjectPodcastMC3/ProjectPodcastMC3.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B95GL74T5A;
+				DEVELOPMENT_TEAM = YKPQ92PAK3;
 				INFOPLIST_FILE = ProjectPodcastMC3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

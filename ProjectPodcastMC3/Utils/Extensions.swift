@@ -154,14 +154,6 @@ extension UIColor {
         }
     }
 }
-extension UIColor {
-    func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
-        return UIGraphicsImageRenderer(size: size).image { rendererContext in
-            self.setFill()
-            rendererContext.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        }
-    }
-}
 
 extension UIAlertController {
     
@@ -222,6 +214,15 @@ extension UIViewController {
     }
 }
 
+//convert RGB -> Hex
+extension UIColor {
+    func toHexString() -> String {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+
+        getRed(&r, green: &g, blue: &b, alpha: &a)
 
         let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
 
