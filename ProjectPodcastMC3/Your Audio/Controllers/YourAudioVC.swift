@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileCoreServices
+import AVFoundation
 
 class YourAudioVC: UIViewController {
     
@@ -25,6 +26,8 @@ class YourAudioVC: UIViewController {
     @IBOutlet weak var loadingEpisodeView: UIActivityIndicatorView!
     
     var audioView: YourAudioView { self.view as! YourAudioView }
+    var loadingCustomView = CustomLoadingView()
+    
     var designDelegate: designReadyDelegate?
     var seacrhPodcastView: SearchPodcastView!
     var uploadAudioView: UploadAudioView!
@@ -57,6 +60,8 @@ class YourAudioVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initInterfaceComponent()
+        
+        self.hideKeyboardWhenTappedAround()
         
         registerCell()
     }
@@ -215,11 +220,12 @@ extension YourAudioVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             guard let id = model?._id else { return }
             self.doGetEpisodesById(id: id)
         } else if collectionView == episodeCollectionView {
+            
             let model = episodeModels?[indexPath.row]
-            
             guard let url = model?._audioURL else { return }
+            print(url)
             
-            PreviewAudioWireframe.performToPreviewAudio(caller: self, urlAudio: URL(string: url)!)
+            PreviewAudioWireframe.performToPreviewAudio(durationSeconds: model?._audioLengthSec, caller: self, urlAudio: URL(string: url)!)
         }
     }
     
@@ -286,6 +292,16 @@ extension YourAudioVC: PodcastResponse {
 extension YourAudioVC: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         
+        let url = urls.first
+        
+        guard let urlAudio = url else { return }
+        
+        let asset = AVAsset(url: urlAudio)
+        let durationAsset = asset.duration.seconds
+        let duration = Int(durationAsset)
+        print(duration)
+        
+        PreviewAudioWireframe.performToPreviewAudio(durationSeconds: duration, caller: self, urlAudio: urls.first)
         
     }
 }
