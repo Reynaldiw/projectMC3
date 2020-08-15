@@ -15,7 +15,7 @@ class SegmentCell: UICollectionViewCell {
             updateUI()
         }
     }
-    
+        
     lazy var playButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "playPurple"), for: .normal)
@@ -69,47 +69,23 @@ class SegmentCell: UICollectionViewCell {
     }
     
     private func setupConstraints() {
-        playButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: self.leadingAnchor, trailing: nil, marginTop: 15, marginBottom: -15, marginLeading: 10, marginTrailing: 0, width: 40, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+        playButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: self.leadingAnchor, trailing: nil, marginTop: 15, marginBottom: -15, marginLeading: 15, marginTrailing: 0, width: 40, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         
-        moreButton.anchor(top: nil, bottom: nil, leading: nil, trailing: self.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeading: 0, marginTrailing: -15, width: 26, height: 6, centerX: nil, centerY: self.centerYAnchor, marginFromCenterX: 0, marginFromCenterY: 0)
+        moreButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: nil, trailing: self.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeading: 0, marginTrailing: -15, width: 26, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         
-        stackVerticalView.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: playButton.trailingAnchor, trailing: moreButton.trailingAnchor, marginTop: 17, marginBottom: -17, marginLeading: 10, marginTrailing: 8, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+        stackVerticalView.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: playButton.trailingAnchor, trailing: moreButton.trailingAnchor, marginTop: 17, marginBottom: -17, marginLeading: 15, marginTrailing: 8, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
     }
-    
+        
     private func updateUI() {
         titleLabel.text = segmentModel?.nameSegment
         let (_,sM,sS) = secondsToHoursMinutesSeconds(seconds: segmentModel?.startTimeSeconds ?? 0)
         let (_,eM,eS) = secondsToHoursMinutesSeconds(seconds: segmentModel?.endTimeSeconds ?? 0)
         
-        var startMinutes = ""
-        var startSeconds = ""
+        let startMinutes = checkTimeIs2DigitOrNot(time: sM)
+        let startSeconds = checkTimeIs2DigitOrNot(time: sS)
         
-        if sM < 10 {
-            startMinutes = "0\(sM)"
-        } else {
-            startMinutes = "\(sM)"
-        }
-        
-        if sS < 10 {
-            startSeconds = "0\(sS)"
-        } else {
-            startSeconds = "\(sS)"
-        }
-        
-        var endMinutes = ""
-        var endSeconds = ""
-        
-        if eM < 10 {
-            endMinutes = "0\(eM)"
-        } else {
-            endMinutes = "\(eM)"
-        }
-        
-        if eS < 10 {
-            endSeconds = "0\(eS)"
-        } else {
-            endSeconds = "\(eS)"
-        }
+        let endMinutes = checkTimeIs2DigitOrNot(time: eM)
+        let endSeconds = checkTimeIs2DigitOrNot(time: eS)
         
         rangeTimeLabel.text = "\(startMinutes):\(startSeconds) - \(endMinutes):\(endSeconds)"
     }
