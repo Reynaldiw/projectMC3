@@ -74,13 +74,7 @@ class YourDesignViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        print("del", delegate)
-        // Do any additional setup after loading the view.
-        //view.backgroundColor = Theme.current.backgroundColor
-            //navigationController?.navigationBar.prefersLargeTitles = false
-        
-        //print("apakah potrait", isPotrait)
+
         navigationController?.navigationBar.barTintColor = Theme.current.backgroundColor
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = Theme.current.backgroundColor

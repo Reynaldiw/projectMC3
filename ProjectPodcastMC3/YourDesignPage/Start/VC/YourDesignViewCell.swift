@@ -12,7 +12,6 @@ class YourDesignViewCell: UICollectionViewCell {
     
     var yourDesignCVModel: YourDesignCVModel? {
         didSet {
-            //print(yourDesignCVModel)
             if yourDesignCVModel?.isClickable == false {
                 contentView.alpha = 0.4
             } else {

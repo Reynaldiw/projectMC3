@@ -12,7 +12,6 @@ class SquareTemplateViewCell: UICollectionViewCell {
     
     var squareTemplateModel: SquareTemplateModel? {
         didSet {
-            //print("sqaure data", squareTemplateModel)
             imageView.image = UIImage(named: squareTemplateModel?.imageUrl ?? "defaultimage")
         }
     }
@@ -26,15 +25,7 @@ class SquareTemplateViewCell: UICollectionViewCell {
         return img
     }()
     
-//    let logoTitle: UILabel = {
-//        let label = UILabel()
-//        label.text = "template"
-//        label.font = UIFont.systemFont(ofSize: 12)
-//        label.textAlignment = .center
-//        label.textColor = Theme.current.textColor2
-//        return label
-//    }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
