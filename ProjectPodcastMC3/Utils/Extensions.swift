@@ -9,13 +9,13 @@
 import UIKit
 
 extension UIView {
-    
+
     func isPasswordValid(_ password : String) -> Bool {
-        
+
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
     }
-    
+
     func anchor (
         top : NSLayoutYAxisAnchor?,
         bottom : NSLayoutYAxisAnchor?,
@@ -43,10 +43,8 @@ extension UIView {
 
         if let centerX = centerX { self.centerXAnchor.constraint(equalTo: centerX, constant: marginFromCenterX).isActive = true }
         if let centerY = centerY { self.centerYAnchor.constraint(equalTo: centerY, constant: marginFromCenterY).isActive = true }
-
-
     }
-    
+
     func setCellShadow() {
         self.layer.shadowColor = UIColor.darkGray.cgColor
         self.layer.shadowOffset = CGSize(width: 1, height: 1)
@@ -56,8 +54,8 @@ extension UIView {
         self.clipsToBounds = false
         //self.layer.cornerRadius = 15
     }
-    
 }
+
 
 extension UIColor {
     static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
@@ -96,7 +94,7 @@ extension UIStackView {
 extension TimeInterval {
     func stringFromTimeInterval() -> String {
         let time = Int(self)
-        
+
         let seconds = time % 60
         let minutes = (time / 60) % 60
         let hours = (time / 3600)
@@ -106,18 +104,17 @@ extension TimeInterval {
 }
 
 extension UIImageView {
-    
-  func setImageColor(color: UIColor) {
-    let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
-    self.image = templateImage
-    self.tintColor = color
-  }
-    
+
+    func setImageColor(color: UIColor) {
+        let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+        self.image = templateImage
+        self.tintColor = color
+    }
+
     func addBlurEffect() {
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds
-
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
         self.addSubview(blurEffectView)
     }
@@ -156,30 +153,30 @@ extension UIColor {
 }
 
 extension UIAlertController {
-    
+
     //Set background color of UIAlertController
     func setBackgroundColor(color: UIColor) {
         if let bgView = self.view.subviews.first, let groupView = bgView.subviews.first, let contentView = groupView.subviews.first {
             contentView.backgroundColor = color
         }
     }
-    
+
     //Set title font and title color
-    func setTitlet(font: UIFont?, color: UIColor?) {
+    func setTitle(font: UIFont?, color: UIColor?) {
         guard let title = self.title else { return }
         let attributeString = NSMutableAttributedString(string: title)//1
         if let titleFont = font {
             attributeString.addAttributes([NSAttributedString.Key.font : titleFont],//2
                                           range: NSMakeRange(0, title.utf8.count))
         }
-        
+
         if let titleColor = color {
             attributeString.addAttributes([NSAttributedString.Key.foregroundColor : titleColor],//3
                                           range: NSMakeRange(0, title.utf8.count))
         }
         self.setValue(attributeString, forKey: "attributedTitle")//4
     }
-    
+
     //Set message font and message color
     func setMessage(font: UIFont?, color: UIColor?) {
         guard let message = self.message else { return }
@@ -188,96 +185,14 @@ extension UIAlertController {
             attributeString.addAttributes([NSAttributedString.Key.font : messageFont],
                                           range: NSMakeRange(0, message.utf8.count))
         }
-        
+
         if let messageColorColor = color {
             attributeString.addAttributes([NSAttributedString.Key.foregroundColor : messageColorColor],
                                           range: NSMakeRange(0, message.utf8.count))
         }
         self.setValue(attributeString, forKey: "attributedMessage")
     }
-    
-    //Set tint color of UIAlertController
-    func setTint(color: UIColor) {
-        self.view.tintColor = color
-    }
-}
 
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
-//convert RGB -> Hex
-extension UIColor {
-    func toHexString() -> String {
-        var r:CGFloat = 0
-        var g:CGFloat = 0
-        var b:CGFloat = 0
-        var a:CGFloat = 0
-extension UIColor {
-    func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
-        return UIGraphicsImageRenderer(size: size).image { rendererContext in
-            self.setFill()
-            rendererContext.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        }
-    }
-}
-    func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
-        return UIGraphicsImageRenderer(size: size).image { rendererContext in
-            self.setFill()
-            rendererContext.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        }
-    }
-}
-
-extension UIAlertController {
-    
-    //Set background color of UIAlertController
-    func setBackgroundColor(color: UIColor) {
-        if let bgView = self.view.subviews.first, let groupView = bgView.subviews.first, let contentView = groupView.subviews.first {
-            contentView.backgroundColor = color
-        }
-    }
-    
-    //Set title font and title color
-    func setTitlet(font: UIFont?, color: UIColor?) {
-        guard let title = self.title else { return }
-        let attributeString = NSMutableAttributedString(string: title)//1
-        if let titleFont = font {
-            attributeString.addAttributes([NSAttributedString.Key.font : titleFont],//2
-                                          range: NSMakeRange(0, title.utf8.count))
-        }
-        
-        if let titleColor = color {
-            attributeString.addAttributes([NSAttributedString.Key.foregroundColor : titleColor],//3
-                                          range: NSMakeRange(0, title.utf8.count))
-        }
-        self.setValue(attributeString, forKey: "attributedTitle")//4
-    }
-    
-    //Set message font and message color
-    func setMessage(font: UIFont?, color: UIColor?) {
-        guard let message = self.message else { return }
-        let attributeString = NSMutableAttributedString(string: message)
-        if let messageFont = font {
-            attributeString.addAttributes([NSAttributedString.Key.font : messageFont],
-                                          range: NSMakeRange(0, message.utf8.count))
-        }
-        
-        if let messageColorColor = color {
-            attributeString.addAttributes([NSAttributedString.Key.foregroundColor : messageColorColor],
-                                          range: NSMakeRange(0, message.utf8.count))
-        }
-        self.setValue(attributeString, forKey: "attributedMessage")
-    }
-    
     //Set tint color of UIAlertController
     func setTint(color: UIColor) {
         self.view.tintColor = color
@@ -317,10 +232,8 @@ extension UIColor {
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
 
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-
+     }
 }
-
 
 //View -> UIImage
 extension UIView {
@@ -334,6 +247,3 @@ extension UIView {
         }
     }
 }
-
-
-

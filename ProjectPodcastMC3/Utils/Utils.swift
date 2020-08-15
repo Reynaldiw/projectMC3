@@ -67,7 +67,7 @@ func createActionSheet(title: String?, message: String?, actions: [String], imag
     
     let optionMenu = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
     optionMenu.setBackgroundColor(color: Colors.BG_SCREEN_PURPLE_GRAY)
-    optionMenu.setTitlet(font: nil, color: .white)
+    optionMenu.setTitle(font: nil, color: .white)
     optionMenu.setMessage(font: nil, color: .white)
     
     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)

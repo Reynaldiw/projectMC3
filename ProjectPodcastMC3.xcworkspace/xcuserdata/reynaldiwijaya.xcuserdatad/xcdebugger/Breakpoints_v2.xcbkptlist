@@ -14,8 +14,6 @@
             filePath = "ProjectPodcastMC3/Your Audio/Controllers/YourAudioVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
             startingLineNumber = "120"
             endingLineNumber = "120"
             landmarkName = "handleSegmentedControlValueChanged(_:)"
@@ -748,8 +746,8 @@
             filePath = "ProjectPodcastMC3/Utils/Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "image(_:)"
             landmarkType = "7">
          </BreakpointContent>
