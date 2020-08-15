@@ -12,7 +12,15 @@ struct SegmentModel {
     var nameSegment: String?
     var startTimeSeconds: Int?
     var endTimeSeconds: Int?
-    var additionalAudio: URL?
+    var urlSegment: URL?
+    var urlAdditionalAudio: URL?
+    var durationAdditionalAudio: Int?
+    var typeSegment: TypeOfSegment = .EditAudio
+}
+
+enum TypeOfSegment {
+    case EditAudio
+    case AddtionalAudio
 }
 
 struct TimeModel {

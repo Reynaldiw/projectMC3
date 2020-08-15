@@ -24,6 +24,8 @@ class AddSegmentVC: UIViewController {
     
     var type: TypeSegment = .Edit
     
+    var durationOfSourceAudio: Int?
+    
     var startTimeModel: TimeModel?
     var endTimeModel: TimeModel?
     
@@ -80,25 +82,48 @@ class AddSegmentVC: UIViewController {
     @objc private func saveEditButtonPressed(_ sender: Any) {
         switch type {
         case .Start:
+            minutes = timePickerView.selectedRow(inComponent: 0)
+            seconds = timePickerView.selectedRow(inComponent: 1)
             startTimeModel = TimeModel(hours: 0, minutes: minutes, seconds: seconds)
             changeStatusViewToEditSegment()
         case .End:
+            minutes = timePickerView.selectedRow(inComponent: 0)
+            seconds = timePickerView.selectedRow(inComponent: 1)
             endTimeModel = TimeModel(hours: 0, minutes: minutes, seconds: seconds)
             changeStatusViewToEditSegment()
         case .Edit:
             guard let startTime = startTimeModel, let endTime = endTimeModel else { return }
             guard let startMinutes = startTime.minutes, let startSeconds = startTime.seconds else { return }
-            guard let endMinutes = endTime.minutes, let endSeconds = startTime.seconds else { return }
+            guard let endMinutes = endTime.minutes, let endSeconds = endTime.seconds else { return }
+            
+            print("Start \(startTime)")
+            print("End \(endTime)")
             
             let startTimeInSeconds = (startMinutes * 60) + startSeconds
+            print(startTimeInSeconds)
             let endTimeInSeconds = (endMinutes * 60) + endSeconds
+            print(endTimeInSeconds)
+            
+            let totalSeconds = startTimeInSeconds + endTimeInSeconds
+            
+            if let durationSourceAudio = durationOfSourceAudio {
+                if totalSeconds > durationSourceAudio {
+                    createAlertAndShowAlert(title: "Warning", message: "Cant set the range time longer than duration of episode Audio", actionName: "Okay, Got it!", caller: self, handler: nil)
+                    return
+                }
+            }
             
             if startTimeInSeconds > endTimeInSeconds {
                 createAlertAndShowAlert(title: "Warning", message: "Start time should below of end time", actionName: "Okay, Got it!", caller: self, handler: nil)
                 return
             }
             
-            let segmentModel = SegmentModel(nameSegment: "", startTimeSeconds: startTimeInSeconds, endTimeSeconds: endTimeInSeconds)
+            if startTimeInSeconds == endTimeInSeconds {
+                createAlertAndShowAlert(title: "Warning", message: "Cant make a range with the same time", actionName: "Okay, Got it!", caller: self, handler: nil)
+                return
+            }
+            
+            let segmentModel = SegmentModel(nameSegment: "", startTimeSeconds: startTimeInSeconds, endTimeSeconds: endTimeInSeconds, urlAdditionalAudio: nil, durationAdditionalAudio: nil, typeSegment: .EditAudio)
             callback?(segmentModel)
             
             dismiss(animated: true, completion: nil)
@@ -139,19 +164,9 @@ extension AddSegmentVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
             guard let startTime = startTimeModel else { return cell }
             if let _ = startTime.hours, let minutes = startTime.minutes, let seconds = startTime.seconds {
                 
-                var minutesString: String = ""
-                var secondsString: String = ""
-                
-                if minutes < 10 {
-                    minutesString = "0\(minutes)"
-                } else if minutes >= 10 {
-                    minutesString = "\(minutes)"
-                }
-                if seconds < 10 {
-                    secondsString = "0\(seconds)"
-                } else if seconds >= 10 {
-                    secondsString = "\(seconds)"
-                }
+                let minutesString: String = checkTimeIs2DigitOrNot(time: minutes)
+                let secondsString: String = checkTimeIs2DigitOrNot(time: seconds)
+    
                 cell.timeSegmentLabel.text = "\(minutesString):\(secondsString)"
             }
         } else {
@@ -159,8 +174,8 @@ extension AddSegmentVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
             
             guard let endTime = endTimeModel else { return cell }
             if let _ = endTime.hours, let minutes = endTime.minutes, let seconds = endTime.seconds {
-                var minutesString: String = ""
-                var secondsString: String = ""
+                var minutesString: String = checkTimeIs2DigitOrNot(time: minutes)
+                var secondsString: String = checkTimeIs2DigitOrNot(time: seconds)
                 
                 if minutes < 10 {
                     minutesString = "0\(minutes)"
@@ -218,14 +233,14 @@ extension AddSegmentVC: UIPickerViewDelegate, UIPickerViewDataSource {
         return String(format: "%02d Seconds", row)
     }
 
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if component == 0{
-            let minute = row
-            print(minute)
-            minutes = minute
-        }else{
-            let second = row
-            seconds = second
-        }
-    }
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        if component == 0{
+//            let minute = row
+//            print(minute)
+//            minutes = minute
+//        }else{
+//            let second = row
+//            seconds = second
+//        }
+//    }
 }

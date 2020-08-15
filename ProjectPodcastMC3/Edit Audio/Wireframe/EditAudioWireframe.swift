@@ -15,11 +15,15 @@ struct EditAudioWireframe {
         vc.callback = { segmentModels in
             callback?(segmentModels)
         }
+//        if let segmentModels = segmentModels {
+//            vc.segmentModels = segmentModels
+//        }
         caller.navigationController?.pushViewController(vc, animated: true)
     }
     
-    static func performToAddSegment(caller: UIViewController, callback: ((SegmentModel) -> Void)?) {
+    static func performToAddSegment(durationInSeconds: Int?, caller: UIViewController, callback: ((SegmentModel) -> Void)?) {
         let vc = AddSegmentVC()
+        vc.durationOfSourceAudio = durationInSeconds
         vc.modalPresentationStyle = .formSheet
         vc.callback = { segmentModel in
             callback?(segmentModel)
