@@ -27,7 +27,7 @@ class YourAudioView: UIView {
         self.addSubview(segmentedControl)
         self.addSubview(searchPodcastView)
         self.addSubview(searchBar)
-//        self.addSubview(uploadAudioView)
+        self.addSubview(uploadAudioView)
         self.addSubview(episodePodcastView)
     }
     
@@ -35,7 +35,7 @@ class YourAudioView: UIView {
         setupSegmentedControlConstraint()
         setupSearchPodcastViewConstraint()
         setupSearchBarConstraint()
-//        setupUploadAudioViewConstraint()
+        setupUploadAudioViewConstraint()
         setupEpisodePodcastViewConstraint()
     }
     
