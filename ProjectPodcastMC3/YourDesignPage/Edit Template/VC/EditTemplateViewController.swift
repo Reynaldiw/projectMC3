@@ -19,20 +19,20 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
     fileprivate var colorBoxTopAnchor2: NSLayoutConstraint?
     
     var designReadyDelegate: designReadyDelegate!
-    //var designReadyDelegate: designReadyDelegate!
     var yourDesignCVModel = [YourDesignCVModel]()
     var potraitTemplateModel = [PotraitTemplateModel]()
     var squareTemplateModel = [SquareTemplateModel]()
     var isPotrait: Bool = false
     var isReady: Bool = true
-    var yourDesignViewCell = "DesignViewCell"
-    var potraitTemplateCell = "potraitTemplateCell"
-    var squareTemplateCell = "squareTemplateCell"
     var templatePicked : Int?
     var potraitTemplateSelected: PotraitTemplateModel?
     var squareTemplateSelected: SquareTemplateModel?
     var titleText: String = ""
     var colorPicked: UIColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 1)
+    var imageForSend : UIImage?
+    var templatePickedView: UIView!
+    var templatePickedViewForSend: UIView!
+    var waveformPosition: String?
     
     
     
@@ -62,20 +62,43 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
         return view
     }()
     
-    var image0square: ImageSquare1Template!
-    var image1square: ImageSquare1Template!
-    var image2square: ImageSquare2Template!
+    var image0square: ImageSquare1Template! = ImageSquare1Template()
+    var image1square: ImageSquare1Template! = ImageSquare1Template()
+    var image2square: ImageSquare2Template! = ImageSquare2Template()
+    var image3square: ImageSquare3Template! = ImageSquare3Template()
+    var image4square: ImageSquare4Template! = ImageSquare4Template()
+    var image5square: ImageSquare5Template! = ImageSquare5Template()
+    var image6square: ImageSquare6Template! = ImageSquare6Template()
+    var image7square: ImageSquare7Template! = ImageSquare7Template()
     
-    var image0potrait: ImagePotrait1Template!
-    var image1potrait: ImagePotrait1Template!
-    var image2potrait: ImagePotrait2Template!
+    var image0squareForSend: ImageSquare1Template! = ImageSquare1Template()
+    var image1squareForSend: ImageSquare1Template! = ImageSquare1Template()
+    var image2squareForSend: ImageSquare2Template! = ImageSquare2Template()
+    var image3squareForSend: ImageSquare3Template! = ImageSquare3Template()
+    var image4squareForSend: ImageSquare4Template! = ImageSquare4Template()
+    var image5squareForSend: ImageSquare5Template! = ImageSquare5Template()
+    var image6squareForSend: ImageSquare6Template! = ImageSquare6Template()
+    var image7squareForSend: ImageSquare7Template! = ImageSquare7Template()
+
     
+    var image0potrait: ImagePotrait1Template! = ImagePotrait1Template()
+    var image1potrait: ImagePotrait1Template! = ImagePotrait1Template()
+    var image2potrait: ImagePotrait2Template! = ImagePotrait2Template()
+    var image3potrait: ImagePotrait3Template! = ImagePotrait3Template()
+    var image4potrait: ImagePotrait4Template! = ImagePotrait4Template()
+    var image5potrait: ImagePotrait5Template! = ImagePotrait5Template()
+    var image6potrait: ImagePotrait6Template! = ImagePotrait6Template()
     
+    var image0potraitForSend: ImagePotrait1Template! = ImagePotrait1Template()
+    var image1potraitForSend: ImagePotrait1Template! = ImagePotrait1Template()
+    var image2potraitForSend: ImagePotrait2Template! = ImagePotrait2Template()
+    var image3potraitForSend: ImagePotrait3Template! = ImagePotrait3Template()
+    var image4potraitForSend: ImagePotrait4Template! = ImagePotrait4Template()
+    var image5potraitForSend: ImagePotrait5Template! = ImagePotrait5Template()
+    var image6potraitForSend: ImagePotrait6Template! = ImagePotrait6Template()
+
     
-    var collectionUIView = [UIView]()
-    
-    
-    
+
     lazy var customizeTemplateView: UIView = {
         let view = UIView()
         view.backgroundColor = Theme.current.accentColor
@@ -83,11 +106,7 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
         view.isUserInteractionEnabled = true
         return view
     }()
-    
-    
-    var templatePickedView: UIView!
-    
-    
+
     var customizeTemplateTitle : UILabel = {
         let label = UILabel()
         label.text = "CUSTOMIZE TEMPLATE"
@@ -201,7 +220,7 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //print("apakah potrait", isPotrait)
+
 
         navigationController?.navigationBar.barTintColor = Theme.current.backgroundColor
         navigationItem.largeTitleDisplayMode = .never
@@ -211,52 +230,15 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        
-        
-        self.image0square = ImageSquare1Template()
-        self.image1square = ImageSquare1Template()
-        self.image2square = ImageSquare2Template()
-        
-        self.image0potrait = ImagePotrait1Template()
-        self.image1potrait = ImagePotrait1Template()
-        self.image2potrait = ImagePotrait2Template()
-        
-        //self.collectionUIView = [self.image0, self.image1, self.image2]
-        
-        if isPotrait == true {
-            
-            switch templatePicked {
-            case 1:
-                self.templatePickedView = self.image1potrait
-            case 2:
-                self.templatePickedView = self.image2potrait
-            default:
-                self.templatePickedView = self.image1potrait
-            }
-            
-        } else {
-            switch templatePicked {
-            case 1:
-                self.templatePickedView = self.image1square
-            case 2:
-                self.templatePickedView = self.image2square
-            default:
-                self.templatePickedView = self.image1square
-            }
-        }
-
-        
-        
-        
-        
-        
-        
+       
+        fillTemplatePickedView()
         titleTextField.delegate = self
-        //descTextField.delegate = self
-        
+
         yourDesignCVModel = YourDesignCVModel.getDummyData()
         potraitTemplateModel = PotraitTemplateModel.getDummyData()
         squareTemplateModel = SquareTemplateModel.getDummyData()
+        
+        fillWaveformPosition()
         
         colorBoxTopAnchor1 = colorPickerTitle.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 24)
         colorBoxTopAnchor2 = colorPickerTitle.topAnchor.constraint(equalTo: uploadButton.bottomAnchor, constant: 24)
@@ -267,35 +249,45 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
         setupScrollView()
         setupLayout()
         
-        //print("adakah TF1", squareTemplateSelected?.isTextField1)
-
-        
-        //collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
     }
     
     @objc func chooseButton() {
         
-        print(designReadyDelegate)
+        
         
         UIGraphicsBeginImageContext(canvasView.frame.size)
         canvasView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
-        
-        
-        
+
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return }
         UIGraphicsEndImageContext()
         
         designReadyDelegate.isDesignPotrait(potrait: isPotrait)
         designReadyDelegate.imageReady(image: image)
         designReadyDelegate.didDesignReady(isReady: true)
-        navigationController?.popToRootViewController(animated: true)
+        designReadyDelegate.waveformColor(color: colorPicked)
+        designReadyDelegate.waveformPosition(position: waveformPosition!)
         
+        
+        
+
+        //send the image disnt have waveform for the BE
+        //fill imagepotraitforsend and dismiss the waveform
+        eraseWaveform()
+        //convert as an image
+        templatePickedViewForSend.alpha = 1
+        imageForSend = templatePickedViewForSend.asImage()
+        //make not visible in  view
+        templatePickedViewForSend.alpha = 0
+        designReadyDelegate.imageForSend(image: imageForSend!)
+        uploadedImageBox.image = imageForSend
+        uploadedImageBox.isHidden = false
+        navigationController?.popToRootViewController(animated: true)
+
     }
     
     @objc func onClickColorButton() {
         let cc = ChromaColor()
-        
         cc.selectedColorDelegate = self
         navigationController?.pushViewController(cc, animated: true)
     }
@@ -305,51 +297,273 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
     }
     
     @objc func titleTextFieldDidChange(_ textField: UITextField) {
-        //print(textField.text)
         self.titleText = textField.text ?? ""
         
     }
     
     @objc func generateButtonHandler() {
         
+        //generate the edited template
+        generateTemplateEdited()
+        templatePickedViewForSend.alpha = 0
+        
+        
+    }
+    
+    
+    func fillWaveformPosition() {
+        if isPotrait == true {
+            self.waveformPosition = potraitTemplateModel[templatePicked!].waveformPosition
+        } else {
+            self.waveformPosition = squareTemplateModel[templatePicked!].waveformPosition
+        }
+    }
+    
+    func fillTemplatePickedView() {
+        if isPotrait == true {
+            switch templatePicked {
+            case 1:
+                self.templatePickedView = self.image1potrait
+                self.templatePickedViewForSend = self.image1potraitForSend
+                self.uploadedImageBox.image = self.image1potrait.contentImage.image
+                self.titleText = self.image1potrait.titleText.text!
+            case 2:
+                self.templatePickedView = self.image2potrait
+                self.templatePickedViewForSend = self.image2potraitForSend
+                self.uploadedImageBox.image = self.image2potrait.contentImage.image
+            case 3:
+                self.templatePickedView = self.image3potrait
+                self.templatePickedViewForSend = self.image3potraitForSend
+                self.uploadedImageBox.image = self.image3potrait.contentImage.image
+                self.titleText = self.image3potrait.contentText.text!
+            case 4:
+                self.templatePickedView = self.image4potrait
+                self.templatePickedViewForSend = self.image4potraitForSend
+                self.uploadedImageBox.image = self.image4potrait.backgroundImage.image
+                self.titleText = self.image4potrait.contentText.text!
+            case 5:
+                self.templatePickedView = self.image5potrait
+                self.templatePickedViewForSend = self.image5potraitForSend
+                self.uploadedImageBox.image = self.image5potrait.backgroundImage.image
+                self.titleText = self.image5potrait.contentText.text!
+            case 6:
+                self.templatePickedView = self.image6potrait
+                self.templatePickedViewForSend = self.image6potraitForSend
+                self.uploadedImageBox.image = self.image6potrait.contentImage.image
+                self.titleText = self.image6potrait.contentText.text!
+            default:
+                self.templatePickedView = self.image1potrait
+                self.templatePickedViewForSend = self.image1potraitForSend
+                self.uploadedImageBox.image = self.image1potrait.contentImage.image
+                self.titleText = self.image1potrait.titleText.text!
+            }
+            
+        } else {
+            switch templatePicked {
+            case 1:
+                self.templatePickedView = self.image1square
+                self.templatePickedViewForSend = self.image1squareForSend
+                self.uploadedImageBox.image = self.image1square.contentImage.image
+            case 2:
+                self.templatePickedView = self.image2square
+                self.templatePickedViewForSend = self.image2squareForSend
+                self.uploadedImageBox.image = self.image2square.contentImage.image
+                self.titleText = self.image2square.titleText.text!
+            case 3:
+                self.templatePickedView = self.image3square
+                self.templatePickedViewForSend = self.image3squareForSend
+                self.uploadedImageBox.image = self.image3square.contentImage.image
+            case 4:
+                self.templatePickedView = self.image4square
+                self.templatePickedViewForSend = self.image4squareForSend
+                self.uploadedImageBox.image = self.image4square.contentImage.image
+                self.titleText = self.image4square.contentText.text!
+            case 5:
+                self.templatePickedView = self.image5square
+                self.templatePickedViewForSend = self.image5squareForSend
+                self.uploadedImageBox.image = self.image5square.backgroundImage.image
+                self.titleText = self.image5square.contentText.text!
+            case 6:
+                self.templatePickedView = self.image6square
+                self.templatePickedViewForSend = self.image6squareForSend
+                self.uploadedImageBox.image = self.image6square.backgroundImage.image
+                self.titleText = self.image6square.contentText.text!
+            case 7:
+                self.templatePickedView = self.image7square
+                self.templatePickedViewForSend = self.image7squareForSend
+                self.uploadedImageBox.image = self.image7square.contentImage.image
+                self.titleText = self.image7square.contentText.text!
+                self.titleText = self.image7square.contentText.text!
+            default:
+                self.templatePickedView = self.image1square
+                self.templatePickedViewForSend = self.image1squareForSend
+                self.uploadedImageBox.image = self.image1square.contentImage.image
+                
+            }
+        }
+    }
+    
+    func eraseWaveform() {
         
         if isPotrait == true {
             switch templatePicked {
             case 1:
+                self.image1potraitForSend.contentImage.image = uploadedImageBox.image
+                self.image1potraitForSend.titleText.text = titleText
+                self.image1potraitForSend.waveformImage.isHidden = true
+            case 2:
+                self.image2potraitForSend.contentImage.image = uploadedImageBox.image
+                //                   self.image2potraitForSend.titleText.text = titleText
+                self.image2potraitForSend.waveformImage.isHidden = true
+            case 3:
+                self.image3potraitForSend.contentImage.image = uploadedImageBox.image
+                self.image3potraitForSend.contentText.text = titleText
+                self.image3potraitForSend.waveformImage.isHidden = true
+            case 4:
+                self.image4potraitForSend.backgroundImage.image = uploadedImageBox.image
+                self.image4potraitForSend.contentText.text = titleText
+                self.image4potraitForSend.waveformImage.isHidden = true
+            case 5:
+                self.image5potraitForSend.backgroundImage.image = uploadedImageBox.image
+                self.image5potraitForSend.contentText.text = titleText
+                self.image5potraitForSend.waveformImage.isHidden = true
+            case 6:
+                self.image6potraitForSend.contentImage.image = uploadedImageBox.image
+                self.image6potraitForSend.contentText.text = titleText
+                self.image6potraitForSend.waveformImage.isHidden = true
+            default:
+                self.image1potraitForSend.contentImage.image = uploadedImageBox.image
+                self.image1potraitForSend.titleText.text = titleText
+                self.image1potraitForSend.waveformImage.isHidden = true
+            }
+        } else {
+            switch templatePicked {
+            case 1:
+                self.image1squareForSend.contentImage.image = uploadedImageBox.image
+                self.image1squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image1squareForSend.waveformImage.isHidden = true
+            case 2:
+                self.image2squareForSend.contentImage.image = uploadedImageBox.image
+                self.image2squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image2squareForSend.titleText.text = titleText
+                self.image2squareForSend.waveformImage.isHidden = true
+            case 3:
+                self.image3squareForSend.contentImage.image = uploadedImageBox.image
+                self.image3squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image3squareForSend.waveformImage.isHidden = true
+            case 4:
+                self.image4squareForSend.contentImage.image = uploadedImageBox.image
+                self.image4squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image4squareForSend.contentText.text = titleText
+                self.image4squareForSend.waveformImage.isHidden = true
+            case 5:
+                self.image5squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image5squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image5squareForSend.contentText.text = titleText
+                self.image5squareForSend.waveformImage.isHidden = true
+            case 6:
+                self.image6squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image6squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image6squareForSend.contentText.text = titleText
+                self.image6squareForSend.waveformImage.isHidden = true
+            case 7:
+                self.image7squareForSend.contentImage.image = uploadedImageBox.image
+                self.image7squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image7squareForSend.contentText.text = titleText
+                self.image7squareForSend.waveformImage.isHidden = true
+                
+            default:
+                self.image1squareForSend.contentImage.image = uploadedImageBox.image
+                self.image1squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image1squareForSend.waveformImage.isHidden = true
+            }
+        }
+    }
+    
+    func generateTemplateEdited() {
+        if isPotrait == true {
+            switch templatePicked {
+            case 1:
                 self.image1potrait.contentImage.image = uploadedImageBox.image
-                //self.image1potrait.backgroundImage.image = uploadedImageBox.image
                 self.image1potrait.waveformImage.setImageColor(color: colorPicked)
                 self.image1potrait.titleText.text = titleText
             case 2:
                 self.image2potrait.contentImage.image = uploadedImageBox.image
-                //self.image2potrait.backgroundImage.image = uploadedImageBox.image
-                self.image2potrait.titleText.text = titleText
                 self.image2potrait.waveformImage.setImageColor(color: colorPicked)
+            case 3:
+                self.image3potrait.contentImage.image = uploadedImageBox.image
+                self.image3potrait.waveformImage.setImageColor(color: colorPicked)
+                self.image3potrait.contentText.text = titleText
+            case 4:
+                self.image4potrait.backgroundImage.image = uploadedImageBox.image
+                self.image4potrait.waveformImage.setImageColor(color: colorPicked)
+                self.image4potrait.contentText.text = titleText
+            case 5:
+                self.image5potrait.backgroundImage.image = uploadedImageBox.image
+                self.image5potrait.waveformImage.setImageColor(color: colorPicked)
+                self.image5potrait.contentText.text = titleText
+            case 6:
+                self.image6potrait.contentImage.image = uploadedImageBox.image
+                self.image6potrait.waveformImage.setImageColor(color: colorPicked)
+                self.image6potrait.contentText.text = titleText
             default:
                 self.image1potrait.contentImage.image = uploadedImageBox.image
-                //self.image1potrait.backgroundImage.image = uploadedImageBox.image
                 self.image1potrait.waveformImage.setImageColor(color: colorPicked)
                 self.image1potrait.titleText.text = titleText
             }
         } else {
-                switch templatePicked {
-                case 1:
-                    self.image1square.contentImage.image = uploadedImageBox.image
-                    self.image1square.backgroundImage.image = uploadedImageBox.image
-                    self.image1square.waveformImage.setImageColor(color: colorPicked)
-                case 2:
-                    self.image2square.contentImage.image = uploadedImageBox.image
-                    self.image2square.backgroundImage.image = uploadedImageBox.image
-                    self.image2square.titleText.text = titleText
-                    self.image2square.waveformImage.setImageColor(color: colorPicked)
-                default:
-                    self.image1square.contentImage.image = uploadedImageBox.image
-                    self.image1square.backgroundImage.image = uploadedImageBox.image
-                    self.image1square.waveformImage.setImageColor(color: colorPicked)
-                }
+            switch templatePicked {
+            case 1:
+                self.image1square.contentImage.image = uploadedImageBox.image
+                self.image1square.backgroundImage.image = uploadedImageBox.image
+                self.image1square.waveformImage.setImageColor(color: colorPicked)
+                
+                self.image1squareForSend.contentImage.image = uploadedImageBox.image
+                self.image1squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image1squareForSend.waveformImage.isHidden = true
+            case 2:
+                self.image2square.contentImage.image = uploadedImageBox.image
+                self.image2square.backgroundImage.image = uploadedImageBox.image
+                self.image2square.titleText.text = titleText
+                self.image2square.waveformImage.setImageColor(color: colorPicked)
+                
+                self.image2squareForSend.contentImage.image = uploadedImageBox.image
+                self.image2squareForSend.backgroundImage.image = uploadedImageBox.image
+                self.image2squareForSend.titleText.text = titleText
+                self.image2squareForSend.waveformImage.isHidden = true
+            case 3:
+                self.image3square.contentImage.image = uploadedImageBox.image
+                self.image3square.backgroundImage.image = uploadedImageBox.image
+                self.image3square.waveformImage.setImageColor(color: colorPicked)
+            case 4:
+                self.image4square.contentImage.image = uploadedImageBox.image
+                self.image4square.backgroundImage.image = uploadedImageBox.image
+                self.image4square.contentText.text = titleText
+                self.image4square.waveformImage.setImageColor(color: colorPicked)
+            case 5:
+                self.image5square.backgroundImage.image = uploadedImageBox.image
+                self.image5square.backgroundImage.image = uploadedImageBox.image
+                self.image5square.contentText.text = titleText
+                self.image5square.waveformImage.setImageColor(color: colorPicked)
+            case 6:
+                self.image6square.backgroundImage.image = uploadedImageBox.image
+                self.image6square.backgroundImage.image = uploadedImageBox.image
+                self.image6square.contentText.text = titleText
+                self.image6square.waveformImage.setImageColor(color: colorPicked)
+            case 7:
+                self.image7square.contentImage.image = uploadedImageBox.image
+                self.image7square.backgroundImage.image = uploadedImageBox.image
+                self.image7square.contentText.text = titleText
+                self.image7square.waveformImage.setImageColor(color: colorPicked)
+                
+            default:
+                self.image1square.contentImage.image = uploadedImageBox.image
+                self.image1square.backgroundImage.image = uploadedImageBox.image
+                self.image1square.waveformImage.setImageColor(color: colorPicked)
             }
-            
         }
+
+    }
         
         
 
@@ -371,14 +585,12 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
         scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        //scrollView.isScrollEnabled = true
         
         scrollView.addSubview(contentView)
         contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        //contentView.heightAnchor.constraint(equalToConstant: 1000).isActive = true
         
         if isPotrait == true {
             contentView.heightAnchor.constraint(equalToConstant: 1300).isActive = true
@@ -388,7 +600,7 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
         }
     }
     
-//
+
     
     func setupLayout() {
         
@@ -404,20 +616,19 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
         canvasView.widthAnchor.constraint(equalToConstant: 374).isActive = true
         canvasView.centerXAnchor.constraint(equalTo: topContainer.centerXAnchor, constant: 0).isActive = true
         canvasView.topAnchor.constraint(equalTo: topContainer.topAnchor, constant: 24).isActive = true
-        //canvasView.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor, constant: 0).isActive = true
+
         if isPotrait == true {
             heightConstraintPotrait?.isActive = true
         } else {
             heightConstraintSquare?.isActive = true
         }
-        
 
-        
-//        canvasView.addSubview(image2)
-//        image2.anchor(top: canvasView.topAnchor, bottom: canvasView.bottomAnchor, leading: canvasView.leadingAnchor, trailing: canvasView.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeading: 0, marginTrailing: 0, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         
         canvasView.addSubview(templatePickedView)
         templatePickedView.anchor(top: canvasView.topAnchor, bottom: canvasView.bottomAnchor, leading: canvasView.leadingAnchor, trailing: canvasView.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeading: 0, marginTrailing: 0, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+        
+        canvasView.addSubview(templatePickedViewForSend)
+        templatePickedViewForSend.anchor(top: canvasView.topAnchor, bottom: canvasView.bottomAnchor, leading: canvasView.leadingAnchor, trailing: canvasView.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeading: 0, marginTrailing: 0, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         
         
         contentView.addSubview(customizeTemplateView)
@@ -444,9 +655,6 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
         
         customizeTemplateView.addSubview(colorPickerTitle)
         colorPickerTitle.translatesAutoresizingMaskIntoConstraints = false
-        
-        print("square textfield", squareTemplateSelected?.isTextField1)
-        print("potrait textfield", potraitTemplateSelected?.isTextField1)
         
         if squareTemplateSelected?.isTextField1 == true || potraitTemplateSelected?.isTextField1 == true {
             colorBoxTopAnchor1?.isActive = true
@@ -485,7 +693,6 @@ extension EditTemplateViewController : UITextFieldDelegate {
 
 extension EditTemplateViewController: colorPickedChromaDelegate {
     func didColorChoices(color: UIColor) {
-        print("Color in ViewController", color)
         colorBox.backgroundColor = color
         self.colorPicked = color
     }
@@ -513,7 +720,11 @@ extension EditTemplateViewController : UIImagePickerControllerDelegate {
     func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.allowsEditing = true
+        if isPotrait == false {
+            imagePicker.allowsEditing = true
+        } else {
+            imagePicker.allowsEditing = false
+        }
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }

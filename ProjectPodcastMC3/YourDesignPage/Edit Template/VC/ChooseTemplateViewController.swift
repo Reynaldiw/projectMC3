@@ -89,7 +89,6 @@ class ChooseTemplateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //print("apakah potrait", isPotrait)
         view.backgroundColor = .red
         navigationController?.navigationBar.barTintColor = Theme.current.backgroundColor
         navigationItem.largeTitleDisplayMode = .never
@@ -103,23 +102,24 @@ class ChooseTemplateViewController: UIViewController {
         potraitTemplateModel = PotraitTemplateModel.getDummyData()
         squareTemplateModel = SquareTemplateModel.getDummyData()
         
-//        print(squareTemplateModel)
         
         heightConstraintSquare =  canvasView.heightAnchor.constraint(equalToConstant: 320)
         heightConstraintPotrait =  canvasView.heightAnchor.constraint(equalToConstant: 568)
         setupLayout()
         setupCollectionView()
         
-        //collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
     }
     
     @objc func chooseButton() {
         let etvc = EditTemplateViewController()
         etvc.isPotrait = isPotrait
         etvc.designReadyDelegate = designReadyDelegate
+        
         if isPotrait == true {
             etvc.templatePicked = potraitTemplateSelectedNumber
             etvc.potraitTemplateSelected = potraitTemplateSelected
+            
+            
             if potraitTemplateSelectedNumber != 0 {
                 navigationController?.pushViewController(etvc, animated: true)
             }
@@ -137,8 +137,6 @@ class ChooseTemplateViewController: UIViewController {
     func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-//        collectionView.register(YourDesignViewCell.self, forCellWithReuseIdentifier: yourDesignViewCell)
-//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
         collectionView.register(PotraitTemplateViewCell.self, forCellWithReuseIdentifier: potraitTemplateCell)
         collectionView.register(SquareTemplateViewCell.self, forCellWithReuseIdentifier: squareTemplateCell)
         
@@ -180,17 +178,6 @@ class ChooseTemplateViewController: UIViewController {
         
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 }
 

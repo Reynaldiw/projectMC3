@@ -17,7 +17,7 @@ struct YourDesignCVModel {
         var result = [YourDesignCVModel]()
         let template = YourDesignCVModel(imageUrl: "template", title: "template", isClickable: true)
         let image = YourDesignCVModel(imageUrl: "image", title: "image", isClickable: false)
-        let waveform = YourDesignCVModel(imageUrl: "waveform", title: "waveform", isClickable: false)
+        let waveform = YourDesignCVModel(imageUrl: "waveformLogo", title: "waveform", isClickable: false)
         let text = YourDesignCVModel(imageUrl: "text", title: "text", isClickable: false)
         let background = YourDesignCVModel(imageUrl: "background", title: "background", isClickable: false)
         

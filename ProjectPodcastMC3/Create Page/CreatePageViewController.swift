@@ -23,7 +23,35 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
     fileprivate var audioButtonTrailingAnchor: NSLayoutConstraint?
     fileprivate var audioButtonHeightAnchor: NSLayoutConstraint?
     
+    var forSendImage: UIImage?
+    var forSendWaveformPosition: String?
+    var forSendWaveformColor: String?
+    var forSendOrientation: String?
+    
 
+    //navbar
+    lazy var backButton: UIButton = {
+        let btn = UIButton()
+        
+        
+        let image = UIImage(systemName:"chevron.left")
+        btn.setImage(image, for: .normal)
+        btn.imageView?.contentMode = .scaleAspectFit
+        btn.imageEdgeInsets = UIEdgeInsets(top:0, left:0, bottom:0, right:0)
+        btn.tintColor = Theme.current.blueColor
+        
+        
+        btn.setTitle("Home Page", for: .normal)
+        btn.titleEdgeInsets = UIEdgeInsets(top:0, left:0, bottom:0, right:-30)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        //btn.titleLabel?.textColor = Theme.current.blueColor
+        btn.setTitleColor(Theme.current.blueColor, for: .normal)
+        
+        btn.addTarget(self, action: #selector(handleHomepage), for: .touchUpInside)
+        
+        
+        return btn
+    }()
     
     
     
@@ -53,9 +81,7 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         
         let img = UIImageView()
         img.image = UIImage(named: "podcast")
-        //img.isUserInteractionEnabled = true
-        //img.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickDesignButton)))
-        
+
         return img
     }()
     
@@ -200,13 +226,13 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
 
         view.backgroundColor = Theme.current.backgroundColor
-        //view.backgroundColor = UIColor.white
-       // navigationController?.navigationBar.barTintColor = Theme.current.backgroundColor
+
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController!.navigationBar.barStyle = .black
         
-        //navigationController?.navigationItem.title = "cekcek"
-        //self.navigationController!.navigationBar.isTranslucent = true
+        let item = UIBarButtonItem(customView: backButton)
+        self.navigationItem.setLeftBarButtonItems([item], animated: true)
+
         navigationItem.title = "Create Page"
         dynamicAnchor()
         setupLayout()
@@ -245,6 +271,13 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         
     }
     
+    @objc func handleHomepage() {
+        let navController: UINavigationController = UINavigationController()
+        navController.viewControllers = [MainTabBarController()]
+        UIApplication.shared.windows.first?.rootViewController = navController
+        
+        print("clik")
+    }
     
     
     
@@ -349,21 +382,37 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
 
 
 extension CreateViewController: designReadyDelegate {
+    func waveformColor(color: UIColor) {
+        let hexString = color.toHexString()
+        self.forSendWaveformColor = hexString
+    }
+    
+    func waveformPosition(position: String) {
+        self.forSendWaveformPosition = position
+    }
+    
+    func imageForSend(image: UIImage) {
+        self.forSendImage = image
+    }
+    
     
     
     func isDesignPotrait(potrait: Bool) {
         if potrait == false {
+            self.forSendOrientation = "square"
             designResultHeightAnchor1?.isActive = false
             designResultHeightAnchor2?.isActive = true
+            
         } else {
+            self.forSendOrientation = "potrait"
             designResultHeightAnchor2?.isActive = false
             designResultHeightAnchor1?.isActive = true
-            
         }
     }
     
     func imageReady(image: UIImage) {
         designResultImage.image = image
+
     }
     
     func didDesignReady(isReady: Bool) {
