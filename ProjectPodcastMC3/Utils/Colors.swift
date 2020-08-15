@@ -18,4 +18,5 @@ struct Colors {
     static let BG_EDIT_SEGMENT = UIColor(red: 0.11, green: 0.11, blue: 0.12, alpha: 1.00)
     static let BG_LINE = UIColor(red: 0.33, green: 0.33, blue: 0.35, alpha: 1.00)
     static let BG_SEGMENT_CELL = UIColor(red: 0.23, green: 0.22, blue: 0.32, alpha: 1.00)
+    
 }

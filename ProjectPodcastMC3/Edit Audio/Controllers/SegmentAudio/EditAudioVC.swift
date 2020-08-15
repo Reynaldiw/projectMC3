@@ -161,7 +161,8 @@ class EditAudioVC: UIViewController {
         var resultSegmets = [SegmentModel]()
         
         self.editAudioView.showLoading()
-        editAudioView.loadingCustomView.messageLabel.text = "Please wait, Rendering.. Do Not leave the screen" 
+        editAudioView.loadingCustomView.messageLabel.text = "Please wait, Rendering.. Do Not leave the screen"
+        self.navigationItem.hidesBackButton = true
         
         DispatchQueue.global(qos: .background).async {
             // Donwload The SOurce of Audio
@@ -197,6 +198,7 @@ class EditAudioVC: UIViewController {
                             DispatchQueue.main.async {
                                 self.editAudioView.removeLoading()
                                 createAlertAndShowAlert(title: "Warning", message: "Cant trim audio", actionName: "Cancel", caller: self, handler: nil)
+                                self.navigationItem.hidesBackButton = false
                                 print(message)
                             }
                             return
@@ -205,6 +207,7 @@ class EditAudioVC: UIViewController {
                         DispatchQueue.main.async {
                             self.editAudioView.removeLoading()
                             createAlertAndShowAlert(title: "Warning", message: "Error, Doesnt have a range time", actionName: "Cancel", caller: self, handler: nil)
+                            self.navigationItem.hidesBackButton = false
                         }
                         return
                     }
@@ -213,6 +216,7 @@ class EditAudioVC: UIViewController {
                 DispatchQueue.main.async {
                     self.editAudioView.removeLoading()
                     createAlertAndShowAlert(title: "ERROR", message: "Cant Rendering Segment", actionName: "Okay!", caller: self, handler: nil)
+                    self.navigationItem.hidesBackButton = false
                 }
                 return
             }
