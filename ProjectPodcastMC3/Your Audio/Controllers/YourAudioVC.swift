@@ -25,6 +25,8 @@ class YourAudioVC: UIViewController {
     @IBOutlet weak var loadingEpisodeView: UIActivityIndicatorView!
     
     var audioView: YourAudioView { self.view as! YourAudioView }
+    var loadingCustomView = CustomLoadingView()
+    
     var designDelegate: designReadyDelegate?
     var seacrhPodcastView: SearchPodcastView!
     var uploadAudioView: UploadAudioView!
@@ -57,6 +59,8 @@ class YourAudioVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initInterfaceComponent()
+        
+        self.hideKeyboardWhenTappedAround()
         
         registerCell()
     }
@@ -215,11 +219,12 @@ extension YourAudioVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             guard let id = model?._id else { return }
             self.doGetEpisodesById(id: id)
         } else if collectionView == episodeCollectionView {
+            
             let model = episodeModels?[indexPath.row]
-            
             guard let url = model?._audioURL else { return }
+            print(url)
             
-            PreviewAudioWireframe.performToPreviewAudio(caller: self, urlAudio: URL(string: url)!)
+            PreviewAudioWireframe.performToPreviewAudio(durationSeconds: model?._audioLengthSec, caller: self, urlAudio: URL(string: url)!)
         }
     }
     

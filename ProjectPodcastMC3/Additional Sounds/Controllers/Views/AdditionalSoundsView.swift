@@ -25,6 +25,8 @@ class AdditionalSoundsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        backgroundColor = Colors.BG_SCREEN_DARK_PURPLE
+        
         setupViews()
         setupConstraints()
     }
@@ -34,7 +36,7 @@ class AdditionalSoundsView: UIView {
     }
     
     private func setupConstraints() {
-        
+        addtionalSoundsCV.anchor(top: safeAreaLayoutGuide.topAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, marginTop: 25, marginBottom: -10, marginLeading: 0, marginTrailing: 0, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
     }
     
     required init?(coder: NSCoder) {

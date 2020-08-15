@@ -10,6 +10,8 @@ import UIKit
 
 class EditAudioView: UIView {
     
+    lazy var loadingCustomView = CustomLoadingView()
+    
     lazy var doneButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = Colors.PURPLE_COLOR
@@ -151,6 +153,18 @@ class EditAudioView: UIView {
         
         setupView()
         setupConstraints()
+    }
+    
+    func showLoading() {
+        addSubview(loadingCustomView)
+        loadingCustomView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        loadingCustomView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        loadingCustomView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        loadingCustomView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    }
+    
+    func removeLoading() {
+        loadingCustomView.removeFromSuperview()
     }
     
     private func setupView() {
