@@ -224,7 +224,7 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         view.backgroundColor = Theme.current.backgroundColor
 
         navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController!.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.barStyle = .black
         
         let item = UIBarButtonItem(customView: backButton)
         self.navigationItem.setLeftBarButtonItems([item], animated: true)
@@ -244,7 +244,7 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         designResultCenterXAnchor = designResultImage.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0)
         audioButtonTopAnchor1 = audioButtonView.topAnchor.constraint(equalTo: designButtonView.bottomAnchor, constant: 20)
         audioButtonTopAnchor2 = audioButtonView.topAnchor.constraint(equalTo: designResultImage.bottomAnchor, constant: 20)
-        
+
         audioButtonLeadingAnchor = audioButtonView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         audioButtonTrailingAnchor = audioButtonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         audioButtonHeightAnchor = audioButtonView.heightAnchor.constraint(equalToConstant: 95)
@@ -341,7 +341,6 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         audioButtonView.addSubview(confirmAudioButton)
         confirmAudioButton.anchor(top: audioButtonView.topAnchor, bottom: nil, leading: titleAudioButton.trailingAnchor, trailing: nil, marginTop: 16, marginBottom: 0, marginLeading: 10, marginTrailing: 0, width: 21, height: 21, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         
-        
         //Preview Audio
         if isAudioReady == true {
             view.addSubview(audioResultView)
@@ -379,6 +378,7 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
 
 
 extension CreateViewController: designReadyDelegate {
+    
     func waveformColor(color: UIColor) {
         let hexString = color.toHexString()
         self.forSendWaveformColor = hexString
@@ -433,6 +433,24 @@ extension CreateViewController: designReadyDelegate {
             audioButtonTrailingAnchor?.isActive = true
             audioButtonHeightAnchor?.isActive = true
         }
+    }
+    
+    func didAudioReady(isReady: Bool) {
+        self.isAudioReady = isReady
+        if isAudioReady {
+            view.addSubview(audioResultView)
+            audioResultView.anchor(top: audioButtonView.bottomAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, marginTop: 20, marginBottom: 0, marginLeading: 20, marginTrailing: -20, width: 0, height: 95, centerX: view.centerXAnchor, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+            confirmAudioButton.isHidden = false
+            audioResultView.isHidden = false
+        } else {
+            confirmAudioButton.isHidden = true
+            audioResultView.isHidden = true
+            audioResultView.removeFromSuperview()
+        }
+    }
+    
+    func audioReady(url: [SegmentModel]) {
+        print("URL Result: \(url)")
     }
 
 }

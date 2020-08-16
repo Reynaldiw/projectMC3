@@ -24,6 +24,8 @@ class PreviewAudioVC: UIViewController {
     var previewAudioView: PreviewAudioView { self.view as! PreviewAudioView }
     var customSheetView: CustomActionSheet = CustomActionSheet()
     var loadingCustomView: CustomLoadingView = CustomLoadingView()
+    
+    var designReadyDelegate: designReadyDelegate!
 
     var player: AVPlayer!
     var isPlaying = false
@@ -140,6 +142,109 @@ class PreviewAudioVC: UIViewController {
     }
 
     @objc private func saveButtonPressed(_ sender: Any) {
+        if let player = player, let localPlayer = audioPlayer {
+            if player.rate != 0 || localPlayer.isPlaying {
+                player.pause()
+            }
+        }
+                
+        if segmentModels.count != 0 {
+            if segmentModels.count == 1 {
+                splitAudio()
+            } else if segmentModels.count > 1 {
+                showAlertToMergeOrSplit(title: "Merge Or Split", message: "What do you want to do with this file ?")
+            }
+        } else {
+            createAlertAndShowAlert(title: "Warning", message: "You have to fill the segment first!", actionName: "Okay, Got it", caller: self, handler: nil)
+        }
+    }
+    
+    private func showAlertToMergeOrSplit(title: String?, message: String?) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        controller.addAction(UIAlertAction(title: "Merge", style: .default, handler: { (action) in
+            
+            var urls = [URL]()
+
+            for i in 0..<self.segmentModels.count {
+                
+                let segmentModel = self.segmentModels[i]
+
+                if segmentModel.typeSegment == .AddtionalAudio {
+                    if let additionalURLAudio = segmentModel.urlAdditionalAudio {
+                        urls.append(additionalURLAudio)
+                    }
+                } else {
+                    if let urlAudio = segmentModel.urlSegment {
+                        urls.append(urlAudio)
+                    }
+                }
+            }
+            self.mergeAudio(urls: urls, fileName: "Merge Audio: \(EditAudioRepository.getNumberForFileManager())")
+            
+        }))
+        
+        controller.addAction(UIAlertAction(title: "Split", style: .default, handler: { (action) in
+            self.splitAudio()
+        }))
+        
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    private func mergeAudio(urls: [URL], fileName: String) {
+        
+        EditAudioRepository.merge(audioFilesURL: urls, fileName: fileName, successExport: { (url) in
+            
+            for i in 0..<urls.count {
+                if EditAudioRepository.isFileURLExist(url: urls[i]) {
+                    EditAudioRepository.removeExistingFile(atPath: urls[i])
+                    print("URL exist")
+                }
+            }
+            
+            guard let urlAudio = self.urlAudio else { return }
+            
+            let donwloadedURL = urlAudio
+            let fileName = "\(donwloadedURL.lastPathComponent).mp3"
+            let filePath = getDirectory().appendingPathComponent(fileName)
+            
+            if EditAudioRepository.isFileURLExist(url: filePath) {
+                EditAudioRepository.removeExistingFile(atPath: filePath)
+                print("Donwloaded URL exist")
+            }
+            
+            let resultModel = SegmentModel(nameSegment: fileName, startTimeSeconds: nil, endTimeSeconds: nil, urlSegment: url, urlAdditionalAudio: nil, durationAdditionalAudio: nil, typeSegment: .EditAudio)
+            
+            DispatchQueue.main.async {
+                self.designReadyDelegate.didAudioReady(isReady: true)
+                self.designReadyDelegate.audioReady(url: [resultModel])
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+
+        }) { (message) in
+            createAlertAndShowAlert(title: "ERROR", message: "Cant Merge Audio", actionName: "Cancel", caller: self, handler: nil)
+            return
+        }
+    }
+    
+    private func splitAudio() {
+        
+        var resultSegmentModels = [SegmentModel]()
+        
+        for i in 0..<segmentModels.count {
+            
+            let segmentModel = segmentModels[i]
+            
+            if segmentModel.typeSegment == .EditAudio {
+                resultSegmentModels.append(segmentModel)
+            }
+        }
+        
+        self.designReadyDelegate.didAudioReady(isReady: true)
+        self.designReadyDelegate.audioReady(url: resultSegmentModels)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     @objc private func playPauseButtonPressed(_ sender: Any) {
@@ -168,17 +273,10 @@ class PreviewAudioVC: UIViewController {
             
             player = AVPlayer(url: safeURLAudio)
             
-//            NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: nil)
-            
         } catch {
             print(error.localizedDescription)
         }
     }
-    
-//    @objc private func playerDidFinishPlaying() {
-//        changeBGPlayPauseButton(isPlaying: isPlaying, playPauseButton: playPauseButton)
-//        isPlaying = false
-//    }
     
     private func prepareAudioPlayer(url: URL?) {
         guard let safeURLAudio = url else { return }

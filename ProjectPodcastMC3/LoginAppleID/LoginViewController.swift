@@ -96,7 +96,8 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             var authorizationCode  : String?
             if let code = appleIDCredential.authorizationCode{
                 authorizationCode = String(bytes: code, encoding: .utf8)
-                loginApple(authorizationCode!)
+//                loginApple(authorizationCode!)
+                print(authorizationCode)
             }
         
         case let passwordCredential as ASPasswordCredential:
