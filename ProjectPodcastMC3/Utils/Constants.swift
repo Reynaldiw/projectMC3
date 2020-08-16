@@ -14,4 +14,5 @@ struct Constants {
     static let KEY_SEGMENT_CELL = "SegmentCell"
     static let KEY_VIDEO_COLLECTION_CELL = "VideoCollectionCell"
     static let KEY_NUMBER_FOR_FILEMANAGER = "Number Ordered"
+    static let KEY_UID_KEYCHAIN = "UID"
 }

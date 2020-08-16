@@ -71,9 +71,9 @@ class YourAudioVC: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-//        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController!.navigationBar.shadowImage = UIImage()
-//        self.navigationController!.navigationBar.isTranslucent = true
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
     }
     
     private func initInterfaceComponent() {
@@ -225,7 +225,7 @@ extension YourAudioVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             guard let url = model?._audioURL else { return }
             print(url)
             
-            PreviewAudioWireframe.performToPreviewAudio(durationSeconds: model?._audioLengthSec, caller: self, urlAudio: URL(string: url)!)
+            PreviewAudioWireframe.performToPreviewAudio(durationSeconds: model?._audioLengthSec, delegate: designDelegate ,caller: self, urlAudio: URL(string: url)!)
         }
     }
     
@@ -301,7 +301,7 @@ extension YourAudioVC: UIDocumentPickerDelegate {
         let duration = Int(durationAsset)
         print(duration)
         
-        PreviewAudioWireframe.performToPreviewAudio(durationSeconds: duration, caller: self, urlAudio: urls.first)
+        PreviewAudioWireframe.performToPreviewAudio(durationSeconds: duration, delegate: designDelegate ,caller: self, urlAudio: urls.first)
         
     }
 }

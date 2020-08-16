@@ -19,6 +19,8 @@ class LoginWorker {
             case .success(_):
                 let loginResponseJSON: JSON = JSON(response.value ?? "")
                 
+                let uid = loginResponseJSON["id"].string
+                                
                 onSuccess("code")
             case .failure(let error):
                 onFailed(error.localizedDescription)

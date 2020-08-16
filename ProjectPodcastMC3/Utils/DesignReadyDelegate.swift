@@ -15,4 +15,6 @@ protocol designReadyDelegate: class {
     func imageForSend(image: UIImage)
     func waveformColor(color: UIColor)
     func waveformPosition(position: String)
+    func didAudioReady(isReady: Bool)
+    func audioReady(url: [SegmentModel])
 }
