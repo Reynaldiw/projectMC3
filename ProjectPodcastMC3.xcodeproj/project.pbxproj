@@ -181,7 +181,7 @@
 		532119F324E7FFAF00458E28 /* planet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = planet.mp3; sourceTree = "<group>"; };
 		532119F424E7FFAF00458E28 /* Car_Door_Closing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Car_Door_Closing.mp3; sourceTree = "<group>"; };
 		532119F524E7FFAF00458E28 /* enjoy podcast on instagram.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "enjoy podcast on instagram.mp3"; sourceTree = "<group>"; };
-		5345EACF24CEEB8100C6FFA7 /* ProjectPodcastMC3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectPodcastMC3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5345EACF24CEEB8100C6FFA7 /* Bloop Podcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bloop Podcast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5345EAD224CEEB8100C6FFA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5345EAD424CEEB8100C6FFA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5345EAD624CEEB8100C6FFA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 		5345EAD024CEEB8100C6FFA7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5345EACF24CEEB8100C6FFA7 /* ProjectPodcastMC3.app */,
+				5345EACF24CEEB8100C6FFA7 /* Bloop Podcast.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1000,7 +1000,7 @@
 			);
 			name = ProjectPodcastMC3;
 			productName = ProjectPodcastMC3;
-			productReference = 5345EACF24CEEB8100C6FFA7 /* ProjectPodcastMC3.app */;
+			productReference = 5345EACF24CEEB8100C6FFA7 /* Bloop Podcast.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1376,7 +1376,7 @@
 				);
 				MARKETING_VERSION = 0.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.reynaldiwijaya.ProjectMC3Podcast;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bloop Podcast";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1400,7 +1400,7 @@
 				);
 				MARKETING_VERSION = 0.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.reynaldiwijaya.ProjectMC3Podcast;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bloop Podcast";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
