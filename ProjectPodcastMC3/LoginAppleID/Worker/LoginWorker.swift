@@ -63,14 +63,14 @@ class LoginWorker {
                 multipartFormData.append(dataAudio, withName: "file", fileName: fileName, mimeType: "audio/mp3")
                 multipartFormData.append(dataImage, withName: "file", fileName: imgName, mimeType: "image/png")
             }, to: url, method: .post).responseJSON { (response) in
-                print(response)
-                
-//                switch response.result {
-//                    case .success(_):
-//                        print("SUCCESS")
-//                    case .failure(let error):
-//                        print("ERROR \(error.errorDescription)")
-//                }
+                switch response.result {
+                    case .success(_):
+                        print(response)
+                        onSuccess("Success")
+                    case .failure(let error):
+                        print("ERROR \(error.errorDescription)")
+                        onFailed("ERROR \(error.errorDescription)")
+                }
             }
         }
         

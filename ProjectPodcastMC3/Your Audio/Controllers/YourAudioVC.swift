@@ -209,11 +209,12 @@ extension YourAudioVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             
             cell.thumbnailImageView.sd_setImage(with: URL(string: episodeModel?._thumbnail ?? ""))
             
-            if indexPath.row + 1 == episodeModels?.count {
-                if let nextId = episodeModel?._nextEpisodePubDate {
-                    guard let id = idPodcast else { return cell }
-                    
+            if let nextId = episodeModel?._nextEpisodePubDate {
+                guard let id = idPodcast else { return cell }
+                
+                if indexPath.row + 1 == episodeModels?.count {
                     doGetAdditionalEpisodeByNextId(id: id, idNext: String(nextId))
+
                 }
             }
             
@@ -320,7 +321,6 @@ extension YourAudioVC: PodcastResponse {
         case .addEpisodeByNextId:
             loadingEpisodeView.stopAnimating()
             loadingEpisodeView.isHidden = true
-            episodeCollectionView.isHidden = true
         }
         print(message)
     }

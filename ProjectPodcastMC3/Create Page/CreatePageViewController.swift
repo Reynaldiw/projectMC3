@@ -30,10 +30,9 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
     var forSendOrientation: String?
     var forSegmentModels: [SegmentModel]?
     
+    var refreshDataDelegate: RefreshVideoCollectionsDelegate!
     var customRenderLoading: CustomLoadingRendering!
-    
-    var isRendering = false
-    
+        
     //navbar
     lazy var backButton: UIButton = {
         let btn = UIButton()
@@ -227,15 +226,13 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
 
         view.backgroundColor = Theme.current.backgroundColor
         
-        self.customRenderLoading = CustomLoadingRendering()
-
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.barStyle = .black
         
         let item = UIBarButtonItem(customView: backButton)
         self.navigationItem.setLeftBarButtonItems([item], animated: true)
         
-        generateButton.isEnabled = true
+        generateButton.isEnabled = false
         
         navigationItem.title = "Create Page"
         dynamicAnchor()
@@ -277,10 +274,6 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
     
     @objc func handleHomepage() {
         
-        if isRendering {
-            return
-        }
-        
         let navController: UINavigationController = UINavigationController()
         navController.viewControllers = [MainTabBarController()]
         UIApplication.shared.windows.first?.rootViewController = navController
@@ -294,72 +287,77 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
             createAlertAndShowAlert(title: "Warning!", message: "You have to complete the design and audio", actionName: "Okay, Got It!", caller: self, handler: nil)
             return
         }
+    
         
         let uid = KeychainWrapper.standard.string(forKey: Constants.KEY_UID_KEYCHAIN)
-        print(uid as! String)
         
-        if uid == nil {
-            
-            self.navigationController?.present(LoginViewController(), animated: true, completion: nil)
-            
-        } else {
-                        
-            self.showLoading()
+        print(uid ?? "nil")
 
-            guard let waveformPosition = forSendWaveformPosition, let waveformColor = forSendWaveformColor, let dimension = forSendOrientation else { return }
+        if uid == nil {
+
+            self.navigationController?.present(LoginViewController(), animated: true, completion: nil)
+
+        } else {
+            
+            showLoading()
+            
+            guard let waveformPosition = self.forSendWaveformPosition, let waveformColor = self.forSendWaveformColor, let dimension = self.forSendOrientation else { return }
 
             let params: [String : String] = ["name": "Beauty", "uid": uid!, "waveformPosition" : waveformPosition, "waveformColor" : waveformColor, "dimension" : dimension]
-
+            
             var urls = [URL]()
 
             if let segmentModels = forSegmentModels {
                 for i in 0..<segmentModels.count {
                     if let url = segmentModels[i].urlSegment {
                         urls.append(url)
-
                     }
                 }
             }
-
-            var messages = [String]()
+            
+            let myGroup = DispatchGroup()
 
             for i in 0..<urls.count {
+                myGroup.enter()
+                
                 let url = urls[i]
 
                 guard let image = forSendImage else { return }
-
-                messages.append("message")
-
+                
                 LoginWorker.submitVideo(params: params, podcast: url, designImage: image, onSuccess: { (message) in
+                    print("result 1")
                     print(message)
-                    messages.append(message)
+                    myGroup.leave()
+                    
                 }) { (message) in
                     print(message)
-                    messages.append(message)
+                    myGroup.leave()
                 }
-
-                if messages.count == urls.count {
-                    DispatchQueue.main.async {
-                        self.removeLoading()
-                    }
-                } else {
-                    continue
-                }
+            }
+            
+            myGroup.notify(queue: .main) {
+                print("result success")
+                self.removeLoading()
+                self.refreshDataDelegate.refreshData()
+                let navController: UINavigationController = UINavigationController()
+                navController.viewControllers = [MainTabBarController()]
+                UIApplication.shared.windows.first?.rootViewController = navController
+                self.navigationController?.popToRootViewController(animated: true)
             }
         }
     }
     
     private func showLoading() {
-        isRendering = true
+        self.customRenderLoading = CustomLoadingRendering()
         view.addSubview(customRenderLoading)
         customRenderLoading.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeading: 0, marginTrailing: 0, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        backButton.isHidden = true
     }
     
     private func removeLoading() {
-        isRendering = false
         customRenderLoading.removeFromSuperview()
-        self.navigationItem.setHidesBackButton(false, animated: true)
+        backButton.isHidden = false
+        customRenderLoading = nil
     }
     
     func setupLayout() {
@@ -451,7 +449,7 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         view.addSubview(generateButton)
         generateButton.anchor(top: nil, bottom: view.bottomAnchor, leading: nil, trailing: nil, marginTop: 0, marginBottom: -74, marginLeading: 0, marginTrailing: 0, width: 300, height: 44, centerX: view.centerXAnchor, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         
-//        updateStatusOfGenerateButton()
+        updateStatusOfGenerateButton()
     }
     
     private func updateStatusOfGenerateButton() {

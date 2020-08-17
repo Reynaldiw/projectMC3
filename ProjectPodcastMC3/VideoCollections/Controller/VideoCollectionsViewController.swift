@@ -10,6 +10,10 @@ import UIKit
 import Photos
 import SwiftKeychainWrapper
 
+protocol RefreshVideoCollectionsDelegate {
+    func refreshData()
+}
+
 class VideoCollectionsViewController: UIViewController {
     
     var presenter: VideoCollectionsPresenterProtocol?
@@ -61,8 +65,11 @@ class VideoCollectionsViewController: UIViewController {
     }
     
     @objc func handleAddButton() {
+        let vc = CreateViewController()
+        vc.refreshDataDelegate = self
+        
         let navController: UINavigationController = UINavigationController()
-        navController.viewControllers = [CreateViewController()]
+        navController.viewControllers = [vc]
         UIApplication.shared.windows.first?.rootViewController = navController
     }
     
@@ -166,6 +173,12 @@ extension VideoCollectionsViewController: VideoCollectionsViewControllerProtocol
             self.videos = videos
             self.videoCollectionsView.videoCollectionView.reloadData()
         }
+    }
+}
+
+extension VideoCollectionsViewController: RefreshVideoCollectionsDelegate {
+    func refreshData() {
+        setupWorker()
     }
 }
 
