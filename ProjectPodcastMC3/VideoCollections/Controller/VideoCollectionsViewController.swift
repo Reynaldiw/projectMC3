@@ -75,7 +75,7 @@ class VideoCollectionsViewController: UIViewController {
         if uid == nil {
             return
         } else {
-            let params = ["uid": uid]
+            let params = ["uid": uid!]
             presenter?.getCollections(params)
         }
     }
