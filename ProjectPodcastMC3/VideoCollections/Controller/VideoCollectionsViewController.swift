@@ -70,8 +70,8 @@ class VideoCollectionsViewController: UIViewController {
     }
     
     private func setupWorker() {
-//        let uid = KeychainWrapper.standard.string(forKey: Constants.KEY_UID_KEYCHAIN)
-        let uid = "000162.8e7c7038d98a4c57a6be27e4906402be.1511"
+        let uid = KeychainWrapper.standard.string(forKey: Constants.KEY_UID_KEYCHAIN)
+        
         if uid == nil {
             return
         } else {
