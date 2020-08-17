@@ -18,5 +18,5 @@ public protocol BaseResponse : class {
 }
 
 public enum TypeOfResponse {
-    case searchPodcast, episodeById
+    case searchPodcast, episodeById, addEpisodeByNextId
 }

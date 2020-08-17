@@ -265,7 +265,6 @@ class EditTemplateViewController: UIViewController, UINavigationControllerDelega
         designReadyDelegate.isDesignPotrait(potrait: isPotrait)
         designReadyDelegate.imageReady(image: image)
         designReadyDelegate.didDesignReady(isReady: true)
-        designReadyDelegate.didAudioReady(isReady: true)
         designReadyDelegate.waveformColor(color: colorPicked)
         designReadyDelegate.waveformPosition(position: waveformPosition!)
         

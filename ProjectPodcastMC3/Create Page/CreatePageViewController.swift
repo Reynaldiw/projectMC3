@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class CreateViewController: UIViewController, UINavigationControllerDelegate {
     
@@ -27,8 +28,12 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
     var forSendWaveformPosition: String?
     var forSendWaveformColor: String?
     var forSendOrientation: String?
+    var forSegmentModels: [SegmentModel]?
     
-
+    var customRenderLoading: CustomLoadingRendering!
+    
+    var isRendering = false
+    
     //navbar
     lazy var backButton: UIButton = {
         let btn = UIButton()
@@ -212,7 +217,6 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         btn.backgroundColor = Theme.current.blueColor
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
         btn.layer.cornerRadius = 6
-        btn.alpha = 0.3
         btn.addTarget(self, action: #selector(generateVideo), for: .touchUpInside)
 
         return btn
@@ -222,13 +226,17 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
 
         view.backgroundColor = Theme.current.backgroundColor
+        
+        self.customRenderLoading = CustomLoadingRendering()
 
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.barStyle = .black
         
         let item = UIBarButtonItem(customView: backButton)
         self.navigationItem.setLeftBarButtonItems([item], animated: true)
-
+        
+        generateButton.isEnabled = true
+        
         navigationItem.title = "Create Page"
         dynamicAnchor()
         setupLayout()
@@ -268,6 +276,11 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @objc func handleHomepage() {
+        
+        if isRendering {
+            return
+        }
+        
         let navController: UINavigationController = UINavigationController()
         navController.viewControllers = [MainTabBarController()]
         UIApplication.shared.windows.first?.rootViewController = navController
@@ -276,9 +289,78 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @objc func generateVideo() {
-        self.navigationController?.present(LoginViewController(), animated: true, completion: nil)
+        if !isAudioReady || !isDesignReady {
+            print("here")
+            createAlertAndShowAlert(title: "Warning!", message: "You have to complete the design and audio", actionName: "Okay, Got It!", caller: self, handler: nil)
+            return
+        }
+        
+        let uid = KeychainWrapper.standard.string(forKey: Constants.KEY_UID_KEYCHAIN)
+        print(uid as! String)
+        
+        if uid == nil {
+            
+            self.navigationController?.present(LoginViewController(), animated: true, completion: nil)
+            
+        } else {
+                        
+            self.showLoading()
+
+            guard let waveformPosition = forSendWaveformPosition, let waveformColor = forSendWaveformColor, let dimension = forSendOrientation else { return }
+
+            let params: [String : String] = ["name": "Beauty", "uid": uid!, "waveformPosition" : waveformPosition, "waveformColor" : waveformColor, "dimension" : dimension]
+
+            var urls = [URL]()
+
+            if let segmentModels = forSegmentModels {
+                for i in 0..<segmentModels.count {
+                    if let url = segmentModels[i].urlSegment {
+                        urls.append(url)
+
+                    }
+                }
+            }
+
+            var messages = [String]()
+
+            for i in 0..<urls.count {
+                let url = urls[i]
+
+                guard let image = forSendImage else { return }
+
+                messages.append("message")
+
+                LoginWorker.submitVideo(params: params, podcast: url, designImage: image, onSuccess: { (message) in
+                    print(message)
+                    messages.append(message)
+                }) { (message) in
+                    print(message)
+                    messages.append(message)
+                }
+
+                if messages.count == urls.count {
+                    DispatchQueue.main.async {
+                        self.removeLoading()
+                    }
+                } else {
+                    continue
+                }
+            }
+        }
     }
     
+    private func showLoading() {
+        isRendering = true
+        view.addSubview(customRenderLoading)
+        customRenderLoading.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeading: 0, marginTrailing: 0, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
+    private func removeLoading() {
+        isRendering = false
+        customRenderLoading.removeFromSuperview()
+        self.navigationItem.setHidesBackButton(false, animated: true)
+    }
     
     func setupLayout() {
         designButtonLayout()
@@ -369,8 +451,16 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         view.addSubview(generateButton)
         generateButton.anchor(top: nil, bottom: view.bottomAnchor, leading: nil, trailing: nil, marginTop: 0, marginBottom: -74, marginLeading: 0, marginTrailing: 0, width: 300, height: 44, centerX: view.centerXAnchor, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         
-        if isAudioReady == true && isDesignReady == true {
+//        updateStatusOfGenerateButton()
+    }
+    
+    private func updateStatusOfGenerateButton() {
+        if isAudioReady && isDesignReady {
+            generateButton.isEnabled = true
             generateButton.alpha = 1
+        } else {
+            generateButton.isEnabled = false
+            generateButton.alpha = 0.3
         }
     }
 
@@ -414,6 +504,9 @@ extension CreateViewController: designReadyDelegate {
     
     func didDesignReady(isReady: Bool) {
         self.isDesignReady = isReady
+        
+        updateStatusOfGenerateButton()
+        
         if isDesignReady == true {
             confirmDesignButton.isHidden = false
             view.addSubview(designResultImage)
@@ -437,6 +530,9 @@ extension CreateViewController: designReadyDelegate {
     
     func didAudioReady(isReady: Bool) {
         self.isAudioReady = isReady
+        
+        updateStatusOfGenerateButton()
+        
         if isAudioReady {
             view.addSubview(audioResultView)
             audioResultView.anchor(top: audioButtonView.bottomAnchor, bottom: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, marginTop: 20, marginBottom: 0, marginLeading: 20, marginTrailing: -20, width: 0, height: 95, centerX: view.centerXAnchor, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
@@ -449,8 +545,8 @@ extension CreateViewController: designReadyDelegate {
         }
     }
     
-    func audioReady(url: [SegmentModel]) {
-        print("URL Result: \(url)")
+    func audioReady(model: [SegmentModel]) {
+        forSegmentModels = model
     }
 
 }

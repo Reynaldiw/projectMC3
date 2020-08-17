@@ -98,7 +98,6 @@ class YourDesignViewController: UIViewController {
     @objc func doneButton() {
         
         self.designReadyDelegate?.didDesignReady(isReady: isReady)
-        self.designReadyDelegate.didAudioReady(isReady: true)
         navigationController?.popToRootViewController(animated: true)
     }
     

@@ -11,11 +11,13 @@ import Foundation
 protocol PodcastRequest: BaseRequest {
     func searchPodcast(query: String)
     func doRequestEpisodeById(id: String)
+    func doRequestAdditionalEpisodeByNextId(id: String, idNext: String)
 }
 
 protocol PodcastResponse: BaseResponse {
     func displayPodcast(podcasts: [PodcastModel])
     func displayEpisode(episodes: [EpisodeModel])
+    func displayAddEpisode(episodes: [EpisodeModel])
 }
 
 struct PodcastPresent: PodcastRequest {
@@ -36,6 +38,15 @@ struct PodcastPresent: PodcastRequest {
             self.output?.displayEpisode(episodes: episodeModels)
         }) { (message) in
             self.output?.displayError(message: message, type: .episodeById)
+        }
+    }
+    
+    func doRequestAdditionalEpisodeByNextId(id: String, idNext: String) {
+        print("request Add podcast")
+        PodcastWorker.doRequestAdditionalEpisodeByNextEpsiode(id: id, idNext: idNext ,onSuccess: { (episodeModels) in
+            self.output?.displayAddEpisode(episodes: episodeModels)
+        }) { (message) in
+            self.output?.displayError(message: message, type: .addEpisodeByNextId)
         }
     }
 }

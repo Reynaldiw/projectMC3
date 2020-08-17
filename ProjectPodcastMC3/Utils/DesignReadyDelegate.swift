@@ -16,5 +16,5 @@ protocol designReadyDelegate: class {
     func waveformColor(color: UIColor)
     func waveformPosition(position: String)
     func didAudioReady(isReady: Bool)
-    func audioReady(url: [SegmentModel])
+    func audioReady(model: [SegmentModel])
 }

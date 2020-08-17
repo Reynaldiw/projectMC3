@@ -50,6 +50,25 @@ struct PodcastWorker {
         }
     }
     
+    public static func doRequestAdditionalEpisodeByNextEpsiode(id: String, idNext: String, onSuccess: @escaping(_ result: [EpisodeModel]) -> Void, onFailed: @escaping(_ message: String) -> Void) {
+        
+        AF.request(Network.doRequestAdditionalEpisodeByNextEpisode(idEpisode: id, idNextEpisode: idNext)).responseJSON { (response) in
+            switch response.result {
+            case .success(_):
+                let episodeResponseJSON: JSON = JSON(response.value ?? "")
+                
+                changeJSONToEpisodeModels(json: episodeResponseJSON, onSuccess: { (episodeModels) in
+                    onSuccess(episodeModels)
+                }) { (message) in
+                    onFailed(message)
+                }
+                
+            case .failure(let error):
+                onFailed(error.localizedDescription)
+            }
+        }
+    }
+    
     private static func changeJSONToPodcastModel(
         query: String,
         json: JSON,

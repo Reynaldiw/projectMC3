@@ -8,6 +8,7 @@ target 'ProjectPodcastMC3' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'ChromaColorPicker'
+  pod 'SwiftKeychainWrapper'
 
   # Pods for ProjectPodcastMC3
   

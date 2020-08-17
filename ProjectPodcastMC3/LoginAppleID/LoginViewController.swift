@@ -77,14 +77,6 @@ class LoginViewController: UIViewController {
             print("ERROR")
         }
     }
-    
-    func submitVideo(_ params: [String: Any]) {
-        LoginWorker.submitVideo(params: params, onSuccess: { (response) in
-            print("response", response)
-        }) { (error) in
-            print("ERROR", error)
-        }
-    }
 }
 
 extension LoginViewController: ASAuthorizationControllerDelegate {
@@ -96,8 +88,8 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             var authorizationCode  : String?
             if let code = appleIDCredential.authorizationCode{
                 authorizationCode = String(bytes: code, encoding: .utf8)
-//                loginApple(authorizationCode!)
                 print(authorizationCode)
+//                loginApple(authorizationCode!)
             }
         
         case let passwordCredential as ASPasswordCredential:

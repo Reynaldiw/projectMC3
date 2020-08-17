@@ -21,6 +21,7 @@ public enum Network: URLRequestConvertible {
     
     case searchPodcast(query: String, type: TypeOfSearch)
     case doRequestEpisodesByPodcastName(id: String)
+    case doRequestAdditionalEpisodeByNextEpisode(idEpisode: String, idNextEpisode: String)
     
     var method : HTTPMethod {
         switch self {
@@ -28,6 +29,8 @@ public enum Network: URLRequestConvertible {
             return .get
         case .doRequestEpisodesByPodcastName(_):
             return.get
+        case .doRequestAdditionalEpisodeByNextEpisode(_, _):
+            return .get
         }
     }
     
@@ -42,6 +45,8 @@ public enum Network: URLRequestConvertible {
             }
         case .doRequestEpisodesByPodcastName(_):
             return ("podcasts", nil)
+        case .doRequestAdditionalEpisodeByNextEpisode(_, let idNextEpisode):
+            return ("podcasts", ["next_episode_pub_date" : idNextEpisode])
         }
     }
     
@@ -53,6 +58,8 @@ public enum Network: URLRequestConvertible {
         
         switch self {
         case .doRequestEpisodesByPodcastName(let id):
+            url?.appendPathComponent(id)
+        case .doRequestAdditionalEpisodeByNextEpisode(let id, _):
             url?.appendPathComponent(id)
         default:
             break

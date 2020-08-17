@@ -199,8 +199,8 @@ class PreviewAudioVC: UIViewController {
             
             for i in 0..<urls.count {
                 if EditAudioRepository.isFileURLExist(url: urls[i]) {
-                    EditAudioRepository.removeExistingFile(atPath: urls[i])
                     print("URL exist")
+                    EditAudioRepository.removeExistingFile(atPath: urls[i])
                 }
             }
             
@@ -211,15 +211,15 @@ class PreviewAudioVC: UIViewController {
             let filePath = getDirectory().appendingPathComponent(fileName)
             
             if EditAudioRepository.isFileURLExist(url: filePath) {
-                EditAudioRepository.removeExistingFile(atPath: filePath)
                 print("Donwloaded URL exist")
+                EditAudioRepository.removeExistingFile(atPath: filePath)
             }
             
             let resultModel = SegmentModel(nameSegment: fileName, startTimeSeconds: nil, endTimeSeconds: nil, urlSegment: url, urlAdditionalAudio: nil, durationAdditionalAudio: nil, typeSegment: .EditAudio)
             
             DispatchQueue.main.async {
                 self.designReadyDelegate.didAudioReady(isReady: true)
-                self.designReadyDelegate.audioReady(url: [resultModel])
+                self.designReadyDelegate.audioReady(model: [resultModel])
                 self.navigationController?.popToRootViewController(animated: true)
             }
 
@@ -243,7 +243,7 @@ class PreviewAudioVC: UIViewController {
         }
         
         self.designReadyDelegate.didAudioReady(isReady: true)
-        self.designReadyDelegate.audioReady(url: resultSegmentModels)
+        self.designReadyDelegate.audioReady(model: resultSegmentModels)
         self.navigationController?.popToRootViewController(animated: true)
     }
 

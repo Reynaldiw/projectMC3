@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import SwiftKeychainWrapper
 
 class VideoCollectionsViewController: UIViewController {
     
@@ -38,8 +39,14 @@ class VideoCollectionsViewController: UIViewController {
     }
     
     private func setupWorker() {
-        let params = ["uid": "001080.11a84c8d03ad4ec59f0241755ea79696.0916"]
-        presenter?.getCollections(params)
+        let uid = KeychainWrapper.standard.string(forKey: Constants.KEY_UID_KEYCHAIN)
+        
+        if uid == nil {
+            return
+        } else {
+            let params = ["uid": uid!]
+            presenter?.getCollections(params)
+        }
     }
     
     private func setupNavigationController() {

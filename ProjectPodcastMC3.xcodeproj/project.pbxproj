@@ -88,6 +88,7 @@
 		539D188724DAA20B00585818 /* PodcastPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539D188624DAA20B00585818 /* PodcastPresent.swift */; };
 		53AD0A6424E67FD000632167 /* EditAudioRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD0A6324E67FD000632167 /* EditAudioRepository.swift */; };
 		53AD0A6724E6924200632167 /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD0A6624E6924200632167 /* CustomLoadingView.swift */; };
+		53DE269424E9631200307B66 /* CustomLoadingRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DE269324E9631200307B66 /* CustomLoadingRendering.swift */; };
 		9130ADF124E3D57E00FBFCB1 /* CreatePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130ADF024E3D57E00FBFCB1 /* CreatePageViewController.swift */; };
 		9130ADF424E3D60300FBFCB1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130ADF324E3D60200FBFCB1 /* Theme.swift */; };
 		9130ADF624E3D60F00FBFCB1 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130ADF524E3D60F00FBFCB1 /* ThemeProtocol.swift */; };
@@ -229,6 +230,7 @@
 		539D188624DAA20B00585818 /* PodcastPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastPresent.swift; sourceTree = "<group>"; };
 		53AD0A6324E67FD000632167 /* EditAudioRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAudioRepository.swift; sourceTree = "<group>"; };
 		53AD0A6624E6924200632167 /* CustomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
+		53DE269324E9631200307B66 /* CustomLoadingRendering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingRendering.swift; sourceTree = "<group>"; };
 		61E42D29FEDDB1D135C07EB8 /* Pods-ProjectPodcastMC3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectPodcastMC3.release.xcconfig"; path = "Target Support Files/Pods-ProjectPodcastMC3/Pods-ProjectPodcastMC3.release.xcconfig"; sourceTree = "<group>"; };
 		9130ADF024E3D57E00FBFCB1 /* CreatePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePageViewController.swift; sourceTree = "<group>"; };
 		9130ADF324E3D60200FBFCB1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			children = (
 				537D36F624E5A17600D6EFE4 /* CustomActionSheet.swift */,
 				53AD0A6624E6924200632167 /* CustomLoadingView.swift */,
+				53DE269324E9631200307B66 /* CustomLoadingRendering.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1152,6 +1155,7 @@
 				A4C3AD8824E55C8B00747679 /* VideoPodcastView.swift in Sources */,
 				91FBBCC424E530F60093A63B /* ImageSquare7Template.swift in Sources */,
 				9174B7EB24E421CC0071C17C /* MainTabBarController.swift in Sources */,
+				53DE269424E9631200307B66 /* CustomLoadingRendering.swift in Sources */,
 				5386CACB24DD2FD0004AD768 /* PreviewAudioWireframe.swift in Sources */,
 				3DAF339324E40E09005AE6D6 /* keychainItem.swift in Sources */,
 				9130AE0624E3E50E00FBFCB1 /* YourDesignModel.swift in Sources */,

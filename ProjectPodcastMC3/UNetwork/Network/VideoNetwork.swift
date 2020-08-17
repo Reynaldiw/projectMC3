@@ -49,10 +49,15 @@ public enum VideoNetwork: URLRequestConvertible {
         urlRequest = URLRequest(url: url!)
         urlRequest?.httpMethod = method.rawValue
         
+        print(res.params)
+        
         // Append Param
         if let params = res.params {
+            print(params)
             urlRequest = try URLEncoding.default.encode(urlRequest!, with: params)
         }
+        
+        print("urlRequest: \(urlRequest?.url)")
         
         return urlRequest!
     }

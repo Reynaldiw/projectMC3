@@ -33,6 +33,8 @@ class YourAudioVC: UIViewController {
     var uploadAudioView: UploadAudioView!
     var episodePodcastView: EpisodePodcastView!
     
+    var idPodcast: String?
+    
     private var podcastModels: [PodcastModel]? {
         didSet {
             podcastCollectionView.reloadData()
@@ -154,6 +156,13 @@ class YourAudioVC: UIViewController {
         loadingEpisodeView.startAnimating()
         request?.doRequestEpisodeById(id: id)
     }
+    
+    private func doGetAdditionalEpisodeByNextId(id: String, idNext: String) {
+        searchBar.isHidden = true
+        loadingEpisodeView.isHidden = false
+        loadingEpisodeView.startAnimating()
+        request?.doRequestAdditionalEpisodeByNextId(id: id, idNext: idNext)
+    }
 }
 
 extension YourAudioVC: UISearchBarDelegate {
@@ -200,6 +209,14 @@ extension YourAudioVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             
             cell.thumbnailImageView.sd_setImage(with: URL(string: episodeModel?._thumbnail ?? ""))
             
+            if indexPath.row + 1 == episodeModels?.count {
+                if let nextId = episodeModel?._nextEpisodePubDate {
+                    guard let id = idPodcast else { return cell }
+                    
+                    doGetAdditionalEpisodeByNextId(id: id, idNext: String(nextId))
+                }
+            }
+            
             return cell
         }
         
@@ -218,6 +235,8 @@ extension YourAudioVC: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             episodePodcastView.imageThumbnailView.sd_setImage(with: URL(string: model?._thumbnail ?? ""))
     
             guard let id = model?._id else { return }
+            self.idPodcast = id
+            
             self.doGetEpisodesById(id: id)
         } else if collectionView == episodeCollectionView {
             
@@ -271,6 +290,19 @@ extension YourAudioVC: PodcastResponse {
         }
     }
     
+    func displayAddEpisode(episodes: [EpisodeModel]) {
+        loadingEpisodeView.stopAnimating()
+        loadingEpisodeView.isHidden = true
+        
+        if episodes.count != 0 {
+            episodeCollectionView.isHidden = false
+            episodeModels?.append(contentsOf: episodes)
+            print(episodes.count)
+        } else {
+            print("Empty Data")
+        }
+    }
+    
     func displayError(message: String, type: TypeOfResponse) {
         switch type {
         case .searchPodcast:
@@ -281,6 +313,11 @@ extension YourAudioVC: PodcastResponse {
             labelInfo.text = message
             
         case .episodeById:
+            loadingEpisodeView.stopAnimating()
+            loadingEpisodeView.isHidden = true
+            episodeCollectionView.isHidden = true
+            
+        case .addEpisodeByNextId:
             loadingEpisodeView.stopAnimating()
             loadingEpisodeView.isHidden = true
             episodeCollectionView.isHidden = true
