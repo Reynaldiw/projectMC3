@@ -36,6 +36,33 @@ class VideoCollectionsViewController: UIViewController {
         setupWorker()
         initInterfaceComponent()
         registerCell()
+        checkPhotoLibraryPermission()
+    }
+    
+    private func checkPhotoLibraryPermission() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized: break
+        //handle authorized status
+        case .denied, .restricted : break
+        //handle denied status
+        case .notDetermined:
+            // ask for permissions
+            PHPhotoLibrary.requestAuthorization { status in
+                switch status {
+                case .authorized: break
+                // as above
+                case .denied, .restricted: break
+                // as above
+                case .notDetermined: break
+                // won't happen but still
+                @unknown default:
+                    print("ERROR")
+                }
+            }
+        @unknown default:
+            print("ERROR")
+        }
     }
     
     private func config() {
@@ -43,12 +70,12 @@ class VideoCollectionsViewController: UIViewController {
     }
     
     private func setupWorker() {
-        let uid = KeychainWrapper.standard.string(forKey: Constants.KEY_UID_KEYCHAIN)
-        
+//        let uid = KeychainWrapper.standard.string(forKey: Constants.KEY_UID_KEYCHAIN)
+        let uid = "000162.8e7c7038d98a4c57a6be27e4906402be.1511"
         if uid == nil {
             return
         } else {
-            let params = ["uid": uid!]
+            let params = ["uid": uid]
             presenter?.getCollections(params)
         }
     }
