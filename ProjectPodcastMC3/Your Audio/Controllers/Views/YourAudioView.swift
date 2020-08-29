@@ -27,6 +27,7 @@ class YourAudioView: UIView {
         self.addSubview(segmentedControl)
         self.addSubview(searchPodcastView)
         self.addSubview(searchBar)
+        self.addSubview(imageListenNotesView)
         self.addSubview(uploadAudioView)
         self.addSubview(episodePodcastView)
     }
@@ -35,6 +36,7 @@ class YourAudioView: UIView {
         setupSegmentedControlConstraint()
         setupSearchPodcastViewConstraint()
         setupSearchBarConstraint()
+        setupImageListenNotesConstraint()
         setupUploadAudioViewConstraint()
         setupEpisodePodcastViewConstraint()
     }
@@ -69,16 +71,27 @@ class YourAudioView: UIView {
     }
     
     private func setupSearchPodcastViewConstraint() {
-        searchPodcastView.anchor(top: searchBar.bottomAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, marginTop: 10, marginBottom: -10, marginLeading: 20, marginTrailing: -20, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+        searchPodcastView.anchor(top: imageListenNotesView.bottomAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, marginTop: 10, marginBottom: -10, marginLeading: 20, marginTrailing: -20, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+    }
+    
+    lazy var imageListenNotesView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "listennotes")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private func setupImageListenNotesConstraint() {
+        imageListenNotesView.anchor(top: searchBar.bottomAnchor, bottom: nil, leading: nil, trailing: nil, marginTop: 10, marginBottom: 0, marginLeading: 0, marginTrailing: 0, width: 0, height: 15, centerX: self.centerXAnchor, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
     }
     
     private func setupUploadAudioViewConstraint() {
-        uploadAudioView.anchor(top: searchBar.bottomAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, marginTop: 10, marginBottom: -10, marginLeading: 20, marginTrailing: -20, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+        uploadAudioView.anchor(top: imageListenNotesView.bottomAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, marginTop: 10, marginBottom: -10, marginLeading: 20, marginTrailing: -20, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         uploadAudioView.isHidden = true
     }
     
     private func setupEpisodePodcastViewConstraint() {
-        episodePodcastView.anchor(top: segmentedControl.bottomAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, marginTop: 13, marginBottom: -10, marginLeading: 20, marginTrailing: -20, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
+        episodePodcastView.anchor(top: imageListenNotesView.bottomAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, marginTop: 13, marginBottom: -10, marginLeading: 20, marginTrailing: -20, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         episodePodcastView.isHidden = true
     }
     

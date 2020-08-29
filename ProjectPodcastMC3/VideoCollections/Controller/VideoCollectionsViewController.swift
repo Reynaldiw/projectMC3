@@ -205,6 +205,7 @@ extension VideoCollectionsViewController: VideoCollectionsViewControllerProtocol
 
 extension VideoCollectionsViewController: RefreshVideoCollectionsDelegate {
     func refreshData() {
+        print("Refresh")
         setupWorker()
     }
 }

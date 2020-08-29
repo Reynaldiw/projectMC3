@@ -73,6 +73,7 @@ class LoginViewController: UIViewController {
         print("CODE", code)
         LoginWorker.loginApple(code: code, onSuccess: { (response) in
             print("SUCCESS", response)
+            self.dismiss(animated: true, completion: nil)
         }) { (error) in
             print("ERROR")
         }
@@ -89,7 +90,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             if let code = appleIDCredential.authorizationCode{
                 authorizationCode = String(bytes: code, encoding: .utf8)
                 print(authorizationCode)
-//                loginApple(authorizationCode!)
+                loginApple(authorizationCode!)
             }
         
         case let passwordCredential as ASPasswordCredential:

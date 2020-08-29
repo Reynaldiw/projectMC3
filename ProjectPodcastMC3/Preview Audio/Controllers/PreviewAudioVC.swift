@@ -120,7 +120,7 @@ class PreviewAudioVC: UIViewController {
     @objc private func editButtonPressed(_ sender: Any) {
         guard let url = urlAudio else { return }
 
-        EditAudioWireframe.performToEditAudio(urlAudio: url, callback: { (segmentModels) in
+        EditAudioWireframe.performToEditAudio(durationInSeconds: durationSeconds ,urlAudio: url, callback: { (segmentModels) in
             if segmentModels.count != 0 {
                 print(segmentModels)
                 self.segmentModels.append(contentsOf: segmentModels)

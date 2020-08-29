@@ -30,7 +30,7 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
     var forSendOrientation: String?
     var forSegmentModels: [SegmentModel]?
     
-    var refreshDataDelegate: RefreshVideoCollectionsDelegate!
+    var refreshDataDelegate: RefreshVideoCollectionsDelegate?
     var customRenderLoading: CustomLoadingRendering!
         
     //navbar
@@ -336,9 +336,9 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
             }
             
             myGroup.notify(queue: .main) {
-                print("result success")
                 self.removeLoading()
-                self.refreshDataDelegate.refreshData()
+                self.refreshDataDelegate?.refreshData()
+                self.title = "Create Page"
                 let navController: UINavigationController = UINavigationController()
                 navController.viewControllers = [MainTabBarController()]
                 UIApplication.shared.windows.first?.rootViewController = navController
@@ -352,6 +352,7 @@ class CreateViewController: UIViewController, UINavigationControllerDelegate {
         view.addSubview(customRenderLoading)
         customRenderLoading.anchor(top: view.topAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeading: 0, marginTrailing: 0, width: 0, height: 0, centerX: nil, centerY: nil, marginFromCenterX: 0, marginFromCenterY: 0)
         backButton.isHidden = true
+        title = ""
     }
     
     private func removeLoading() {

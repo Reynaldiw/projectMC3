@@ -70,6 +70,10 @@ class EditAudioVC: UIViewController {
         if let duration = player.currentItem?.duration {
             let totalSeconds = CMTimeGetSeconds(duration)
             
+            guard !(totalSeconds.isNaN || totalSeconds.isInfinite) else {
+                return // or do some error handling
+            }
+            
             let value = Float64(sender.value) * totalSeconds
             
             let seekTime = CMTime(value: Int64(value), timescale: 1)

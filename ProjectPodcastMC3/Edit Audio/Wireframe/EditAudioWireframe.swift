@@ -9,12 +9,13 @@
 import UIKit
 
 struct EditAudioWireframe {
-    static func performToEditAudio(urlAudio: URL, callback: (([SegmentModel]) -> Void)? ,caller: UIViewController) {
+    static func performToEditAudio(durationInSeconds: Int?, urlAudio: URL, callback: (([SegmentModel]) -> Void)? ,caller: UIViewController) {
         let vc = EditAudioVC()
         vc.urlAudio = urlAudio
         vc.callback = { segmentModels in
             callback?(segmentModels)
         }
+        vc.duration = durationInSeconds
 //        if let segmentModels = segmentModels {
 //            vc.segmentModels = segmentModels
 //        }
