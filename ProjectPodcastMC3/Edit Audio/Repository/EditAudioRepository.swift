@@ -16,110 +16,110 @@ struct RangeTime {
 
 class EditAudioRepository {
     
-    static func checkBookFileExists(withLink link: String, completion: @escaping ((_ filePath: URL)->Void), failed: @escaping((_ message: String) -> Void)){
-        
-        let urlString = link.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-        print("urlString: \(urlString)")
-        
-        if let url  = URL.init(string: urlString ?? ""){
-            let fileManager = FileManager.default
-            if let documentDirectory = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create: false){
-
-                print("documentDirectory: \(documentDirectory)")
-                
-                let filename = "\(url.lastPathComponent).mp3"
-                let filePath = documentDirectory.appendingPathComponent(filename, isDirectory: false)
-                print("filePath: \(filePath)")
-
-                do {
-                    if try filePath.checkResourceIsReachable() {
-                        print("file exist")
-                        completion(filePath)
-
-                    } else {
-                        print("file doesnt exist")
-                        EditAudioRepository.downloadFile(withUrl: url, andFilePath: filePath, completion: completion, failed: failed)
-                    }
-                } catch {
-                    print("file doesnt exist")
-                    EditAudioRepository.downloadFile(withUrl: url, andFilePath: filePath, completion: completion, failed: failed)
-                }
-            }else{
-                print("file doesnt exist")
-                failed("File Doesnt Exist")
-            }
-        }else{
-                print("file doesnt exist")
-                failed("File Doesnt Exist")
-        }
-    }
-    
-    static func downloadFile(withUrl url: URL, andFilePath filePath: URL, completion: @escaping ((_ filePath: URL)->Void), failed: @escaping ((_ message: String) -> Void)){
-        
-        DispatchQueue.global(qos: .background).async {
-            do {
-                let data = try Data.init(contentsOf: url)
-                try data.write(to: filePath, options: .atomic)
-                print("saved at \(filePath.absoluteString)")
-                DispatchQueue.main.async {
-                    print("here")
-                    completion(filePath)
-                }
-            } catch {
-                failed("an error happened while downloading or saving the file")
-                print("an error happened while downloading or saving the file")
-            }
-        }
-    }
-    
-    static func trimAudio(urlAudio: URL, rangeTime: RangeTime, outputFileName: String, successEditAudio: @escaping(_ urlResult: URL) -> Void, failed: @escaping(_ message: String) -> Void) {
-        
-        let assetAudio = AVURLAsset(url: urlAudio, options: [AVURLAssetPreferPreciseDurationAndTimingKey: true])
-
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let trimmedSoundFileURL = documentsDirectory.appendingPathComponent("\(outputFileName).m4a")
-        print("saving to \(trimmedSoundFileURL.absoluteString)")
-
-        print("creating export session for \(assetAudio)")
-
-        if let exporter = AVAssetExportSession(asset: assetAudio, presetName: AVAssetExportPresetAppleM4A) {
-            exporter.outputFileType = AVFileType.m4a
-            exporter.outputURL = trimmedSoundFileURL as URL
-
-            // e.g. the first 5 seconds
-            let startTime = CMTimeMake(value: Int64(rangeTime.startTime), timescale: 1)
-            let stopTime = CMTimeMake(value: Int64(rangeTime.endTime), timescale: 1)
-            exporter.timeRange = CMTimeRangeFromTimeToTime(start: startTime, end: stopTime)
-
-            // do it
-            exporter.exportAsynchronously(completionHandler: {
-                print("export complete \(exporter.status)")
-
-                switch exporter.status {
-                case  AVAssetExportSession.Status.failed:
-
-                    if let e = exporter.error {
-                        failed("export failed \(e)")
-                        print("export failed \(e)")
-                    }
-
-                case AVAssetExportSession.Status.cancelled:
-                    print("export cancelled \(String(describing: exporter.error))")
-
-                case AVAssetExportSession.Status.completed:
-                    print("export complete")
-                    successEditAudio(trimmedSoundFileURL)
-
-                default:
-                    break
-                }
-            })
-        } else {
-            print("cannot create AVAssetExportSession for asset \(assetAudio)")
-            failed("Failed to Create Asset Export Session")
-        }
-    }
-    
+//    static func checkBookFileExists(withLink link: String, completion: @escaping ((_ filePath: URL)->Void), failed: @escaping((_ message: String) -> Void)){
+//        
+//        let urlString = link.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+//        print("urlString: \(urlString)")
+//        
+//        if let url  = URL.init(string: urlString ?? ""){
+//            let fileManager = FileManager.default
+//            if let documentDirectory = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor:nil, create: false){
+//
+//                print("documentDirectory: \(documentDirectory)")
+//                
+//                let filename = "\(url.lastPathComponent).mp3"
+//                let filePath = documentDirectory.appendingPathComponent(filename, isDirectory: false)
+//                print("filePath: \(filePath)")
+//
+//                do {
+//                    if try filePath.checkResourceIsReachable() {
+//                        print("file exist")
+//                        completion(filePath)
+//
+//                    } else {
+//                        print("file doesnt exist")
+//                        EditAudioRepository.downloadFile(withUrl: url, andFilePath: filePath, completion: completion, failed: failed)
+//                    }
+//                } catch {
+//                    print("file doesnt exist")
+//                    EditAudioRepository.downloadFile(withUrl: url, andFilePath: filePath, completion: completion, failed: failed)
+//                }
+//            }else{
+//                print("file doesnt exist")
+//                failed("File Doesnt Exist")
+//            }
+//        }else{
+//                print("file doesnt exist")
+//                failed("File Doesnt Exist")
+//        }
+//    }
+//    
+//    static func downloadFile(withUrl url: URL, andFilePath filePath: URL, completion: @escaping ((_ filePath: URL)->Void), failed: @escaping ((_ message: String) -> Void)){
+//        
+//        DispatchQueue.global(qos: .background).async {
+//            do {
+//                let data = try Data.init(contentsOf: url)
+//                try data.write(to: filePath, options: .atomic)
+//                print("saved at \(filePath.absoluteString)")
+//                DispatchQueue.main.async {
+//                    print("here")
+//                    completion(filePath)
+//                }
+//            } catch {
+//                failed("an error happened while downloading or saving the file")
+//                print("an error happened while downloading or saving the file")
+//            }
+//        }
+//    }
+//    
+//    static func trimAudio(urlAudio: URL, rangeTime: RangeTime, outputFileName: String, successEditAudio: @escaping(_ urlResult: URL) -> Void, failed: @escaping(_ message: String) -> Void) {
+//        
+//        let assetAudio = AVURLAsset(url: urlAudio, options: [AVURLAssetPreferPreciseDurationAndTimingKey: true])
+//
+//        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        let trimmedSoundFileURL = documentsDirectory.appendingPathComponent("\(outputFileName).m4a")
+//        print("saving to \(trimmedSoundFileURL.absoluteString)")
+//
+//        print("creating export session for \(assetAudio)")
+//
+//        if let exporter = AVAssetExportSession(asset: assetAudio, presetName: AVAssetExportPresetAppleM4A) {
+//            exporter.outputFileType = AVFileType.m4a
+//            exporter.outputURL = trimmedSoundFileURL as URL
+//
+//            // e.g. the first 5 seconds
+//            let startTime = CMTimeMake(value: Int64(rangeTime.startTime), timescale: 1)
+//            let stopTime = CMTimeMake(value: Int64(rangeTime.endTime), timescale: 1)
+//            exporter.timeRange = CMTimeRangeFromTimeToTime(start: startTime, end: stopTime)
+//
+//            // do it
+//            exporter.exportAsynchronously(completionHandler: {
+//                print("export complete \(exporter.status)")
+//
+//                switch exporter.status {
+//                case  AVAssetExportSession.Status.failed:
+//
+//                    if let e = exporter.error {
+//                        failed("export failed \(e)")
+//                        print("export failed \(e)")
+//                    }
+//
+//                case AVAssetExportSession.Status.cancelled:
+//                    print("export cancelled \(String(describing: exporter.error))")
+//
+//                case AVAssetExportSession.Status.completed:
+//                    print("export complete")
+//                    successEditAudio(trimmedSoundFileURL)
+//
+//                default:
+//                    break
+//                }
+//            })
+//        } else {
+//            print("cannot create AVAssetExportSession for asset \(assetAudio)")
+//            failed("Failed to Create Asset Export Session")
+//        }
+//    }
+//    
     static func merge(audioFilesURL: [URL], fileName: String, successExport: @escaping(_ url: URL) -> Void, failedExport: @escaping(_ message: String) -> Void) {
                 
         let composition = AVMutableComposition()
@@ -204,66 +204,66 @@ class EditAudioRepository {
     }
     
     
-//    static func trimAudio(urlAudio: URL, rangeTime: RangeTime, outputFileName: String, successEditAudio: @escaping(_ urlResult: URL) -> Void, failed: @escaping(_ message: String) -> Void) {
-//
-//        let asset = AVAsset(url: urlAudio)
-//
-//        guard asset.isExportable else {
-//            failed("Not Exportable")
-//            return
-//        }
-//
-//        let composition = AVMutableComposition()
-//        let compositionAudioTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: CMPersistentTrackID(kCMPersistentTrackID_Invalid))
-//
-//        let sourceAudioTrack = asset.tracks(withMediaType: AVMediaType.audio).first!
-//        do {
-//            try compositionAudioTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: asset.duration), of: sourceAudioTrack, at: CMTime.zero)
-//        } catch(_) {
-//            failed("Error of Composition")
-//            return
-//        }
-//
-//        let compatiblePresets = AVAssetExportSession.exportPresets(compatibleWith: composition)
-//        var preset: String = AVAssetExportPresetPassthrough
-//        if compatiblePresets.contains(AVAssetExportPresetAppleM4A) { preset = AVAssetExportPresetAppleM4A }
-//
-//        guard
-//            let exportSession = AVAssetExportSession(asset: composition, presetName: preset),
-//            exportSession.supportedFileTypes.contains(AVFileType.m4a) else {
-//            failed("error export")
-//            return
-//        }
-//
-//        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        let trimmedSoundFileURL = documentsDirectory.appendingPathComponent("\(outputFileName).m4a")
-//
-//        exportSession.outputURL = trimmedSoundFileURL
-//        exportSession.outputFileType = AVFileType.m4a
-//
-//        let startTime = CMTimeMake(value: Int64(rangeTime.startTime), timescale: 1)
-//        let stopTime = CMTimeMake(value: Int64(rangeTime.endTime), timescale: 1)
-//        exportSession.timeRange = CMTimeRangeFromTimeToTime(start: startTime, end: stopTime)
-//
-//        exportSession.exportAsynchronously(completionHandler: {
-//
-//            switch exportSession.status{
-//            case  AVAssetExportSessionStatus.failed:
-//
-//                if let e = exportSession.error {
-//                    failed("export merge failed \(e)")
-//                }
-//
-//            case AVAssetExportSessionStatus.cancelled:
-//                failed("export merge cancelled \(String(describing: exportSession.error))")
-//
-//            default:
-//                print("Export Merge Success")
-//                print(trimmedSoundFileURL.absoluteString)
-//                successEditAudio(trimmedSoundFileURL)
-//            }
-//        })
-//    }
+    static func trimAudio(urlAudio: URL, rangeTime: RangeTime, outputFileName: String, successEditAudio: @escaping(_ urlResult: URL) -> Void, failed: @escaping(_ message: String) -> Void) {
+
+        let asset = AVAsset(url: urlAudio)
+
+        guard asset.isExportable else {
+            failed("Not Exportable")
+            return
+        }
+
+        let composition = AVMutableComposition()
+        let compositionAudioTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: CMPersistentTrackID(kCMPersistentTrackID_Invalid))
+
+        let sourceAudioTrack = asset.tracks(withMediaType: AVMediaType.audio).first!
+        do {
+            try compositionAudioTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: asset.duration), of: sourceAudioTrack, at: CMTime.zero)
+        } catch(_) {
+            failed("Error of Composition")
+            return
+        }
+
+        let compatiblePresets = AVAssetExportSession.exportPresets(compatibleWith: composition)
+        var preset: String = AVAssetExportPresetPassthrough
+        if compatiblePresets.contains(AVAssetExportPresetAppleM4A) { preset = AVAssetExportPresetAppleM4A }
+
+        guard
+            let exportSession = AVAssetExportSession(asset: composition, presetName: preset),
+            exportSession.supportedFileTypes.contains(AVFileType.m4a) else {
+            failed("error export")
+            return
+        }
+
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let trimmedSoundFileURL = documentsDirectory.appendingPathComponent("\(outputFileName).m4a")
+
+        exportSession.outputURL = trimmedSoundFileURL
+        exportSession.outputFileType = AVFileType.m4a
+
+        let startTime = CMTimeMake(value: Int64(rangeTime.startTime), timescale: 1)
+        let stopTime = CMTimeMake(value: Int64(rangeTime.endTime), timescale: 1)
+        exportSession.timeRange = CMTimeRangeFromTimeToTime(start: startTime, end: stopTime)
+
+        exportSession.exportAsynchronously(completionHandler: {
+
+            switch exportSession.status{
+            case  AVAssetExportSessionStatus.failed:
+
+                if let e = exportSession.error {
+                    failed("export merge failed \(e)")
+                }
+
+            case AVAssetExportSessionStatus.cancelled:
+                failed("export merge cancelled \(String(describing: exportSession.error))")
+
+            default:
+                print("Export Merge Success")
+                print(trimmedSoundFileURL.absoluteString)
+                successEditAudio(trimmedSoundFileURL)
+            }
+        })
+    }
     
 //    static func editAudioForIGStory(urlAudio: URL, ranges: [RangeTime], outputFileName: String, successEditAudio: @escaping(_ urlResult: URL) -> Void, failed: @escaping(_ message: String) -> Void) {
 //

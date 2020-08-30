@@ -49,7 +49,7 @@ class EditAudioVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setupNavigationController()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,7 +77,7 @@ class EditAudioVC: UIViewController {
             let value = Float64(sender.value) * totalSeconds
             
             let seekTime = CMTime(value: Int64(value), timescale: 1)
-                            
+            
             player.seek(to: seekTime) { (compltedSeek) in
                 // Perhaps do something later
             }
@@ -118,9 +118,9 @@ class EditAudioVC: UIViewController {
     }
     
     @objc private func playerDidFinishPlaying() {
-           changeBGPlayPauseButton(isPlaying: isPlaying, playPauseButton: playPauseButton)
-           isPlaying = false
-       }
+        changeBGPlayPauseButton(isPlaying: isPlaying, playPauseButton: playPauseButton)
+        isPlaying = false
+    }
     
     @objc private func addSegmentButtonPressed(_ sender: UIButton) {
         EditAudioWireframe.performToAddSegment(durationInSeconds: duration ,caller: self) { (segmentModel) in
@@ -132,10 +132,10 @@ class EditAudioVC: UIViewController {
     }
     
     @objc private func buttonInfoPressed(_ sender: Any) {
-           createAlertAndShowAlert(title: "How to edit your audio", message: "this sound will be added to your audio", actionName: "Ok, Got it!", caller: self) { (action) in
-            }
+        createAlertAndShowAlert(title: "How to edit your audio", message: "this sound will be added to your audio", actionName: "Ok, Got it!", caller: self) { (action) in
+        }
     }
-       
+    
     @objc private func playPauseButtonPressed(_ sender: Any) {
         guard let player = player else { return }
         
@@ -151,93 +151,94 @@ class EditAudioVC: UIViewController {
     }
     
     @objc func doneButtonPressed(_ sender: Any) {
+        // Stop The Player if playing
+        if player?.rate != 0 {
+            player?.pause()
+        }
+        
+        // Check The Segment is nill or not
         if segmentModels.count == 0 {
             createAlertAndShowAlert(title: "Warning", message: "Create a segment First", actionName: "Cancel", caller: self, handler: nil)
             return
         }
         
-        if player?.rate != 0 {
-            player?.pause()
-        }
-                
-        guard let urlAudio = urlAudio else { return }
-
-        var resultSegmets = [SegmentModel]()
+        let myGroup = DispatchGroup()
         
+        myGroup.enter()
+        
+        // Setup the loading view
         self.editAudioView.showLoading()
-        editAudioView.loadingCustomView.messageLabel.text = "Please wait, Rendering.. Do Not leave the screen"
+        editAudioView.loadingCustomView.messageLabel.text = "Please wait, Preparing The Audio.."
         self.navigationItem.hidesBackButton = true
+        myGroup.leave()
         
-        DispatchQueue.global(qos: .background).async {
-            // Donwload The SOurce of Audio
-            EditAudioRepository.checkBookFileExists(withLink: urlAudio.absoluteString, completion: { (downloadedURL) in
-
-                print("URL Of source: \(downloadedURL.absoluteString)")
-                print("Donwload Complete")
-
-                for i in 0..<self.segmentModels.count {
-
-                    let segmentModel = self.segmentModels[i]
-
-                    if let startTime = segmentModel.startTimeSeconds, let endTime = segmentModel.endTimeSeconds {
-
-                        let rangeTime = RangeTime(startTime: startTime, endTime: endTime)
+        myGroup.notify(queue: .main) {
+            guard let urlAudio = self.urlAudio else { return }
+            
+            var resultSegmets = [SegmentModel]()
+            
+            let dispatchGroup = DispatchGroup()
+            
+            for i in 0..<self.segmentModels.count {
+                dispatchGroup.enter()
+                
+                let segmentModel = self.segmentModels[i]
+                
+                if let startTime = segmentModel.startTimeSeconds, let endTime = segmentModel.endTimeSeconds {
+                    
+                    let rangeTime = RangeTime(startTime: startTime, endTime: endTime)
+                    
+                    let outputName = "\(segmentModel.nameSegment ?? "Segment") \(EditAudioRepository.getNumberForFileManager())"
+                    
+                    print("Start to Trim")
+                    
+                    EditAudioRepository.trimAudio(
+                        urlAudio: urlAudio,
+                        rangeTime: rangeTime,
+                        outputFileName: "\(outputName)",
+                        successEditAudio: { (url) in
+                            
+                            print("Success to trim")
+                            
+                            let model = SegmentModel(nameSegment: segmentModel.nameSegment, startTimeSeconds: segmentModel.startTimeSeconds, endTimeSeconds: segmentModel.endTimeSeconds, urlSegment: url, urlAdditionalAudio: segmentModel.urlAdditionalAudio, durationAdditionalAudio: segmentModel.durationAdditionalAudio, typeSegment: segmentModel.typeSegment)
+                            
+                            resultSegmets.append(model)
+                            
+                            dispatchGroup.leave()
+                            
+                    }) { (message) in
                         
-                        let outputName = "\(segmentModel.nameSegment ?? "Segment") \(EditAudioRepository.getNumberForFileManager())"
-
-                        print("Start to Trim")
-
-                        EditAudioRepository.trimAudio(
-                            urlAudio: downloadedURL,
-                            rangeTime: rangeTime,
-                            outputFileName: "\(outputName)",
-                            successEditAudio: { (url) in
-
-                                print("Success to trim")
-
-                                let model = SegmentModel(nameSegment: segmentModel.nameSegment, startTimeSeconds: segmentModel.startTimeSeconds, endTimeSeconds: segmentModel.endTimeSeconds, urlSegment: url, urlAdditionalAudio: segmentModel.urlAdditionalAudio, durationAdditionalAudio: segmentModel.durationAdditionalAudio, typeSegment: segmentModel.typeSegment)
-                                resultSegmets.append(model)
-
-                        }) { (message) in
-                            DispatchQueue.main.async {
-                                self.editAudioView.removeLoading()
-                                createAlertAndShowAlert(title: "Warning", message: "Cant trim audio", actionName: "Cancel", caller: self, handler: nil)
-                                self.navigationItem.hidesBackButton = false
-                                print(message)
-                            }
-                            return
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            self.editAudioView.removeLoading()
-                            createAlertAndShowAlert(title: "Warning", message: "Error, Doesnt have a range time", actionName: "Cancel", caller: self, handler: nil)
-                            self.navigationItem.hidesBackButton = false
-                        }
+                        self.editAudioView.removeLoading()
+                        createAlertAndShowAlert(title: "Warning", message: "Cant trim audio", actionName: "Cancel", caller: self, handler: nil)
+                        self.navigationItem.hidesBackButton = false
+                        print(message)
+                        
+                        dispatchGroup.leave()
+                        
                         return
                     }
-                }
-            }) { (message) in
-                DispatchQueue.main.async {
-                    self.editAudioView.removeLoading()
-                    createAlertAndShowAlert(title: "ERROR", message: "Cant Rendering Segment", actionName: "Okay!", caller: self, handler: nil)
-                    self.navigationItem.hidesBackButton = false
-                }
-                return
-            }
-
-            for _ in 0... {
-                if self.segmentModels.count == resultSegmets.count {
-
-                    DispatchQueue.main.async {
-                        self.editAudioView.removeLoading()
-                        self.callback?(resultSegmets)
-                        print("Total: \(resultSegmets)")
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                    return
-
+                    
                 } else {
-                    continue
+                    
+                    self.editAudioView.removeLoading()
+                    createAlertAndShowAlert(title: "Warning", message: "Error, Doesnt have a range time", actionName: "Cancel", caller: self, handler: nil)
+                    self.navigationItem.hidesBackButton = false
+                    
+                    dispatchGroup.leave()
+                    
+                    return
+                }
+            }
+            
+            dispatchGroup.notify(queue: .main) {
+                if self.segmentModels.count == resultSegmets.count {
+                    
+                    self.editAudioView.removeLoading()
+                    self.callback?(resultSegmets)
+                    print("Total: \(resultSegmets)")
+                    self.navigationController?.popViewController(animated: true)
+                    
+                    return
                 }
             }
         }
@@ -315,7 +316,7 @@ extension EditAudioVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         segmentModels[indexPath.row] = segmentModel
         
         cell.segmentModel = segmentModel
-                
+        
         cell.playButton.isHidden = true
         cell.stackVerticalView.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 15).isActive = true
         

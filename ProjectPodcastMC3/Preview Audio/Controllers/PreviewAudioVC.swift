@@ -204,17 +204,6 @@ class PreviewAudioVC: UIViewController {
                 }
             }
             
-            guard let urlAudio = self.urlAudio else { return }
-            
-            let donwloadedURL = urlAudio
-            let fileName = "\(donwloadedURL.lastPathComponent).mp3"
-            let filePath = getDirectory().appendingPathComponent(fileName)
-            
-            if EditAudioRepository.isFileURLExist(url: filePath) {
-                print("Donwloaded URL exist")
-                EditAudioRepository.removeExistingFile(atPath: filePath)
-            }
-            
             let resultModel = SegmentModel(nameSegment: fileName, startTimeSeconds: nil, endTimeSeconds: nil, urlSegment: url, urlAdditionalAudio: nil, durationAdditionalAudio: nil, typeSegment: .EditAudio)
             
             DispatchQueue.main.async {
