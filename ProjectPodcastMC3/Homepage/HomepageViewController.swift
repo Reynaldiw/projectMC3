@@ -44,7 +44,4 @@ class HomepageViewController: UIViewController {
         view.addSubview(infoLabel)
         infoLabel.anchor(top: nil, bottom: nil, leading: nil, trailing: nil, marginTop: 0, marginBottom: 0, marginLeading: 0, marginTrailing: 0, width: 200, height: 40, centerX: view.centerXAnchor, centerY: view.centerYAnchor, marginFromCenterX: 0, marginFromCenterY: 20  )
     }
-    
-
-
 }

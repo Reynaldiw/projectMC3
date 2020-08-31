@@ -11,7 +11,7 @@ import AuthenticationServices
 
 class LoginViewController: UIViewController {
     
-  
+    var callback: ((Bool) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +73,7 @@ class LoginViewController: UIViewController {
         print("CODE", code)
         LoginWorker.loginApple(code: code, onSuccess: { (response) in
             print("SUCCESS", response)
+            self.callback?(true)
             self.dismiss(animated: true, completion: nil)
         }) { (error) in
             print("ERROR")
@@ -89,8 +90,10 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             var authorizationCode  : String?
             if let code = appleIDCredential.authorizationCode{
                 authorizationCode = String(bytes: code, encoding: .utf8)
-                print(authorizationCode)
-                loginApple(authorizationCode!)
+                if let authCode = authorizationCode {
+                    print(authCode)
+                    loginApple(authCode)
+                }
             }
         
         case let passwordCredential as ASPasswordCredential:

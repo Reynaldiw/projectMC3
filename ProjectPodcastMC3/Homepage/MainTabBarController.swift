@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
@@ -23,8 +24,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     func setupTabBar() {
         tabBar.tintColor = Theme.current.blueColor
         tabBar.barTintColor = Theme.current.accentColor
-
-
         
         let podcast = UINavigationController(rootViewController: VideoCollectionsViewController())
         podcast.tabBarItem.image = UIImage(systemName: "house")
@@ -41,7 +40,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
     
     override var selectedViewController: UIViewController? {
         didSet {
@@ -60,6 +58,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         } else {
             let alert = UIAlertController(title: "Account Setting", message: nil, preferredStyle: .actionSheet)
             
+            let keyOfLogin = KeychainWrapper.standard.string(forKey: Constants.KEY_UID_KEYCHAIN)
+            
+            isLogin = keyOfLogin != nil
+            
             let message: String?
             if isLogin == true {
                 message = "Logout"
@@ -67,7 +69,18 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                 message = "Login"
             }
             
-            alert.addAction(UIAlertAction(title: message, style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: message, style: .default, handler: { (alertAction) in
+                if !self.isLogin {
+                    let vc = LoginViewController()
+                    vc.callback = { isLogin in
+                        self.isLogin = isLogin
+                    }
+                    self.navigationController?.present(vc, animated: true, completion: nil)
+                } else {
+                    KeychainWrapper.standard.removeObject(forKey: Constants.KEY_UID_KEYCHAIN)
+                    createAlertAndShowAlert(title: nil, message: "Success to Logout!", actionName: "Okay", caller: self, handler: nil)
+                }
+            }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
             self.present(alert, animated: true)
