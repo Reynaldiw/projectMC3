@@ -6,10 +6,12 @@
       "scale" : "1x"
     },
     {
+      "filename" : "Button Potrait@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Button Potrait@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
